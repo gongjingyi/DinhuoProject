@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+		<!--<link rel="stylesheet" type="text/css" href="css/scarlett.css" />-->
+		<style type="text/css">
+			.report_grap .svg circle {
+				stroke-dashoffset: 0;
+				transition: stroke-dashoffset 1s linear;
+				stroke: #ccc;
+				stroke-width: 1em;
+			}
+			
+			.report_grap .svg .bar {
+				stroke: #87c2f5;
+			}
+			
+			.report_grap .cont {
+				display: block;
+				height: 100px;
+				width: 100px;
+				border-radius: 100%;
+				position: relative;
+				margin: 20px auto;
+			}
+			
+			.report_grap .cont:after {
+				position: absolute;
+				display: block;
+				height: 80px;
+				width: 80px;
+				left: 50%;
+				top: 50%;
+				content: attr(data-pct)"%";
+				margin-top: -40px;
+				margin-left: -40px;
+				border-radius: 100%;
+				line-height: 80px;
+				font-size: 1.2em;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h3 class="col-md-12 title"><a class="dthis" href="">首页</a></h3>
+
+		<div class="col-md-12 con con-in">
+			<div class="col-md-7">
+				<div class="col-md-12">
+					<div class="dil">
+						<h5>业绩环比</h5>
+						<div class="report_grap col-md-6">
+							<div class="col-md-6" style="height:282px">
+								<div id="cont1" class="cont" data-pct="10">
+									<svg class="svg" width="100" height="100" viewPort="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg">
+										<circle r="43" cx="50" cy="50" fill="transparent" stroke-dasharray="270.04" stroke-dashoffset="0"></circle>
+										<circle class="bar" r="43" cx="50" cy="50" fill="transparent" stroke-dasharray="270.04" stroke-dashoffset="0"></circle>
+									</svg>
+								</div>
+								<div class="goodsDB">
+									<p class="circle-num">￥<span>0</span></p>
+	                                <p class="circle-thing">今日<span>0</span>单</p>
+								</div>
+							</div>
+							<div class="col-md-6" style="height:282px">
+								<div id="cont2" class="cont" data-pct="10">
+									<svg class="svg" width="100" height="100" viewPort="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg">
+										<circle r="43" cx="50" cy="50" fill="transparent" stroke-dasharray="270.04" stroke-dashoffset="0"></circle>
+										<circle class="bar" r="43" cx="50" cy="50" fill="transparent" stroke-dasharray="270.04" stroke-dashoffset="0"></circle>
+									</svg>
+								</div>
+								<div class="goodsDB">
+									<p class="circle-num">￥<span>0</span></p>
+	                                <p class="circle-thing">昨日<span>0</span>单</p>
+								</div>
+							</div>
+						</div>	
+						<div class="report_grap col-md-6" style="height:282px">
+							<div class="col-md-6">
+								<div id="cont3" class="cont" data-pct="10">
+									<svg class="svg" width="100" height="100" viewPort="0 0 50 0" version="1.1" xmlns="http://www.w3.org/2000/svg">
+										<circle r="43" cx="50" cy="50" fill="transparent" stroke-dasharray="270.04" stroke-dashoffset="0"></circle>
+										<circle class="bar" r="43" cx="50" cy="50" fill="transparent" stroke-dasharray="270.04" stroke-dashoffset="0"></circle>
+									</svg>
+								</div>
+								<div class="goodsDB">
+									<p class="circle-num">￥<span>0</span></p>
+	                                <p class="circle-thing">本月<span>0</span>单</p>
+								</div>
+							</div>
+							<div class="col-md-6" style="height:282px">
+								<div id="cont4" class="cont" data-pct="10">
+									<svg class="svg" width="100" height="100" viewPort="0 0 50 0" version="1.1" xmlns="http://www.w3.org/2000/svg">
+										<circle r="43" cx="50" cy="50" fill="transparent" stroke-dasharray="270.04" stroke-dashoffset="0"></circle>
+										<circle class="bar" r="43" cx="50" cy="50" fill="transparent" stroke-dasharray="270.04" stroke-dashoffset="0"></circle>
+									</svg>
+								</div>
+								<div class="goodsDB">
+									<p class="circle-num">￥<span>0</span></p>
+	                                <p class="circle-thing">上月<span>0</span>单</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="dil">
+						<h5>业绩简报</h5>
+						<div class="report_grap">
+							<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+							<div id="pie_graph" style="height:400px"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-5">
+
+				<div class="col-md-12">
+					<div class="dil">
+						<h5>待处理</h5>
+						<div class="wait-do-list">
+							<ul>
+								<li>
+									<a href="#">
+										<p class="wait-num-big" style="">6</p>
+										<p class="wait-thing">待订单审核</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<p class="wait-num-big" style="">6</p>
+										<p class="wait-thing">待订单审核</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<p class="wait-num-big" style="">6</p>
+										<p class="wait-thing">待订单审核</p>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="wait-return">
+							<ul>
+								<li>
+									<a href="#">
+										<span class="wait-thing">退货待审核</span>
+										<span class="wait-return-num font18 m-l-sm" style="position: relative;top:1px;">0</span>
+									</a>
+								</li>
+								<li class="wait-line"></li>
+								<li>
+									<a href="#">
+										<span class="wait-thing">退货待审核</span>
+										<span class="wait-return-num font18 m-l-sm" style="position: relative;top:1px;">0</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-12">
+					<div class="col-md-6">
+						<div class="dil">
+							<h5>留言咨询<a href="">更多</a></h5>
+							<ul class="dil-ul">
+								<li>
+									<a href="">
+										<div class="col-md-8">
+											<p>98821111123</p>
+											<p class="dil-time">2016-12-12 12:00</p>
+										</div>
+										<div class="col-md-4 text-right">
+											未回复
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<div class="col-md-8">
+											<p>98821111123</p>
+											<p class="dil-time">2016-12-12 12:00</p>
+										</div>
+										<div class="col-md-4 text-right">
+											已回复
+										</div>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="dil">
+							<h5>业务消息<a href="">更多</a></h5>
+							<ul class="dil-ul">
+								<li>
+									<a href="">
+										<div class="col-md-8">
+											<p>您的DH.20221订单已经生成</p>
+											<p class="dil-time">2016-12-12 12:00</p>
+										</div>
+										<div class="col-md-4 text-right">
+											已回复
+										</div>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/echarts.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			//圆环中文字显示
+			function  contFunc(elem,val){
+				if(elem){
+					var $circle = elem.find(".svg .bar");
+					var r = $circle.attr('r');
+					var c = Math.PI*(r*2);
+					var pct = ((100-val)/100)*c;
+					$circle.css({ strokeDashoffset: pct});
+					elem.attr('data-pct',val);
+				}
+			} 
+			function percentFunc(value1,value2){
+				//算法：(今日单数-昨日单数)/昨日单数
+				var percent={"today":0,"yestoday":22};
+				if(value1==0 && value2==0){
+					percent.today=0;
+					percent.yestoday=0;
+				}else if(value1==0 && value2!=0){
+					percent.today=0;
+					percent.yestoday=0;
+				}else if(value1!=0 && value2==0){
+					percent.today=0;
+					percent.yestoday=0;
+				}else if(value1!=0 && value2!=0){
+					percent.today=Math.ceil((parseInt(value1)/(parseInt(value1)+parseInt(value2)))*100);
+					percent.yestoday=100-percent.today;
+				}
+				return percent;
+			} 
+			var data_ordCate1={};
+			var goodsDB=$(".goodsDB p span");
+			$.ajax({
+				  type: 'POST',
+				  url: "test.json",
+				  dataType: "json",
+				  async:false,
+				  success: function(data){
+				  	data_ordCate1=data;
+				  },
+				  error:function(){
+				  	data_ordCate1={"state":"success","code":"200","msg":"ok","data":{"today":{"name":"今日单","price":"321.00","number":"32"},"yesterday":{"name":"昨日单","price":"1321.00","number":"102"},"beforeYesterday":{"name":"前日单","price":"421.00","number":"22"}}};
+				  	//console.log(data_ordCate1.msg);
+				  	//今日单数
+				  	var todayNum=parseInt(data_ordCate1.data.today.number);
+				  	//今日金额
+				  	var todayPri=parseInt(data_ordCate1.data.today.price);
+				  	//昨日单数
+				  	var yesterdayNum=parseInt(data_ordCate1.data.yesterday.number);
+				  	//昨日金额
+				  	var yesterdayPri=parseInt(data_ordCate1.data.yesterday.price);
+				  	contFunc($("#cont1"),percentFunc(todayNum,yesterdayNum).today);
+				  	contFunc($("#cont2"),percentFunc(todayNum,yesterdayNum).yestoday);
+				  	$(goodsDB[0]).html(todayPri);
+				  	$(goodsDB[1]).html(todayNum);
+				  	$(goodsDB[2]).html(yesterdayPri);
+				  	$(goodsDB[3]).html(yesterdayNum);
+				  	
+				  	
+				  }
+			})
+			
+			//环形业绩图月数据模拟
+			var data_ordCate2={};
+			$.ajax({
+				  type: 'POST',
+				  url: "test.json",
+				  dataType: "json",
+				  async:false,
+				  success: function(data){
+				  	data_ordCate2=data;
+				  },
+				  error:function(){
+				  	data_ordCate2={"state":"success","code":"200","msg":"ok","data":{"today":{"name":"本月单","price":"1321.00","number":"132"},"yesterday":{"name":"上月单","price":"12321.00","number":"1002"},"beforeYesterday":{"name":"前月单","price":"4421.00","number":"232"}}};
+				  	//console.log(data_ordCate1.msg);
+				  	//本月单数
+				  	var todayNum=parseInt(data_ordCate2.data.today.number);
+				  	//本月金额
+				  	var todayPri=parseInt(data_ordCate2.data.today.price);
+				  	//上月单数
+				  	var yesterdayNum=parseInt(data_ordCate2.data.yesterday.number);
+				  	//上月金额
+				  	var yesterdayPri=parseInt(data_ordCate2.data.yesterday.price);
+				  	contFunc($("#cont3"),percentFunc(todayNum,yesterdayNum).today);
+				  	contFunc($("#cont4"),percentFunc(todayNum,yesterdayNum).yestoday);
+				  	$(goodsDB[4]).html(todayPri);
+				  	$(goodsDB[5]).html(todayNum);
+				  	$(goodsDB[6]).html(yesterdayPri);
+				  	$(goodsDB[7]).html(yesterdayNum);
+				  }
+			})
+				
+				// 路径配置
+				require.config({
+					paths: {
+						echarts: 'js'
+					}
+				});
+
+				//业绩简报图形数据模拟
+				var data_ordCate = {};
+				$.ajax({
+					type: 'POST',
+					url: "test.json",
+					dataType: "json",
+					async: false,
+					success: function(data) {
+						data_ordCate = data;
+					},
+					error: function() {
+						data_ordCate = {
+							"state": "success",
+							"code": "200",
+							"msg": "ok",
+							"data": {
+								"date": ["2016-12-1", "2016-12-2", "2016-12-3", "2016-12-4", "2016-12-5", "2016-12-6", "2016-12-7", "2016-12-8", "2016-12-9", "2016-12-10", "2016-12-11", "2016-12-12"],
+								"dataAry": [{
+									"id": "3232",
+									"name": "订单金额",
+									"value": [2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]
+								}, {
+									"id": "4432",
+									"name": "订单数",
+									"value": [2, 2, 3, 4, 6, 10, 20, 23, 23, 16, 12, 6]
+								}]
+							}
+						};
+						var data_priAry = [];
+						var data_numAry = [];
+						var data_dateAry = [];
+						for(var i = 0; i < data_ordCate.data.dataAry.length; i++) {
+							data_dateAry = data_ordCate.data.date;
+							if(data_ordCate.data.dataAry[i].name == "订单金额") {
+								data_priAry = data_ordCate.data.dataAry[i].value;
+							} else if(data_ordCate.data.dataAry[i].name == "订单数") {
+								data_numAry = data_ordCate.data.dataAry[i].value;
+							}
+						}
+						// 使用
+						require(
+							[
+								'echarts',
+								'echarts/chart/line',
+								'echarts/chart/bar'
+							],
+							function(ec) {
+								// 基于准备好的dom，初始化echarts图表
+								var myPie_graph = ec.init(document.getElementById('pie_graph'));
+
+								var option = {
+									tooltip: {
+										trigger: 'axis'
+									},
+									calculable: true,
+									legend: {
+										data: [{
+											name: '订单金额',
+											textStyle: {
+												color: '#7cb5ec'
+											}
+										}, {
+											name: '订单数',
+											textStyle: {
+												color: '#434348'
+											}
+										}]
+									},
+									xAxis: [{
+										type: 'category',
+										data: data_dateAry
+									}],
+									yAxis: [{
+										type: 'value',
+										name: '订单金额',
+										axisLabel: {
+											formatter: '￥ {value} '
+										}
+									}, {
+										type: 'value',
+										name: '订单数',
+										axisLabel: {
+											formatter: '{value} 个'
+										}
+									}],
+									series: [
+
+										{
+											name: '订单金额',
+											type: 'bar',
+											itemStyle: {
+												normal: {
+													color: '#7cb5ec'
+												}
+											},
+											data: data_priAry
+										}, {
+											name: '订单数',
+											type: 'line',
+											smooth: true,
+											itemStyle: {
+												normal: {
+													color: '#434348'
+												}
+											},
+											yAxisIndex: 1,
+											data: data_numAry
+										}
+									]
+								};
+
+								// 为echarts对象加载数据 
+								myPie_graph.setOption(option);
+							}
+						);
+					}
+				});
+
+			})
+		</script>
+	</body>
+
+</html>

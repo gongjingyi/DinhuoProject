@@ -1,0 +1,261 @@
+<extend name="../../dh/Common/View/Layout/base.html"/>
+<block name="body">
+    <h3 class="col-md-12 title  "><a  href="">购物车</a></h3>
+    <if condition="empty($cart)">
+        <div class="col-md-12 con ">
+            <div class="panel panel-default">
+                <div class="fund">
+                    购物车您还没有商品！
+                </div>
+            </div>
+        </div>
+        <else/>
+        <div class="col-md-12 con ">
+
+            <div class="panel panel-default">
+                <div class="shop-warp">
+                    <volist name="cart" key="key" id="vo">
+                        <form action="{:U('order/order/create')}" method="post">
+                            <div class="shop-tit">
+                                商家：<span>{$vo[0]['company_name']}</span>
+                                <if condition="!empty($order_promotion[$key-1])">
+                                    <input type="hidden" value="{$order_promotion[$key-1]['type']}" class="type"/>
+                                    <input type="hidden" value="{$order_promotion[$key-1]['over_money']}" class="over"/>
+                                    <input type="hidden" value="{$order_promotion[$key-1]['discount_money']}" class="discount"/>
+                                </if>
+
+                                <if condition="!empty($order_promotion[$key-1])&&($order_promotion[$key-1]['type'] eq 1)">
+                                    <span><i class="red">订单促销：(满￥{$order_promotion[$key-1]['over_money']} 减 ￥{$order_promotion[$key-1]['discount_money']})</i><a class="order_promotion_tip" href="###"></a></span>
+                                    <elseif condition="!empty($order_promotion[$key-1])&&($order_promotion[$key-1]['type'] eq 2)"/>
+                                    <span><i class="red">订单促销：(满￥{$order_promotion[$key-1]['over_money']} 折  {$order_promotion[$key-1]['discount_money']}%)</i><a class="order_promotion_tip" href="###"></a></span>
+                                </if>
+                            </div>
+                            <table class="table table-bordered shop-tb">
+                                <thead>
+                                <tr>
+                                    <th width="8%"><input class="all" type="checkbox" checked="checked" />全选</th>
+                                    <th width="10%">产品编码</th>
+                                    <th width="14%">产品名称</th>
+                                    <th>品牌</th>
+                                    <th>分类</th>
+                                    <!--<th width="12%">交货期</th>-->
+                                    <th>单价</th>
+                                    <th width="13%">数量</th>
+                                    <th width="8%">小计</th>
+                                    <th width="3%">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="vo" key="key" id="xo" >
+                                    <tr>
+                                        <td width="30px"><p><input class="ck" style="width:30px" checked="checked" name="cart_id[{$xo.cart_id}]" value="{$xo.cart_id}" type="checkbox"/></p></td>
+                                        <td>{$xo.product_number}</td>
+                                        <td>{$xo.product_name}{$xo.rule}</td>
+                                        <td>{$xo.brand_name}</td>
+                                        <td>{$xo.category_name}</td>
+                                        <!--<td>
+                                        </td>-->
+                                        <td>
+                                            <if condition="!empty($xo['goods_promotion'])">
+                                                <if condition="$xo['goods_promotion']['type'] eq 1">
+                                                    <div class="red">原价:<del>￥<span >{$xo.price}</span></del> 商品促销价:￥ <?php $discount=$xo['goods_promotion']['discount'];?><span class="shop-pic">{$discount}</span></div>
+                                                    <else/>
+                                                    <div class="red">原价:<del>￥<span class="shop-pic">{$xo.price}</span></del> 商品促销价:￥ <?php $discount=$xo['price']*$xo['goods_promotion']['discount']/100;?><span class="shop-pic">{$discount}</span></div>
+                                                </if>
+                                                <else/>
+                                                ￥<span class="shop-pic"><?php $discount=$xo['price'];?>{$xo.price}</span>
+                                            </if>
+                                        </td>
+                                        <!--<td><input class="shop-piec" type="text" name="num[{$xo.cart_id}]" id="" value="{$xo.num}" />件</td>-->
+                                        <td>
+                                        	<p class="cfs">
+				                                <a class="jian">-</a>
+				                                <input class="lskdo shop-piec" name="num[{$xo.cart_id}]" id="" type="text" value="{$xo.num}"
+									 onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/>
+				                                <a class="jia">+</a>
+				                            </p>
+				                           	<span class="pic-j">件</span>
+                                        </td>
+                                        <td>￥<span class="all-pic"><?php $total=$discount*$xo['num']; echo $total; ?></span></td>
+                                        <td><a  class="remove" data="{$xo.cart_id}" href="###">删除</a></td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                            <div class="shopcar-warp">
+                                <input type="hidden" name="from" value="cart"/>
+                                <div class="pull-right shop-all">
+                                    <p class="pull-left shop-num ">数量： <span class="shop-nub"></span>件</p>
+                                    <p class="pull-left shop-my">合计：  ¥<span class="shop-all-pic"></span></p>
+                                    <a class="og-sty pull-left" href="">打印订单</a>
+                                    <button class="og-sty pull-left" type="submit">确认提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </volist>
+                </div>
+
+            </div>
+
+        </div>
+    </if>
+</block>
+<block name="page_script">
+    <script type="text/javascript" src="__DH__/js/jquery.ui.js"></script>
+    <script type="text/javascript" src="__DH__/js/moment.min.js"></script>
+    <script type="text/javascript">
+      
+        //初始化
+        $('.ck').each(function(){
+            get_money($(this));
+        });
+
+        function get_money(obj){
+            //订单促销信息
+            var promotion_div=obj.parent().parent().parent().parent().parent().siblings('.shop-tit');
+            //订单信息列表
+            var order_table=obj.parent().parent().parent().parent().parent();
+            //订单总计
+            var count_div=obj.parent().parent().parent().parent().parent().siblings('.shopcar-warp')
+            //促销类型
+            var promotion_type=promotion_div.find('input.type').val();
+            //满多少促销
+            var promotion_over=promotion_div.find('input.over').val();
+            //折扣价
+            var promotion_discount=promotion_div.find('input.discount').val();
+            //订单提示
+            var order_promotion_tip=promotion_div.find('.order_promotion_tip');
+
+            //订单总价
+            var total_price=0;
+            //商品总量
+            var total_num=0;
+            order_table.find('.ck:checked').each(function(key,val){
+                var all_pic=parseFloat($(this).parent().parent().parent().find('.all-pic').html());
+                var num=Math.abs(parseInt($(this).parent().parent().parent().find('.shop-piec').val()));
+                total_price+=all_pic;
+                total_num+=num;
+            });
+
+            //判断是否满足订单促销条件
+            if(total_price<promotion_over){
+                order_promotion_tip.html('不够，去凑单');
+            }else{
+                var discount_money=0;
+                if(promotion_type==1){
+                    //满减
+                    total_price=total_price-promotion_discount;
+                    discount_money=promotion_discount;
+                    console.log(total_price+" 3")
+                }else{
+                    //满折
+                    if(promotion_discount){
+
+	                    discount_money=total_price*((100-promotion_discount)/100);
+	                    total_price=total_price*(promotion_discount/100);
+
+                    }
+                }
+                order_promotion_tip.html('已减，￥'+discount_money.toFixed(2));
+            }
+
+
+            count_div.find('.shop-nub').html(total_num);
+            count_div.find('.shop-all-pic').html(total_price.toFixed(2));
+        }
+		
+		
+        //改变数量改变小计
+        $('.shop-piec').keyup(function(){
+        	var num=0;
+        	if(parseInt($(this).val())){
+        		num=Math.abs(parseInt($(this).val()));
+        	}else{
+        		$(this).val(1);
+        		num=Math.abs(parseInt($(this).val()));
+        	}
+            var price=parseFloat($(this).parent().parent().prev().find('.shop-pic').html()).toFixed(2);
+            $(this).parent().parent().next().html('￥<span class="all-pic">'+(num*price).toFixed(2)+'</span>');
+            var obj=$(this);
+            get_money(obj);
+        })
+        
+
+    
+    	  //商品详情页面的数量加减
+            $(".jian").click(function () {
+                var lsoek = $(this).parent().find(".lskdo");
+                if (lsoek.val() > 1) {
+                    var lskoe = parseInt(lsoek.val());
+                    var eiow = parseInt($(".chs_num i").text());
+                    lsoek.val(lskoe - 1);
+                    $(".chs_num i").text(eiow - 1);
+                } else {
+                }
+                get_money($(this));
+            });
+			$(".jia").click(function (iiii) {
+                var lsoek = $(this).parent().find(".lskdo");
+                var lskoe = parseInt(lsoek.val());
+                var eiow = parseInt($(".chs_num i").text());
+                lsoek.val(lskoe + 1);
+                $(".chs_num i").text(eiow + 1);
+				get_money($(this));
+            })
+
+
+		//点击加减数量计算价格总值
+		$('.jia,.jian').click(function(){
+			var a=$(this).siblings(".shop-piec")
+        	var num=Math.abs(parseInt(a.val()));
+            var price=parseFloat(a.parent().parent().prev().find('.shop-pic').html()).toFixed(2);
+            a.parent().parent().next().html('￥<span class="all-pic">'+(num*price).toFixed(2)+'</span>');
+            var obj=$(this);
+            get_money(obj);
+        })
+	
+        $('.ck').on('change',function(){
+            get_money($(this));
+        });
+
+        $(document).ready(function(){
+            //删除商品
+            $('.remove').on('click',function(){
+                var cart_id=$(this).attr('data');
+                var url="{:U('cart/delete')}";
+                var obj=$(this);
+                $.post(
+                        url,
+                        {cart_id:cart_id},
+                        function(data){
+                            if(data.status==1){
+                                obj.parent().parent().remove();
+                                $("#cart_num").html("("+data.data.num+")");
+                            }else{
+                                alert(data.message);
+                            }
+                        },
+                        'json'
+                );
+                
+            });
+            //全选操作
+        $(".all").change(function(){
+	                if($(this).prop("checked")){
+	                    $("input").each(function () {
+							$(this).prop("checked", true);
+						});
+	                }else{
+	                    $("input").each(function () {
+	                        $(this).prop("checked", false);
+	                    });
+	                }
+           		});  
+
+        })
+        $( function() {
+            $( ".datepicker" ).datepicker();
+        } );
+
+    </script>
+</block>

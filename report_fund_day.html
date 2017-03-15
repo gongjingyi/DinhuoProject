@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/zui.min.css" />
+		<link rel="stylesheet" href="css/jquery.ui.css" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="css/css.css" />
+		<link rel="stylesheet" type="text/css" href="css/scarlett.css" />
+	</head> 
+
+	<body> 
+		<h3 class="col-md-12 title"><a class="dthis" href="">资金报表</a></h3>
+		<div class="col-md-12 con">
+			<div class="panel panel-default">
+				<div class="wrap1">
+					<div class="goods-fix">
+						<div class="rec-time">
+							<span class="wdate-time">
+								<input id="startTime" class="Wdate " type="text" onFocus="WdatePicker({dateFmt:'yyyy-M-d'})" placeholder="起始时间" value=""/>
+							</span> 
+							<span class="wrp-to fa fa-calendar"></span>
+							<span class="wdate-time">
+								<literal>
+									<input id="endTime" class="Wdate" type="text" onFocus="WdatePicker({dateFmt:'yyyy-M-d',minDate:'#F{$dp.$D(\'startTime\')}'})" placeholder="截止时间" value=""/>
+								</literal>
+							</span>
+						</div>
+						<div class="staff-chos">
+							<select name="">
+								<option value="" selected>客户类型</option>
+								<option value="">类型一</option>
+								<option value="">类型二</option>
+							</select>
+						</div>
+						<div class="staff-chos">
+							<select name="">
+								<option value="" selected>归属地</option>
+								<option value="">归属地一</option>
+								<option value="">归属地二</option>
+							</select>
+						</div>
+						<div class="pull-left ss-btn" id="check-btn">
+							<button type="button">查询</button>					    
+						</div>
+					</div>
+				</div>
+				<div class="report_tipBlk">
+					<div class="report_tipBlkLef1">
+						<label>客户数：<span>564</span></label>
+						<label>金额：<span>665765</span></label>
+					</div>
+					<div class="report_tipBlkRig">
+						<div class="report_tipRigBlk">
+							<span>统计方式：</span>
+							<label><input type="radio" name="data_type_data" checked="checked"/><span>日</span></label>
+							<label><input type="radio" name="data_type_data"/><span>月</span></label>
+						</div>
+					</div>
+				</div>
+				<div class="report_grap">
+					<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+					<div id="pie_graph" style="height:400px"></div>
+				</div>
+				<input />
+				<table class="table table-cus">
+						<thead>
+							<tr>
+				    			<th>按日</th>
+				    			<th>全部</th>
+				    			<th>存款余额</th>
+				    			<th>支付宝</th>
+				    			<th>微信</th>
+				    		</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>水晶</td>
+								<td>1000.00</td>
+								<td>600.00</td>
+								<td>100.00</td>
+								<td>300.00</td>
+							</tr>
+							<tr>
+								<td>宝石</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+			</div>
+		</div>
+
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/echarts.js"></script>
+		<script src="js/WdatePicker.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				/*折线图js*/
+				//下拉框选中值
+				var selectStr=$($(".staff-chos select option:selected")[0]).text();
+				var selectStr1=$($(".staff-chos select option:selected")[1]).text();
+				//单选框值
+				var radioStr=$(".report_tipRigBlk input:checked").next().text();
+				//数据模拟
+				//时间戳转 年-月-日     其他为零
+				function YMDZZZFormate(date) {
+					var time = new Date(date);
+					var yy = time.getFullYear();
+					var mm = time.getMonth() + 1;
+					var dd = time.getDate();
+					if(mm < 10) {
+						mm = "0" + mm;
+					}
+					return yy + "-" + mm + "-" + dd + " " + "00:00:00";
+				};
+				//时间戳转 年-月-日  其他为空
+				function YMDEEEFormate(date) {
+					var time = new Date(date);
+					var yy = time.getFullYear();
+					var mm = time.getMonth() + 1;
+					var dd = time.getDate();
+					if(mm < 10) {
+						mm = "0" + mm;
+					}
+					return yy + "-" + mm + "-" + dd;
+				};
+				var todayTime = YMDEEEFormate(new Date()); //今天 年-月-日格式
+				var todayBeforeMonthTime = YMDEEEFormate((new Date().getTime() - 3600000 * 24 * 30)); //今天的前七天 年-月-日格式
+				var todayTime1 = YMDZZZFormate(new Date()); //今天 年-月-日格式
+				var todayBeforeMonthTime1 = YMDZZZFormate((new Date().getTime() - 3600000 * 24 * 30)); //今天的前七天 年-月-日格式				
+				var startTimeStr=todayBeforeMonthTime;
+				var endTimeStr=todayTime;
+				var startTime=todayBeforeMonthTime1;
+				var endTime=todayTime1;
+				$("#startTime").val(startTimeStr);
+				$("#endTime").val(endTimeStr);
+				
+				// 路径配置
+		        require.config({
+		            paths: {
+		            	//echarts:"js"
+		                echarts: 'http://jc.dh.i3abox.cn/dinghuo/js'
+		            }
+		        });
+				
+				//数据模拟
+				var data_ordCate={};
+				$.ajax({
+				  type: 'POST',
+				  url: "test.json",
+				  data: {
+				  	"locatCate":selectStr,
+				  	"clientCate":selectStr1,
+				  	"startTime":startTime,
+				  	"endTime":endTime,
+				  	"staticCate":radioStr,
+				  },
+				  //data: "发送到服务器的参数",
+				  dataType: "json",
+				  async:false,
+				  success: function(data){
+				  	data_ordCate=data;
+				  },
+				  error:function(){
+				  	$("table thead tr").html('<th>按'+radioStr+'</th><th>全部</th><th>存款余额</th><th>支付宝</th><th>微信</th>');
+				  	data_ordCate={"state":"success","code":"200","msg":"ok","data":{"date":["2016-12-1","2016-12-2","2016-12-3","2016-12-6","2016-12-7","2016-12-11","2016-12-22","2016-12-23","2016-12-24","2016-12-25","2016-12-26","2016-12-27"],"dataAry":[{"id":"3232","name":"存款余额","value":[20, 132, 1100, 134, 90,230, 210, 444, 334, 190,220, 32]},{"id":"4432","name":"支付宝","value":[120, 82,201,134,190,230,110,999,77,123,765,32]},{"id":"4982","name":"微信","value":[60, 182,501,178,90,30,310,99,177,23,65,232]}]}};
+				  	var data_remainAry=[];
+					var data_alipayAry=[];
+					var data_WeChatAry=[];
+					var data_dateAry=[];
+					for(var i=0;i<data_ordCate.data.dataAry.length;i++){
+						data_dateAry=data_ordCate.data.date;
+						if(data_ordCate.data.dataAry[i].name=="预存款"){
+							data_remainAry=data_ordCate.data.dataAry[i].value;
+						}else if(data_ordCate.data.dataAry[i].name=="支付宝"){
+							data_alipayAry=data_ordCate.data.dataAry[i].value;
+						}else if(data_ordCate.data.dataAry[i].name=="微信"){
+							data_WeChatAry=data_ordCate.data.dataAry[i].value;
+						}
+					}
+					  // 使用
+			        require(
+						[
+			               'echarts',
+			               'echarts/chart/line',
+			               'echarts/chart/bar'
+			            ],
+			            function (ec) {
+			                 // 基于准备好的dom，初始化echarts图表
+			                var myPie_graph = ec.init(document.getElementById('pie_graph')); 
+			                
+			                var option = {
+			                	title : {
+			                		text : '金额'
+			                	},
+							    tooltip : {
+							        trigger: 'axis'
+							    },
+							    /*标题显示栏*/
+							    legend: {
+							    	data:[{name:'存款余额',textStyle :{color:'#7cb5ec'}},{name:'支付宝',textStyle :{color:'#90ed7d'}},{name:'微信',textStyle :{color:'#f7a35c'}}] 
+							    },
+							    calculable : true,
+							    xAxis : [
+							        {
+							            type : 'category',
+							            //boundaryGap : false,
+							            data : data_dateAry
+							        }
+							    ],
+							    
+							    yAxis : [
+							        {
+							            type : 'value',
+							            splitNumber:5,
+							            splitArea : {show : true}
+							        }
+							    ],
+							    series : [
+						   			 
+							        {
+							            name:'存款余额',
+							            type:'line',
+							            /*标识*/
+							            //symbol: 'none',
+							            //smooth: true,
+							            itemStyle: {normal: {color:'#7cb5ec',areaStyle: {type: 'default'}}},
+							            //data:[20, 132, 1100, 134, 90,230, 210, 444, 334, 190,220, 32]
+							            data:data_remainAry
+							        },
+							        {  
+							            name:'支付宝',
+							            type:'line',
+							            //smooth: true,
+							            itemStyle: {normal: {color:'#90ed7d',areaStyle: {type: 'default'}}},
+							            //data:[120, 82,201,134,190,230,110,999,77,123,765,32]
+							            data:data_alipayAry
+							        },
+							        {  
+							            name:'微信',
+							            type:'line',
+							            //smooth: true,
+							            itemStyle: {normal: {color:'#f7a35c',areaStyle: {type: 'default'}}},
+							            //data:[60, 182,501,178,90,30,310,99,177,23,65,232]
+							            data:data_WeChatAry
+							        }
+							    ]
+							};
+			                // 为echarts对象加载数据 
+			                myPie_graph.setOption(option); 
+			            }
+			        );
+				  }
+				}); 
+				
+				//表格数据模拟
+				var data_ordCate1={};
+				$.ajax({
+					  type: 'POST',
+					  url: "test.json",
+					  data: {
+					  	"locatCate":selectStr,
+					  	"clientCate":selectStr1,
+					  	"startTime":startTime,
+					  	"endTime":endTime,
+					  	"staticCate":radioStr,
+					  },
+					  dataType: "json",
+					  async:false,
+					  success: function(data){
+					  	data_ordCate1=data;
+					  	var labelTopSpan=$(".report_tipBlkLef1>label>span");
+						$(labelTopSpan[0]).html(data_ordCate1.data.totalNumber);
+						$(labelTopSpan[1]).html(data_ordCate1.data.totalOrder);
+						$(labelTopSpan[2]).html(data_ordCate1.data.totalPrice);
+					  },
+					  error:function(){
+					  	data_ordCate1={"state":"success","code":"200","msg":"ok","data":{"id":"3232","totalNumber":"453","totalPrice":"435","tabel":[{"id":"334","time":"2016-10-1","price":"434.00","remain":"434.00","alipay":"434.00","weChat":"434.00"},{"id":"1334","time":"2016-10-2","price":"1434.00","remain":"1434.00","alipay":"1434.00","weChat":"2434.00"}]}};
+					  	var labelTopSpan=$(".report_tipBlkLef1>label>span");
+						$(labelTopSpan[0]).html(data_ordCate1.data.totalNumber);
+						$(labelTopSpan[2]).html(data_ordCate1.data.totalPrice);
+						var tabelList=data_ordCate1.data.tabel;
+						var tabelTbody=$("table tbody");
+						var tabelTrStr="";
+						for(var g=0;g<tabelList.length;g++){
+							tabelTrStr+="<tr><td>"+tabelList[g].time+"</td><td>"+tabelList[g].price+"</td><td>"+tabelList[g].remain+"</td><td>"+tabelList[g].alipay+"</td><td>"+tabelList[g].weChat+"</td></tr>";
+						}
+						$("table tbody").html(tabelTrStr);
+					  }
+				});
+				
+				$("#check-btn").on("click",function(){
+					//下拉框选中值
+					selectStr=$($(".staff-chos select option:selected")[0]).text();
+					selectStr1=$($(".staff-chos select option:selected")[1]).text();
+					//单选框值
+					radioStr=$(".report_tipRigBlk input:checked").next().text();
+					//时间
+					startTime=$("#startTime").val();
+					endTime=$("#endTime").val();
+					
+					//数据模拟
+					$.ajax({
+					  type: 'POST',
+					  url: "test.json",
+					  data: {
+					  	"locatCate":selectStr,
+					  	"clientCate":selectStr1,
+					  	"startTime":startTime,
+					  	"endTime":endTime,
+					  	"staticCate":radioStr,
+					  },
+					  dataType: "json",
+					  async:false,
+					  success: function(data){
+					  	data_ordCate=data;
+					  },
+					  error:function(){
+				  		$("table thead tr").html('<th>按'+radioStr+'</th><th>全部</th><th>存款余额</th><th>支付宝</th><th>微信</th>');					  	
+					  	data_ordCate={"state":"success","code":"200","msg":"ok","data":{"date":["2016-12-1","2016-12-2","2016-12-3","2016-12-6","2016-12-7","2016-12-11","2016-12-22","2016-12-23","2016-12-24","2016-12-25","2016-12-26","2016-12-27"],"dataAry":[{"id":"3232","name":"存款余额","value":[20, 132, 1100, 134, 90,230, 210, 444, 334, 190,220, 32]},{"id":"4432","name":"支付宝","value":[120, 82,201,134,190,230,110,999,77,123,765,32]},{"id":"4982","name":"微信","value":[60, 182,501,178,90,30,310,99,177,23,65,232]}]}};
+					  	var data_remainAry=[];
+						var data_alipayAry=[];
+						var data_WeChatAry=[];
+						var data_dateAry=[];
+						for(var i=0;i<data_ordCate.data.dataAry.length;i++){
+							data_dateAry=data_ordCate.data.date;
+							if(data_ordCate.data.dataAry[i].name=="预存款"){
+								data_remainAry=data_ordCate.data.dataAry[i].value;
+							}else if(data_ordCate.data.dataAry[i].name=="支付宝"){
+								data_alipayAry=data_ordCate.data.dataAry[i].value;
+							}else if(data_ordCate.data.dataAry[i].name=="微信"){
+								data_WeChatAry=data_ordCate.data.dataAry[i].value;
+							}
+						}
+						  // 使用
+				        require(
+							[
+				               'echarts',
+				               'echarts/chart/line',
+				               'echarts/chart/bar'
+				            ],
+				            function (ec) {
+				                 // 基于准备好的dom，初始化echarts图表
+				                var myPie_graph = ec.init(document.getElementById('pie_graph')); 
+				                
+				                var option = {
+				                	title : {
+				                		text : '金额'
+				                	},
+								    tooltip : {
+								        trigger: 'axis'
+								    },
+								    /*标题显示栏*/
+								    legend: {
+								    	data:[{name:'存款余额',textStyle :{color:'#7cb5ec'}},{name:'支付宝',textStyle :{color:'#90ed7d'}},{name:'微信',textStyle :{color:'#f7a35c'}}] 
+								    },
+								    calculable : true,
+								    xAxis : [
+								        {
+								            type : 'category',
+								            //boundaryGap : false,
+								            data : data_dateAry
+								        }
+								    ],
+								    
+								    yAxis : [
+								        {
+								            type : 'value',
+								            splitNumber:5,
+								            splitArea : {show : true}
+								        }
+								    ],
+								    series : [
+							   			 
+								        {
+								            name:'存款余额',
+								            type:'line',
+								            /*标识*/
+								            //symbol: 'none',
+								            //smooth: true,
+								            itemStyle: {normal: {color:'#7cb5ec',areaStyle: {type: 'default'}}},
+								            //data:[20, 132, 1100, 134, 90,230, 210, 444, 334, 190,220, 32]
+								            data:data_remainAry
+								        },
+								        {  
+								            name:'支付宝',
+								            type:'line',
+								            //smooth: true,
+								            itemStyle: {normal: {color:'#90ed7d',areaStyle: {type: 'default'}}},
+								            //data:[120, 82,201,134,190,230,110,999,77,123,765,32]
+								            data:data_alipayAry
+								        },
+								        {  
+								            name:'微信',
+								            type:'line',
+								            //smooth: true,
+								            itemStyle: {normal: {color:'#f7a35c',areaStyle: {type: 'default'}}},
+								            //data:[60, 182,501,178,90,30,310,99,177,23,65,232]
+								            data:data_WeChatAry
+								        }
+								    ]
+								};
+				                // 为echarts对象加载数据 
+				                myPie_graph.setOption(option); 
+				            }
+				        );
+					  }
+					}); 
+					
+					//表格数据模拟
+					$.ajax({
+						  type: 'POST',
+						  url: "test.json",
+						  data: {
+						  	"locatCate":selectStr,
+						  	"clientCate":selectStr1,
+						  	"startTime":startTime,
+						  	"endTime":endTime,
+						  	"staticCate":radioStr,
+						  },
+						  dataType: "json",
+						  async:false,
+						  success: function(data){
+						  	data_ordCate1=data;
+						  	var labelTopSpan=$(".report_tipBlkLef1>label>span");
+							$(labelTopSpan[0]).html(data_ordCate1.data.totalNumber);
+							$(labelTopSpan[1]).html(data_ordCate1.data.totalOrder);
+							$(labelTopSpan[2]).html(data_ordCate1.data.totalPrice);
+						  },
+						  error:function(){
+						  	data_ordCate1={"state":"success","code":"200","msg":"ok","data":{"id":"3232","totalNumber":"453","totalPrice":"435","tabel":[{"id":"334","time":"2016-10-1","price":"434.00","remain":"434.00","alipay":"434.00","weChat":"434.00"},{"id":"1334","time":"2016-10-2","price":"1434.00","remain":"1434.00","alipay":"1434.00","weChat":"2434.00"}]}};
+						  	var labelTopSpan=$(".report_tipBlkLef1>label>span");
+							$(labelTopSpan[0]).html(data_ordCate1.data.totalNumber);
+							$(labelTopSpan[2]).html(data_ordCate1.data.totalPrice);
+							var tabelList=data_ordCate1.data.tabel;
+							var tabelTbody=$("table tbody");
+							var tabelTrStr="";
+							for(var g=0;g<tabelList.length;g++){
+								tabelTrStr+="<tr><td>"+tabelList[g].time+"</td><td>"+tabelList[g].price+"</td><td>"+tabelList[g].remain+"</td><td>"+tabelList[g].alipay+"</td><td>"+tabelList[g].weChat+"</td></tr>";
+							}
+							$("table tbody").html(tabelTrStr);
+						  }
+					});
+					
+				})
+				
+			})
+		</script>
+	</body> 
+
+</html>

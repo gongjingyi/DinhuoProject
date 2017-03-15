@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta  name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">        
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css"/>
+		<link rel="stylesheet" href="css/jquery.ui.css" type="text/css" />
+   		<link rel="stylesheet" type="text/css" href="css/css.css"/>
+		
+	</head>
+	<body>
+		<h3 class="col-md-12 title title2"><a  href="">供应商管理</a><span class="bread">&gt;</span><a href="">编辑供应商</a> </h3>
+		<div class="col-md-12 con con1">
+			<form id="form" action="" method="post">
+				
+			
+				<h6 class="con-tit">登录信息</h6>
+				<div class="con-warp">
+					<label><span class="con-warp-tit"><i class="red">*</i>登录账号</span> <input type="text" name="" id="" value="" required/>
+					<label class="send"><input type="checkbox" name="" id="" value="" />发送激活短信</label>
+					</label>
+					<label><span class="con-warp-tit"><i class="red">*</i>密码</span>
+							<span class="con-warp-del">默认初始密码为 <em class="red">jcw168</em></span>
+						
+					</label>
+					<label><span class="con-warp-tit"><i class="red">*</i>账号状态</span> <span class="con-warp-titcon">待激活</span></label>
+				
+					
+					<label><span class="con-warp-tit"><i class="red">*</i>供应商名称</span> <input type="text" name="moble" id="" value="" required/></label>
+					<label><span class="con-warp-tit"><i class="red">*</i>供应商编号</span> <input type="text" name="name" id="" value="" required/></label>
+					<label><span class="con-warp-tit"><i class="red">*</i>供应商类型</span> 
+					<select class="chose-con" name="">
+							<option value="">其他</option>
+						</select></label>
+					<label><span class="con-warp-tit"><i class="red">*</i>归属地区</span> 
+					<select class="chose-con" name="">
+							<option value="">其他</option>
+						</select></label>
+					<label>
+						<span class="con-warp-tit">签约时间</span> 
+						<div class="con-warp-del">
+							<input type="text" class="jcDate" readonly  id="startDate"/>
+							<span class="wrp-to">至</span>
+							<input type="text" class="jcDate" readonly  id="endDate"/>
+						</div>
+					</label>
+					<label><span class="con-warp-tit">备注</span> <textarea name="comment" rows="" cols="" required></textarea></label>
+					
+				</div>
+				<h6 class="con-tit">联系人</h6>
+				<div class="con-warp">
+
+					<label><span class="con-warp-tit">联系人</span><input type="text" name="name" id="" value="" required/></label>
+					<label><span class="con-warp-tit">电话号码</span>
+						
+						<input type="text" name="name" id="" value="" required/>
+					</label>		
+
+					
+					<label><span class="con-warp-tit">电子邮箱</span> <input type="text" name="" id="" value="" required/></label>
+					<label><span class="con-warp-tit">联系地址</span>						
+						<select id="s_province" name="s_province" required></select>
+						<select id="s_city"  name="s_city" required></select>
+						<select id="s_county" name="s_county" required></select>
+					</label>		
+					<label><span class="con-warp-tit">详细地址</span> <input type="text" name="address" id="" value="" required/></label>
+					
+				</div>
+				<h6 class="con-tit">业务信息</h6>
+				<div class="con-warp">
+					<label>
+						<span class="con-warp-tit">所属业务员</span><select class="chose-con" name="">
+							<option value="">其他</option>
+						</select>
+					</label>
+					<label>
+						<span class="con-warp-tit"><i class="red">*</i>结算方式</span> 
+						<div class="button-holder con-warp-but">
+							<label>
+								<input type="radio" id="radio-1-1" name="radio-1-set" class="regular-radio" checked /><label for="radio-1-1"></label>
+								现付
+							</label>
+							<label>
+								<input type="radio" id="radio-1-2" name="radio-1-set" class="regular-radio" /><label for="radio-1-2"></label>
+								预付
+
+							</label>
+							<label>
+								<input type="radio" id="radio-1-2" name="radio-1-set" class="regular-radio" /><label for="radio-1-2"></label>
+								后付
+							</label>
+						</div>
+					</label>
+			
+				</div>
+				<div class="subtn">
+					<input type="submit" value="保存"/> <input type="button" id="" value="取消" />
+				</div>
+			</form>
+		</div>
+		<script src="js/area.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/jquery.ui.js"></script>
+		<script type="text/javascript" src="js/moment.min.js"></script>
+		<script type="text/javascript" src="js/stay.js"></script>
+		<script type="text/javascript">_init_area();</script>
+		<script type="text/javascript">
+			var Gid  = document.getElementById ;
+			var showArea = function(){
+				Gid('show').innerHTML = "<h3>省" + Gid('s_province').value + " - 市" + 	
+				Gid('s_city').value + " - 县/区" + 
+				Gid('s_county').value + "</h3>"
+				}
+			Gid('s_county').setAttribute('onchange','showArea()');
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta  name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">        
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css"/>
+		<link rel="stylesheet" href="css/jquery.ui.css" type="text/css" />
+   		<link rel="stylesheet" type="text/css" href="css/css.css"/>
+	</head>
+	<body>
+		<h3 class="col-md-12 title  "><a  href="">购物车</a></h3>
+		<div class="col-md-12 con ">
+			<form action="" method="post">
+			
+			<div class="panel panel-default">	
+				<div class="shop-warp">
+
+						
+						
+						<div class="shop-tit">
+							商家：<span>永富</span>
+						</div>
+						<table class="table table-bordered shop-tb">
+				    	<thead>
+				    		<tr>
+				    			<th ></th>
+				    			<th width="10%">产品编码</th>
+				    			<th width="14%">产品名称</th>
+				    			<th>品牌</th>
+				    			<th>分类</th>
+				    			<th>规格</th>
+				    			
+				    			<th width="12%">交货期</th>
+				    			<th>单价</th>
+				    			<th width="13%">数量</th>
+				    			<th width="8%">小计</th>
+				    			<th>操作</th>
+		
+				    		</tr>
+				    	</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								
+								<td width="20%">
+									尺寸，颜色，效果，加工
+								</td>
+	
+								<td>
+
+									
+								</td>
+								<td><span class="shop-pic">120.00</span>￥</td>
+								<td><input class="shop-piec" type="text" name="" id="" value="1" />件</td>
+								<td><span class="all-pic">120.00</span>￥</td>
+								<td>删除</td>
+								
+							</tr>
+	
+						</tbody>
+						
+				  	</table>
+						<div class="shop-tit">
+								商家：<span>某</span>
+						</div>
+						<table class="table table-bordered shop-tb">
+				    	<thead>
+				    		<tr>
+				    			<th ></th>
+				    			<th width="10%">产品编码</th>
+				    			<th width="14%">产品名称</th>
+				    			<th>品牌</th>
+				    			<th>分类</th>
+				    			<th width="20%">规格</th>
+				    			<th width="12%">交货期</th>
+				    			<th>单价</th>
+				    			<th width="13%">数量</th>
+				    			<th width="8%">小计</th>
+				    			<th>操作</th>
+		
+				    		</tr>
+				    	</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>
+									尺寸，颜色，效果，加工
+								</td>
+								<td>
+
+								</td>
+								<td><span class="shop-pic">120.10</span>￥</td>
+								<td><input class="shop-piec" type="text" name="" id="" value="1" />件</td>
+								<td><span class="all-pic">120.10</span>￥</td>
+								<td>删除</td>
+								
+							</tr>
+	
+						</tbody>
+						
+				  	</table>
+					  	
+
+					
+				</div>
+				<div class="shopcar-warp">
+
+				<div class="pull-right shop-all">
+					  		<p class="pull-left shop-num ">数量： <span class="shop-nub"></span>件</p>
+					  		<p class="pull-left shop-my">合计：  ¥<span class="shop-all-pic"></span></p>
+					  		<a class="og-sty pull-left" href="">打印订单</a>
+					  		<button class="og-sty pull-left" type="submit">确认提交</button>
+				</div>
+				</div>
+			</div>
+			</form>
+		</div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/jquery.ui.js"></script>
+		<script type="text/javascript" src="js/moment.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){	
+				var	$trpic=$("table tbody tr");
+					var $tt =[];
+					var pic=0;
+					var peic=0;
+					for(i=0;i<$trpic.length;i++){
+						$tt[i]=$($trpic[i]).find(".all-pic").html()
+						pic +=parseFloat($tt[i]);
+					}
+					for(y=0;y<$trpic.length;y++){
+						var aa=$($trpic[y]).find(".shop-piec").val();
+						
+						if(aa){
+							$tt[y]=aa
+						}else{
+							aa=0;
+							$tt[y]=aa
+						}
+						peic +=parseInt($tt[y]);
+					}
+					$(".shop-nub").html(peic)
+					$(".shop-all-pic").html(pic.toFixed(2))
+					
+				$(".shop-piec").keyup(function () {
+					var $pic=$(this).parent().siblings().children(".shop-pic").html();	
+					var $piec=$(this).val();
+					$(this).parent().siblings().children(".all-pic").html(($pic*$piec).toFixed(2));
+				    var	$trpic=$("table tbody tr");
+					var $tt =[];
+					var pic=0;
+					var peic=0;
+					for(i=0;i<$trpic.length;i++){
+						$tt[i]=$($trpic[i]).find(".all-pic").html()
+						pic +=parseFloat($tt[i]);
+					}
+					for(y=0;y<$trpic.length;y++){
+						var aa=$($trpic[y]).find(".shop-piec").val();
+						if(aa){
+							$tt[y]=aa
+						}else{
+							aa=0;
+							$tt[y]=aa
+						}
+
+						peic +=parseInt($tt[y]);
+					}
+					$(".shop-nub").html(peic)
+					$(".shop-all-pic").html((pic).toFixed(2))
+					
+			
+				})
+					
+				
+			})
+			$( function() {
+			    $( ".datepicker" ).datepicker();
+			  } );
+		</script>
+	</body>
+</html>

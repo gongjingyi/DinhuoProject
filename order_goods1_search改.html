@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta  name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">        
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css"/>
+	</head>
+	<body>
+		<h3 class="col-md-12 title title1"><a href="">按条件查找</a><a class="dthis"  href="">快速查找</a><a href="">导入下单</a></h3>
+		<div class="col-md-12 con ">
+			<div class="panel panel-default">	
+				<div class="wrap1">
+					
+					<div class="od">
+						<select name="">
+							<option value="">行业</option>
+						</select>
+					</div>
+					
+					<div class="od">
+						<input type="text" name="" id="" value=""  placeholder="商家名称"/>
+						
+					</div>
+
+					<a class="lookup" href="">快速查找</a>
+					<div class="pull-right og-chs">
+						<label class="pull-left og-chs-lb">
+							<input type="checkbox" name="" id="" value="" />
+							只显示已签约商家
+						</label>
+						<div class="pull-left">
+							<a href="" class="ico fa fa-th-large"></a>
+							<a href="" class="ico fa fa-th-list"></a>
+						</div>
+					</div>
+					<div class="ogs-tip">
+						<p>1.按条件组合查找  型号*尺寸*品牌颜色号码  如：1088*PP28*201 或 1088*SS14*201</p>
+						<p>2.按产品条形码或产品编号。<span class="act">点击此处。</span>
+							<span class="act-item"><img src="img/aa.png"/></span>
+						</p>
+					</div>
+				</div>
+			
+
+
+			  	<table class="table table-cus">
+			    	<thead>
+			    		<tr>
+			    			<th width="5%"><input type="checkbox" class="all" name="" id="" value="" /></th>
+			    			<th width="7%" >产品编码</th>
+			    			<th width="7%">产品名称</th>
+			    			<th width="7%" >品牌</th>
+			    			<th width="7%">分类</th>
+			    			<th width="28%">规格</th>
+			    			
+			    			<th width="39%">价格</th>
+			    			
+
+			    		</tr>
+			    	</thead>
+					<tbody>
+						<tr>
+							<td><input type="checkbox" name="" id="" value="" />1</td>
+							<td>500</td>
+							
+							<td>共4种</td>
+							<td>个</td>
+							<td>
+								
+							</td>
+							<td>
+								尺寸，颜色，效果，加工
+							</td>
+							
+							<td >
+								<span class="pull-left pic">9000</span>
+								<div class="cfs pull-left">
+									<a class="jian">-</a>
+									<input class="lskdo" type="text" value="1" />
+									<a class="jia">+</a>
+								</div>
+								
+							</td>
+							<td class="tbody-eit">
+								<a href="">添加购物车</a>
+								<a href="">查看</a>
+								<a href="">找相似</a>
+							</td>
+						</tr>
+							<tr>
+								<td><input type="checkbox" name="" id="" value="" />1</td>
+								<td>500</td>
+								
+								<td>共4种</td>
+								<td>个</td>
+								<td>
+									
+								</td>
+								<td>
+								尺寸，颜色，效果，加工
+									
+								</td>
+								
+								<td >
+									<span class="pull-left pic">9000</span>
+									<div class="cfs pull-left">
+										<a class="jian">-</a>
+										<input class="lskdo" type="text" value="1" />
+										<a class="jia">+</a>
+									</div>
+									
+								</td>
+								<td class="tbody-eit">
+									<a href="">签约商家</a>
+									<a href="">查看</a>
+									<a href="">找相似</a>
+								</td>
+							</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="100" class="">
+
+								<nav class="pull-right">
+								  <ul class="pagination">
+								    <li><a href="#">&laquo;</a></li>
+								    <li><a href="#">1</a></li>
+								    <li><a href="#">2</a></li>
+								    <li><a href="#">3</a></li>
+								    <li><a href="#">4</a></li>
+								    <li><a href="#">5</a></li>
+								    <li><a href="#">&raquo;</a></li>
+								  </ul>
+								</nav>
+							
+							</td>
+							
+							
+						</tr>
+					</tfoot>
+			  	</table>
+			</div>
+
+		</div>
+	
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){	
+
+
+				$(".all").change(function(){
+
+	                if($(this).prop("checked")){
+	                    $("input").each(function () {
+							$(this).prop("checked", true);
+				
+					});
+	                }else{
+	                    $("input").each(function () {
+	                        $(this).prop("checked", false);
+	                    });
+	                }
+           		});
+           		//商品详情页面的数量加减
+
+				
+				$(".jian").click(function(){
+					var lsoek=$(this).parent().find(".lskdo");
+					if(lsoek.val()>0){			
+						var lskoe=parseInt(lsoek.val());			
+
+						lsoek.val(lskoe-1);
+
+						}else{}
+					})
+				
+				$(".jia").click(function(iiii){
+					var lsoek=$(this).parent().find(".lskdo");	
+						var lskoe=parseInt(lsoek.val());
+
+						lsoek.val(lskoe+1);	
+
+				
+					})
+				$(".act").click(function(){
+					$(".act-item").show()
+				})
+				$(".act-item").click(function(){
+					$(".act-item").hide()
+				})
+			})
+	
+
+    
+		</script>
+	</body>
+</html>

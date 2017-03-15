@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/scarlett.css" />
+	</head> 
+
+	<body> 
+		<h3 class="col-md-12 title title1 bok-o-t"><a class="dthis" href="">订单数据报表</a><a href="">客户订单报表</a></h3>
+		<div class="col-md-12 con">
+			<div class="panel panel-default">
+				<div class="wrap1">
+					<div class="goods-fix">
+						<div class="staff-chos">
+							<select name="">
+								<option value="" selected>订单</option>
+								<option value="">退单</option>
+							</select>
+						</div>
+						<div class="rec-time">
+							<span class="wdate-time">
+								<input id="d4311" class="Wdate " type="text" onFocus="WdatePicker({dateFmt:'yyyy-M-d'})" placeholder="起始时间" value=""/>
+							</span> 
+							<span class="wrp-to fa fa-calendar"></span>
+							<span class="wdate-time">
+								<literal>
+									<input id="d4312" class="Wdate" type="text" onFocus="WdatePicker({dateFmt:'yyyy-M-d',minDate:'#F{$dp.$D(\'d4311\')}'})" placeholder="截止时间" value=""/>
+								</literal>
+							</span>
+						</div>
+						<div class="staff-chos">
+							<select name="">
+								<option value="" selected>客户类型</option>
+								<option value="">类型一</option>
+								<option value="">类型二</option>
+							</select>
+						</div>
+						<div class="pull-left ss-btn">
+							<button type="button">查询</button>					    
+						</div>
+					</div>
+				</div>
+				<div class="report_tipBlk">
+					<div class="report_tipBlkLef1">
+						<label>客户数：<span>564</span></label>
+						<label>订单数：<span>564</span></label>
+						<label>订单金额：<span>665765</span></label>
+					</div>
+					<div class="report_tipBlkRig">
+						<div class="report_tipRigBlk">
+							<span>统计方式：</span>
+							<label><input type="radio" name="data_type_data" checked="checked"/><span>客户</span></label>
+							<label><input type="radio" name="data_type_data"/><span>级别</span></label>
+						</div>
+					</div>
+				</div>
+				<div class="report_grap">
+					<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+					<div id="pie_graph" style="height:400px"></div>
+				</div>
+				<input />
+				<table class="table table-cus">
+					<thead>
+						<tr>
+			    			<th>客户(<span id="reportFirstDay">起始时间</span>-<span id="reportLastDay">截止时间</span>)</th>
+			    			<th>订单数</th>
+			    			<th>订单金额</th>
+			    		</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>2016-1</td>
+							<td>10</td>
+							<td>600.00</td>
+						</tr>
+						<tr>
+							<td>2016-2</td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/echarts.js"></script>
+		<script src="js/WdatePicker.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				/*饼状图js*/
+				//数据模拟
+				var data_ordCate={};
+				$.ajax({
+				  type: 'POST',
+				  url: "test.json",
+				  //data: "发送到服务器的参数",
+				  dataType: "json",
+				  async:false,
+				  success: function(data){
+				  	data_ordCate=data;
+				  },
+				  error:function(){
+				  	data_ordCate={"status":"200","statu":"true","data":[{"id":"3232","detail":{"value":"2333.00","name":"客户名称一，客户名称一价格：￥784"}},{"id":"122","detail":{"value":"333.00","name":"客户名称二，客户名称二价格：￥7838"}},{"id":"532","detail":{"value":"234.00","name":"客户名称三，客户名称三价格：￥765"}},{"id":"333","detail":{"value":"334.00","name":"客户名称四，客户名称四价格：￥876"}},{"id":"332","detail":{"value":"5333.00","name":"客户名称五，客户名称五价格：￥1234"}},{"id":"432","detail":{"value":"3233.00","name":"客户名称六，客户名称六价格：￥212"}},{"id":"1432","detail":{"value":"23233.00","name":"客户名称七，客户名称七价格：￥2121"}},{"id":"6432","detail":{"value":"63233.00","name":"客户名称八，客户名称八价格：1222"}},{"id":"7432","detail":{"value":"733.00","name":"客户名称九，客户名称九价格：￥2323"}},{"id":"7432","detail":{"value":"1903.00","name":"其他,其他客户价格：￥1287"}}]};
+				  }
+				});
+				var data_nameAry=[];
+				var data_detailAry=[];
+				for(var i=0;i<data_ordCate.data.length;i++){
+					data_nameAry.push(data_ordCate.data[i].detail.name);
+					data_detailAry.push(data_ordCate.data[i].detail);
+				}
+				
+				
+				
+				// 路径配置
+		        require.config({
+		            paths: {
+		                echarts: 'js'
+		            }
+		        });
+		         
+		         // 使用
+		        require(
+					[
+		                'echarts',
+		               'echarts/chart/pie'
+		            ],
+		            function (ec) {
+		                 // 基于准备好的dom，初始化echarts图表
+		                var myPie_graph = ec.init(document.getElementById('pie_graph')); 
+		                
+		                var option = {
+						    tooltip : {
+						        show: true,
+						        formatter: "{a} <br/>{b} : {c} ({d}%)"
+						    },
+						    legend: {
+						        orient : 'vertical',
+						        //x : 'left',
+						        x:"55%",
+						        y:"50",
+						        //data:['宝石','水晶','铂金','黄金','银','玻璃']
+						        data:data_nameAry
+						    },
+						    series : [
+						        {
+						            name:'访问来源',
+						            type:'pie',
+						            itemStyle:{normal:{labelLine:false}},
+						            center : ['30%',200],
+						            //radius : [110, 140],
+//						            data:[
+//						                {value:335, name:'宝石'},
+//						                {value:310, name:'水晶'},
+//						                {value:234, name:'铂金'},
+//						                {value:135, name:'黄金'},
+//						                {value:1048, name:'银'},
+//						                {value:251, name:'玻璃'}
+//						            ]
+									data:data_detailAry
+						        }
+						    ]
+						};
+		        
+		                // 为echarts对象加载数据 
+		                myPie_graph.setOption(option); 
+		            }
+		        );
+			})
+		</script>
+	</body> 
+
+</html>

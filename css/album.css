@@ -1,0 +1,251 @@
+.album{
+	width:100%;
+	overflow:hidden;
+}
+
+.album-image-md{
+	position:relative;
+	z-index:1;
+	margin:0 auto;
+	overflow:hidden;
+	width: 100%;
+	padding: 10px;
+}
+
+.album-image-bd{
+	position:relative;
+	z-index:1;
+	margin:0 auto;
+	/*height:425px;*/
+	text-align:center;
+	overflow:hidden;
+}
+.album-image-bd img{
+	width: 100% !important;
+	height: 100% !important;
+}
+.album-image{
+	text-align: center;
+}
+
+.album-image-ft{
+	margin:0 auto;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	overflow:hidden;
+}
+
+#album-image-ft{
+	font-size:12px;
+}
+
+.album-image-nav{
+	position:absolute;
+	z-index:2;
+	top:0;
+	left:0;
+	margin:0;
+	padding:0;
+	width:100%;
+	/*height:425px;*/
+	overflow:hidden;
+}
+
+.album-image-nav .album-image-nav-left-block{
+	position:relative;
+	z-index:1;
+	float:left;
+	margin:0;
+	width:50%;
+	height:425px;
+	list-style-type:none;
+	overflow:hidden;
+}
+
+.album-image-nav .album-image-nav-right-block{
+	position:relative;
+	z-index:1;
+	float:left;
+	margin:0;
+	width:50%;
+	height:425px;
+	list-style-type:none;
+	overflow:hidden;
+}
+
+.album-image-btn-prev:link,.album-image-btn-prev:visited,.album-image-btn-prev:hover{
+	position:absolute;
+	z-index:2;
+	top:50%;
+	left:20px;
+	margin:-37.5px 0 0 0;
+	width:38px;
+	height:75px;
+	background: url(../img/pre.png) no-repeat;
+	overflow:hidden;
+}
+
+.album-image-btn-next:link,.album-image-btn-next:visited,.album-image-btn-next:hover{
+	position:absolute;
+	z-index:2;
+	top:50%;
+	right:20px;
+	margin:-37.5px 0 0 0;
+	width:38px;
+	height:75px;
+	background: url(../img/next.png) no-repeat;
+	overflow:hidden;
+}
+
+.album-image-loading-overlay{
+	position:absolute;
+	z-index:4;
+	top:0;
+	left:0;
+	margin:0;
+	width:980px;
+	height:425px;
+	background-color:#FFF;
+	opacity: 0.6;
+	filter:alpha(opacity=60);
+	overflow:hidden;
+}
+
+.album-image-loading-overlay img{
+	position:absolute;
+	z-index:4;
+	top:50%;
+	left:50%;
+	margin:-50px  0 0 -50px;
+	width:100px;
+	height:100px;
+}
+
+.album-carousel{
+	margin:0 auto;
+	width:100%;
+	height:92px;
+	overflow:hidden;
+	position: relative;
+	border-top: 1px solid #e9e9e9;
+	padding-top: 10px;
+	margin-top: 5px;
+}
+.album-carousel-btn-prev,.album-carousel-btn-next{
+	position: absolute;
+	z-index: 99;
+	width: 25px;
+	height: 34px;
+    margin-top: 17.5px;
+}
+.album-carousel-btn-prev:link,.album-carousel-btn-prev:visited,.album-carousel-btn-prev:hover{
+	left: 2px;
+	overflow:hidden;
+	background: url(../img/pre.png) no-repeat;
+    background-size: 100% 100%;
+	
+}
+
+.album-carousel-btn-next:link,.album-carousel-btn-next:visited,.album-carousel-btn-next:hover{
+	right: 2px;
+	overflow:hidden;
+	background: url(../img/next.png) no-repeat;
+    background-size: 100% 100%;
+	
+}
+
+/*.album-carousel-btn-prev:hover,.album-carousel-btn-next:hover{
+	opacity: 1;
+	filter: alpha(opacity=100);
+}*/
+
+.album-carousel-zone{
+	position:relative;
+	z-index:1;
+	float:left;
+	margin:0;
+	width:84%;
+	margin-left: 8%;
+	height:84px;
+	overflow:hidden;
+}
+
+.album-carousel-list{
+	position:absolute;
+	z-index:2;
+	top:0;
+	left:0;
+	margin:0;
+	padding:0;
+	width:1760px !important;
+    height:84px;
+	overflow:hidden;
+}
+
+.album-carousel-list .album-carousel-thumb{
+	position:relative;
+	z-index:3;
+	float:left;
+	margin:0 8px;
+	list-style-type:none;
+	width:72px;
+	height:72px;
+	overflow:hidden;
+}
+.album-carousel-list .album-carousel-thumb:first-child{
+	margin-left: 0;
+}
+.album-carousel-thumb a:link,.album-carousel-thumb a:visited,.album-carousel-thumb a:hover{
+	position:absolute;
+	z-index:2;
+	top:0;
+	left:0;
+	width:72px;
+	height:72px;
+	border:1px solid #a3a3a3;
+	overflow:hidden;
+}
+
+.album-carousel-thumb-selected a:link,.album-carousel-thumb-selected a:visited,.album-carousel-thumb-selected a:hover,.album-carousel-thumb a:hover{
+	border:1px solid #7ecef4;
+}
+
+.album-carousel-thumb img{
+	position:absolute;
+	z-index:1;
+	display:block;
+	width:70px;
+	height:70px;
+}
+
+
+
+.hide{
+	display:none;
+}
+#album1-carousel-btn-prev, #album1-carousel-btn-next{
+	width: 38px;
+	height: 75px;
+	margin-top: 147.5px;
+}
+#album1-carousel,#album1-carousel-zone,#album1-carousel-list{
+	height:370px;
+}
+#album1-carousel-list .album-carousel-thumb,#album1-carousel-list .album-carousel-thumb a{
+	width: 240px;
+	height: 370px;
+}
+#album1-carousel-list .album-carousel-thumb img{
+	width: 100%;
+	height: auto;
+}
+#album1-carousel-list .album-carousel-thumb a{
+	border: 0;	
+}
+#album1-carousel-list .album-carousel-thumb{
+	margin: 0;
+}
+#album1-carousel-list .album-carousel-thumb:nth-child(3n-1){
+	margin: 0 35px;
+}

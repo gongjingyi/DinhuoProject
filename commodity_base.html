@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta  name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">        
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css"/>
+	</head>
+	<body>
+		<h3 class="col-md-12 title title2"><a  href="">商品列表</a><span class="bread">&gt;</span><a href="">新增商品</a> </h3>
+		
+		<div class="main-head">
+					<ul class="goods-tab">
+						<li class="good-this">
+							<a href="">基础</a>
+						</li>
+						<li>
+							<a href="">图片与商品详情</a>
+						</li>
+						<li>
+							<a href="">库存预警</a>
+						</li>
+						<li>
+							<a href="">关联商品</a>							
+						</li>
+					</ul>
+		</div>
+		<div class="col-md-12 con con1">
+			<form id="form" action="" method="post"  onsubmit="return validate_form(this)">
+
+				<h6 class="con-tit">基础</h6>
+				<div class="goods-warp">
+						<div class="goods-con">
+							<span class="goods-tit">
+								<i class="red">*</i>商品名称
+							</span>
+							<input type="text" name="product_name" id="" value="" placeholder="最多五十个字" />
+						</div>
+						<div class="goods-con">
+							<span class="goods-tit">
+								<i class="red">*</i>商品编号
+							</span>
+							<input type="text" name="product_number" id="" value=""/>
+						</div>
+						<div class="goods-con">
+							<span class="goods-tit">
+								<i class="red">*</i>商品分类
+							</span>
+							<select name="" >
+								<option value="">请选择分类</option>
+							</select>
+						</div>
+						<div class="goods-con">
+							<span class="goods-tit">
+								<i class="red">*</i>所属仓库
+							</span>
+							<select name="" >
+								<option value="">请选择仓库</option>
+							</select>
+						</div>
+						<div class="goods-con">
+							<span class="goods-tit">
+								商品型号
+							</span>
+							<input type="text" name="" id="" value=""  placeholder="请输入型号规格"/>
+						</div>
+					
+						<div class="goods-con">
+							<span class="goods-tit">商品标签</span> 
+							<div class="goods-labbox">
+								<label>
+									<input type="checkbox" name="" id="" value="" />
+									新品
+								</label>
+								<label>
+									<input type="checkbox" name="" id="" value="" />
+									推荐
+								</label>
+								<label>
+									<input type="checkbox" name="" id="" value="" />
+									热销
+								</label>
+								<label>
+									<input type="checkbox" name="" id="" value="" />
+									赠品
+								</label>
+							</div>
+
+						</div>
+						<div class="goods-con">
+							<span class="goods-tit">上架下架</span> 
+							<div class="button-holder goods-lab">
+								<label>
+									<input type="radio" id="radio-1-1" name="radio-2-set" class="regular-radio" checked /><label for="radio-2-1"></label>
+									上架
+								</label>
+								<label>
+									<input type="radio" id="radio-1-2" name="radio-2-set" class="regular-radio" /><label for="radio-2-2"></label>
+									下架
+	
+								</label>
+								
+							</div>
+
+						</div>
+						
+						<div class="goods-con">
+							<span class="goods-tit">
+								<i class="red">*</i>排序值
+							</span>
+							<input type="text" name="" id="" value="" placeholder="填写数字越大商品越排前面" />
+						</div>
+						<div class="goods-con">
+							<span class="goods-tit">
+								商品品牌
+							</span>
+							<select name="" >
+								<option value="">请选择品牌</option>
+							</select>
+						</div>
+						<div class="goods-con">
+							<span class="goods-tit">
+								关键字
+							</span>
+							<input type="text" name="" id="" value="" placeholder="用空格分离多个关键字，设置后可通过关键字搜索商品"  />
+						</div>
+				</div>
+				<h6 class="con-tit">单位</h6>
+				<div class="goods-warp">
+					<div class="goods-con">
+							<span class="goods-tit">
+								<i class="red">*</i>小单位
+							</span>
+							<select class="goods-ipt" name="">
+								<option value=""></option>
+							</select>
+					</div>
+					<div class="goods-con">
+							<span class="goods-tit">
+								<i class="red">*</i>起订量
+							</span>
+							<input class="goods-ipt1" type="text" name="minimum" id="" value="" placeholder="请输入起订量" />
+							<select class="goods-ipt1" name="">
+								<option value=""></option>
+							</select>
+					</div>
+					<div class="goods-con clearlft">
+							<span class="goods-tit">
+								大单位
+							</span>
+							<select class="goods-ipt" name="">
+								<option value=""></option>
+							</select>
+					</div>
+					<div class="goods-con">
+							<span class="goods-tit">
+								订货限制
+							</span>
+							<div class="button-holder goods-lab">
+								<label>
+									<input type="radio" id="radio-1-1" name="radio-2-set" class="regular-radio" checked /><label for="radio-2-1"></label>
+									正常
+								</label>
+								<label>
+									<input type="radio" id="radio-1-2" name="radio-2-set" class="regular-radio" /><label for="radio-2-2"></label>
+									预售
+	
+								</label>
+								<label>
+									<input type="radio" id="radio-1-3" name="radio-2-set" class="regular-radio" /><label for="radio-2-3"></label>
+									停售
+	
+								</label>
+								
+							</div>
+					</div>
+					<div class="goods-con">
+							<span class="goods-tit">
+								换算关系
+							</span>
+							<input class="goods-ipt" type="text" name="" id="" value="" placeholder="1大单位=多少1单位" />
+					</div>
+				</div>
+
+				<h6 class="con-tit">价格</h6>
+				<div class="goods-warp">
+					<div class="goods-con">
+							<span class="goods-tit">
+								<i class="red">*</i>
+								订货价
+							</span>
+							<input id="order_price" class="goods-ipt" type="text" name="price" id="" value="" placeholder="如：30" />
+					</div>
+					<div class="goods-con">
+							<span class="goods-tit">
+								<i class="red">*</i>
+								市场价
+							</span>
+							<input class="goods-ipt" type="text" name="" id="" value="" placeholder="如：30" />
+					</div>
+					<div class="goods-con">
+							<span class="goods-tit">
+								<i class="red">*</i>
+								进货价
+							</span>
+							<input class="goods-ipt" type="text" name="" id="" value="" placeholder="如：30" />
+					</div>
+					
+					<div class="goods-sp">
+						<label class="act-inp">
+							此商品有多种规格
+	                	</label>
+	                	<a class="add-sp">
+	                		＋添加多规格类型
+	                	</a>
+					</div>
+						<div class="level-dift">
+							<div class="level-tit">
+								多种规格价格不同
+							</div>
+							<table id="com-id" class="table table-bordered">
+						    	<thead>
+						    		<tr>
+						    			<!--<th width="10" ></th>
+						    			<th class="ggone" width="12%" >规格1</th>
+						    			<th class="ggtwo" width="12%" >规格2</th>
+						    			<th width="14%" >商品规格编号</th>
+						    			<th width="14%" >订货价</th>
+						    			<th width="14%" >市场价</th>
+						    			<th width="14%" >指定价</th>
+						    			<th width="10%" >操作</th>-->
+						    		</tr>
+						    	</thead>
+								<tbody>
+									<!--<tr>-->
+	
+										<!--<td>1</td>
+										
+										<td>三三</td>
+										<td>10198</td>
+										<td><input type="text" name="" id="" value="" /></td>
+										<td> <input type="text" name="" id="" value="" /></td>
+										<td> <input type="text" name="" id="" value="" /></td>
+										<td> <input type="text" name="" id="" value="" /></td>
+										<td>
+											<a href="">删除</a>
+										</td>
+										<td>
+											<input class='og-sty upload' type='button' value='上传图片' >
+										</td>-->
+									<!--</tr>-->
+	
+								</tbody>
+							</table>
+					</div>
+				
+					
+					<div class="level">
+						<div class="level-tit">
+							<input class="checkboxGrade" name="is_level" type="checkbox">
+							等级价 <span>（不同客户类型指定价格）</span>
+							<span id="zdjs" class="cal pull-right" >自动计算订货价</span>
+						</div>
+						<table id="dhj" class="table table-bordered comp">
+					    	<thead>
+					    		<tr>
+					    			<th width="55%" >客户类型</th>
+					    			<th width="20%" >等级折扣</th>
+					    			<th width="25%" >订货价</th>		    			
+					    		</tr>
+					    	</thead>
+							<tbody>
+								<tr>
+									<td>代理商</td>
+									<td><input type="text" name="discounts[14]" id="" value="80" /></td>
+									<td class="od-pic"> </td>
+								
+								</tr>
+								<tr>
+									<td>经销商</td>
+									<td><input type="text" name="discounts[15]" id="" value="90" /></td>
+									<td  class="od-pic"></td>
+								
+								</tr>
+								<tr>
+									<td>新客户</td>
+									<td><input type="text" name="discounts[16]" id="" value="100" /></td>
+									<td  class="od-pic"> </td>
+								
+								</tr>
+							</tbody>
+						</table>
+					
+					
+						
+						<div class="level-tit">
+							<input class="checkboxAssign" name="is_custom" type="checkbox">
+							指定价 <span>（指定某个客户定价）</span>
+							<a class="cal choose-cus" >＋ 选择客户</a>
+						</div>
+						<table id="base-tab" class="table table-bordered comp specify ">
+					    	<thead>
+					    		<tr>
+					    			<th width="18%" >客户姓名</th>
+					    			<th width="18%" >客户编号</th>
+					    			<th width="18%" >客户类型</th>
+					    			<th width="18%" >客户地区</th>
+					    			<th width="18%" >订货价</th>
+					    			<th width="10%" >操作</th>
+					    		</tr>
+					    	</thead>
+							<tbody>
+								<!--<tr>
+									<td>三三</td>
+									<td>10198</td>
+									<td>数码</td>
+									<td>法国</td>
+									<td><input type="text" name="" id="" value="" /></td>
+									<td>
+										<a href="">删除</a>
+									</td>
+								</tr>-->
+
+							</tbody>
+						</table>
+					
+					
+					</div>
+					
+				</div>
+
+				<!--<div class="messageSet" id="messageSet">
+					<ul></ul>
+				</div>-->
+				<!--信息完善提示弹窗-->
+				<div class="dialog modal fade js-message-modal in inventoryConfirm3" id="messageSet" style="display: none;">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-cont-mark fa fa-exclamation-circle"></div>
+							<div class="modal-cont-text">
+		                        <ul>
+		                        </ul>
+		                    </div>
+						</div>
+					</div>
+				</div>
+				<div class="subtn">
+					<input type="submit" value="确定"/> <input type="button" id="" value="取消" />
+				</div>
+			</form>
+		</div>
+		<div class="pop">
+			<div class="poper"></div>
+			<div class="pop-warp">
+				<form action="" method="post">
+					<h5 class="pp-tit">
+						<span class="">
+							选择商品
+						</span>
+						<i class="pop-close pull-right">X</i>
+					</h5>
+					<div class="rel-con">
+						<div class="goods-fix">
+						<div class="sear">
+							<input type="text" class="form-control" placeholder="客户名称/首字母/手机号/联系人/编号/备注">
+							   <span class="input-group-btn">
+						        <button class="btn btn-default" type="button">Go!</button>
+						      </span>
+						</div>
+						<div class="staff-chos">
+							<select name="">
+								<option value="" selected>客户类型</option>
+								<option value="">全部</option>
+								<option value="">内勤</option>
+							</select>
+						</div>
+						
+						<div class="staff-chos">
+							<select name="" >
+								<option value="" selected>客户编号</option>
+								<option value="">全部</option>
+								<option value="">启用</option>
+								<option value="">禁用</option>
+							</select>
+						</div>
+						<div class="staff-chos">
+							<select name="" >
+								<option value="" selected>归属地区</option>
+								<option value="">全部</option>
+								<option value="">启用</option>
+								<option value="">禁用</option>
+							</select>
+						</div>
+						
+						
+						<div class="staff-chos">
+							<select name="" >
+								<option value="" selected>账号状态</option>
+								<option value="">全部</option>
+								<option value="">启用</option>
+								<option value="">禁用</option>
+							</select>
+						</div>
+						
+						
+					</div>
+					<table id="base-as" class="table table-cus table-bordered">
+					    	<thead>
+					    		<tr>
+					    			<th width="8%"><input class="all" type="checkbox" name="" id="" value="" /></th>
+					    			<th width="32%" >客户名称</th>
+					    			<th width="15%" >客户编号</th>
+					    			<th width="15%">客户类型</th>
+					    			<th width="15%">客户地区</th>
+					    			<!--<th width="15%">业务员</th>-->
+					    			
+					    		</tr>
+					    	</thead>
+					    	<tbody>
+								<tr>
+									<td><input type="checkbox" name="" id="" value="" />1</td>
+									<td class="base-name">昆明玉龙商贸有限公司</td>
+									<td class="base-nub">10019</td>
+									<td class="base-style">贵阳地区代理</td>
+									<td class="base-ads">西南</td>
+									<!--<td>三三</td>-->
+
+								</tr>
+								<tr>
+									<td><input type="checkbox" name="" id="" value="" />2</td>
+									<td class="base-name">昆明玉龙</td>
+									<td class="base-nub">10019</td>
+									<td class="base-style">贵阳地区代理</td>
+									<td class="base-ads">西南</td>
+									<!--<td>三三</td>-->
+
+								</tr>
+							</tbody>
+					    	
+					    	<tfoot>
+								<tr>
+									<td colspan="100" class="">
+		
+										<nav class="pull-right">
+										  <ul class="pagination">
+										    <li><a href="#">&laquo;</a></li>
+										    <li><a href="#">1</a></li>
+										    <li><a href="#">2</a></li>
+										    <li><a href="#">3</a></li>
+										    <li><a href="#">4</a></li>
+										    <li><a href="#">5</a></li>
+										    <li><a href="#">&raquo;</a></li>
+										  </ul>
+										</nav>
+									
+									</td>
+									
+									
+								</tr>
+							</tfoot>
+					  	</table>
+					
+					</div>
+											
+					<div class="pp-ft">
+						<div class="subtn pull-right">
+							<input id="base-asbtn" class="pp-btn" type="button" value="确定"/> <input class="pbtn" type="button" id="" value="取消" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<div class="pop1">
+			<div class="poper"></div>
+			<div class="pop-warp">
+				<form action="" method="post">
+					<h5 class="pp-tit">
+						<span class="">
+							添加多规格类型
+						</span>
+						<i class="pop-close pull-right">X</i>
+					</h5>
+					<div class="rel-con">
+						<div class="set-tit">
+    						<span>没有需要的规格类型？<span class="desc">（最多选择两种规格类型）</span></span>
+   								 <a class="go-set" href="">去配置&gt;&gt;</a>
+						</div>
+						<div class="con-dl">
+							<label class="con-item">
+								<input type="checkbox" name="" id="" value=""/>颜色</label>
+							
+							<div class="con-dl-con">
+								<div class="con-dl-con-item">
+									<div class="add-po">
+										<label class="item-list"><input type="checkbox" name="" id="" value=""/>红</label>
+										<div class="add-picture">
+											+图片
+										</div>
+									</div>
+									<div class="add-po">
+										<label class="item-list"><input type="checkbox" name="" id="" value=""/>白</label>
+									</div>
+									<div class="add-po">
+										<label class="item-list"><input type="checkbox" name="" id="" value=""/>黄</label>
+									</div>
+
+
+									
+								</div>
+								
+							</div>
+							
+						</div>
+						<div class="con-dl">
+							<label class="con-item">
+								<input type="checkbox" name="" id="" value=""/>尺寸</label>
+							
+							<div class="con-dl-con">
+								<div class="con-dl-con-item">
+									<label class="item-list "><input type="checkbox" name="" id="" value=""/>l</label>
+									<label class="item-list"><input type="checkbox" name="" id="" value=""/>m</label>
+									<label class="item-list"><input type="checkbox" name="" id="" value=""/>s</label>
+									
+								</div>
+								
+							</div>
+							
+						</div>
+						
+						<div class="con-dl">
+							<label class="con-item">
+								<input type="checkbox" name="" id="" value=""/>类型</label>
+							
+							<div class="con-dl-con">
+								<div class="con-dl-con-item">
+									<label class="item-list "><input type="checkbox" name="" id="" value=""/>普通</label>
+									<label class="item-list"><input type="checkbox" name="" id="" value=""/>经典</label>
+								
+								</div>
+								
+							</div>
+							
+						</div>
+						
+					</div>
+					
+					<div class="pp-ft">
+						<div class="subtn pull-right">
+							<input id="base-more" class="pp-btn" type="button" value="确定"/> <input class="pbtn" type="button" id="" value="取消" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){	
+				
+		   		$(".choose-cus").click(function(){
+		   			$(".pop").show()
+		   		})
+		   		$(".add-sp").click(function(){
+		   			$(".pop1").show()
+		   		})
+		   		$(".pbtn").click(function(){
+		   			$(".pop").hide()
+		   			$(".pop1").hide()
+		   			
+		   			
+		   		})
+		   		$(".poper").click(function(){
+		   			$(".pop").hide()
+		   			$(".pop1").hide()
+		   			
+		   		})
+		   		$(".pop-close").click(function(){
+		   			$(".pop").hide()
+		   			$(".pop1").hide()
+		   			
+		   		})
+				$(".all").change(function(){
+
+	                if($(this).prop("checked")){
+	                    $(".table input").each(function () {
+							$(this).prop("checked", true);
+				
+					});
+	                }else{
+	                    $(".table input").each(function () {
+	                        $(this).prop("checked", false);
+	                    });
+	                }
+           		});
+           		
+           		$(".act-inp input").change(function(){
+
+	                if($(this).prop("checked")){
+
+	                    $(".add-sp").show();
+	                    $(".level-dift").show();
+	                }else{
+
+	                   $(".add-sp").hide();
+	                   $(".level-dift").hide();
+	                   
+	                }
+           		});
+           		
+           		//设置
+           		$(".con-item input").change(function(){    
+
+				    if($(this).prop("checked")){
+
+						$(this).parent().next().children().find("input").each(function () {
+
+							$(this).prop("checked", true);
+						});
+						
+					}else{
+
+						$(this).parent().next().children().find("input").each(function () {
+							$(this).prop("checked", false);
+						});						
+					}
+
+				});
+	           $(".item-list input").change(function(){    
+	
+					    if($(this).prop("checked")){
+	
+							$(this).parent().parent().parent().prev().children().each(function () {
+	
+								$(this).prop("checked", true);
+							});
+							
+							$(this).parent().parent().parent().parent().prev().children().each(function () {
+	
+								$(this).prop("checked", true);
+							});
+						}else if($(this).parent().parent().children().find($(".item-list input:checked")).length==0&&$(this).parent().parent().parent().children().find($(".item-list input:checked")).length==0){
+
+								$(this).parent().parent().parent().prev().children().each(function () {
+									$(this).prop("checked", false);
+								})
+								$(this).parent().parent().parent().parent().prev().children().each(function () {
+									$(this).prop("checked", false);
+								})
+								
+							}else{
+								$(this).parent().parent().parent().prev().children().each(function () {
+									$(this).prop("checked", true);
+									})
+								$(this).parent().parent().parent().parent().prev().children().each(function () {
+									$(this).prop("checked", true);
+									})
+								};
+
+				});
+           
+           		
+			})
+			//多规格
+			$(document).ready(function(){
+				
+							
+				$("#base-more").click(function(){
+						$("#com-id thead tr").html("");
+						$("#com-id tbody").html("");
+						$(".level-dift").show()
+						var $aa=$(".pop1 .con-item input:checked");
+						var cs=$aa.length;
+						var $a=[];
+						var table=[];
+						/*插标题*/
+						for(var i=0; i<=$aa.length-1;i++){
+							$a[i]=$($aa[i]).parent().text();
+						}
+						for(var f=0;f<$aa.length;f++){
+							table[0]="";
+							table[f+1]=$a[f];
+							table[cs+1]="订货价";
+						}										
+						for(var k1=0;k1<table.length;k1++){
+							$("#com-id thead tr").append("<th>"+table[k1]+"</th>");
+						}
+						/*插表格下内容*/
+						var strAry=	new Array($aa.length);
+						for(var d=0;d<$aa.length;d++){
+							var aaa=[];
+							var $la=$($aa[d]).parent().parent().find(".item-list input:checked").parent()
+							for(var s=0;s<$la.length;s++){
+								aaa.push($($la[s]).text())
+							}
+							strAry[d]=aaa;
+						}
+						var ary1 = new Array();
+						var ary2 = new Array();
+						/*var arya=[[1,2],[8],[3,4,5],[6,7]];*/
+						for(var i=0;i<strAry.length;i++){
+							ary2 =clone(ary1)
+							ary1=[];
+							for(var j=0;j<strAry[i].length;j++){
+								if(i==0){
+									var e=[];
+									e[i]=strAry[i][j]
+									ary1.push(e); 
+								}else{
+									for(var k=0;k<ary2.length;k++){
+										var e= clone(ary2[k]);
+										e[i]=strAry[i][j];
+										ary1.push(e);
+									}
+								}
+							}
+						}
+
+						  
+						function clone(ary){
+							var nary = [];
+							for(var i=0;i<ary.length;i++){
+								nary.push(ary[i])
+							}
+							return nary ;
+						}
+						
+						for(var w=0,ww=1;w<ary1.length;w++,ww++){
+							$("#com-id tbody").append("<tr></tr>");
+							$("#com-id tbody tr:last-child")
+							var whtml="<td>"+ww+"</td>";
+							for(var w1=0;w1<ary1[w].length;w1++){
+								whtml+="<td>"+ary1[w][w1]+"</td>";
+							}
+							whtml+="<td><input type='text'></td>";
+							$("#com-id tbody tr:last-child").html(whtml);
+						}
+
+
+
+						/*不用管*/
+		   				$(".pop1").hide()
+
+						
+					})
+				})
+			//选择客户
+			$(document).ready(function(){
+				$("#base-asbtn").click(function(){	
+					$checked=$("#base-as tbody input:checked").parent().parent();
+					var $acheckedc=$($("#base-as tbody tr")[0]).find('td');
+					var table1 = new Array($checked.length);
+					for(var q=0;q<table1.length;q++){
+					    table1[q] = new Array($acheckedc.length-2);
+					}
+					var $achecked=[];
+					var $acheckedc=[];
+					for(var g=0;g<$checked.length;g++){
+						for(var f=1;f<$($checked[g]).find('td').length;f++){
+							table1[g][f-1]=$($($checked[g]).find('td')[f]).text();
+							table1[g][4]="<input type='text' value='' name='customer["+f+"]'>";
+							table1[g][5]="<a href='#'>删除</a>";
+						}
+					}
+				
+						for(var k1=0;k1<table1.length;k1++){
+							$("#base-tab tbody").append("<tr></tr>");
+							var hh="<td>"+table1[k1][0]+"</td><td>"+table1[k1][1]+"</td><td>"+table1[k1][2]+"</td><td>"+table1[k1][3]+"</td><td>"+table1[k1][4]+"</td><td>"+table1[k1][5]+"</td>";						
+							$("#base-tab tbody tr:last-child").html(hh);
+						}
+						
+					$(".pop").hide()
+
+					
+					$("#base-as tbody input:checked").attr("disabled","true")
+					$(".all").attr("disabled","true")
+					$("#base-as tbody input:checked").removeAttr("checked");
+					$(".all").removeAttr("checked")
+					
+
+					
+					
+					
+			   	})
+				//计算订货价
+				$("#zdjs").click(function(){
+					var $ss= $("#order_price").val();
+					var $val=$(".od-pic").prev().children("input");
+					var $cs=[];
+					var $sv=[];					
+					for(var se=0; se<$val.length; se++){
+						$sv[se]= $($val[se]).val().split("%",1);
+						$cs[se]=$sv[se]*$ss/100;
+						$($("#dhj tbody tr")[se]).children(".od-pic").html($cs[se])
+					}
+		
+				})
+				
+			  })
+		</script>
+	<!--表单校验-->
+    <script>
+    	
+       	function validate_required(field,alerttxt){
+		    with (field){
+		    	//错误提示
+		        function creElement(clsName,fieldVal){
+		            if(fieldVal){
+		                //不创建错误提示
+		                var clsNameEle=document.getElementsByClassName(clsName);
+		                if(clsNameEle[0]){
+		                    clsNameEle[0].parentNode.removeChild(clsNameEle[0]);
+		                }
+		            }else{
+		                var clsNameEle=document.getElementsByClassName(clsName);
+		                if(clsNameEle[0]){
+		                    clsNameEle[0].parentNode.removeChild(clsNameEle[0]);
+		                }
+		                var newItem=document.createElement("li");
+		                newItem.className=clsName+" red";
+		                newItem.innerHTML=alerttxt;
+		                $("#messageSet ul").append(newItem);
+		            }
+		        }
+		        //商品名称
+		        function checkName(){
+		        	var str = field.value;
+		        	var patt = new RegExp(/\S+/g);
+		        	if(str && str.length<250 && patt.test(str)){
+		        		creElement(field.name,"test");
+		        		return true;
+		        	}else{
+		        		creElement(field.name);
+		                return false;
+		        	}
+		        }
+		        //商品编号
+		        function checkCode(){
+		        	var patt = new RegExp(/\S+/g);
+		        	var str = field.value;
+		        	var patt2 = new RegExp(/\S*sku\S+product_code\S*/g);//规格中商品编号
+		        	var patt3 = new RegExp(/\S*sku\S+bar_code\S*/g);//规格中条形码
+		        	if((str && patt.test(str) && str.length<250) || (str==""||str==null)){
+		        		if(patt2.test(field.name)){
+		        			creElement("GdCode","test");
+		        			return true;
+		        		}else if(patt3.test(field.name)){
+		        			creElement("GdBar","test");
+		        			return true;
+		        		}else{
+		        			creElement("product_number","test");
+		        			return true;
+		        		}
+		        		
+		        	}else{
+		        		if(patt2.test(field.name)){
+		        			creElement("GdCode");
+		                	return false;
+		        		}else if(patt3.test(field.name)){
+		        			creElement("GdBar");
+		                	return false;
+		        		}else{
+		        			creElement("product_number");
+		                	return false;
+		        		}
+		        	}	
+		        }
+		        //商品价格
+		        function checkPri(){
+		        	console.log(field.name);
+		        	var patt = new RegExp(/^\d+$/);
+		        	var str = field.value;
+		        	var patt1 = new RegExp(/\S*sku\S+price\S*/g);//规格中商品价格
+		        	if((str==""||str==null)){
+		        		if((patt1.test(field.name))){
+		        			creElement("GdPrice");
+			        		return false;
+		        		}else{
+		        			creElement(field.name,"test");
+		        			return true;
+		        		}
+		        	}else{
+		        		if((str && patt.test(str) && parseFloat(str) && parseFloat(str)>0)){
+		        			if(patt1.test(field.name)){
+			        			creElement("GdPrice","test");
+			        			return true;
+			        		}else{
+			        			creElement(field.name,"test");
+			        			return true;
+			        		}
+		        		}else{
+		        			if(patt1.test(field.name)){
+			        			creElement("GdPrice");
+			        			return false;
+			        		}else{
+			        			creElement(field.name);
+			                	return false;
+			        		}
+		        		}
+		        	}
+		        	/*if((str && patt.test(str) && parseFloat(str) && parseFloat(str)>0) || (str==""||str==null)){
+		        		if(patt1.test(field.name)){
+		        			creElement("GdPrice","test");
+		        			return true;
+		        		}else{
+		        			creElement(field.name,"test");
+		        			return true;
+		        		}
+		        	}else{
+		        		if(patt1.test(field.name)){
+		        			creElement("GdPrice");
+		        			return false;
+		        		}else{
+		        			creElement(field.name);
+		                	return false;
+		        		}
+		        		
+		        	}	*/
+		        }
+		        //商品最小起订量
+		        function checkMinNum(){
+		        	var patt = new RegExp(/^\d+$/);
+		        	var str = field.value;
+		        	if(str && patt.test(str) && parseInt(str) && parseInt(str)>0){
+		        		creElement("minimum",field.value);
+		        		return true;
+		        	}else{
+		        		creElement("minimum");
+		                return false;
+		        	}	
+		        }
+		        //商品折扣
+		        function checkDis(){
+		        	var patt = new RegExp(/^\d+$/);
+		        	var str = field.value;
+		        	if(str && patt.test(str) && parseInt(str) && parseInt(str)>=0 && parseInt(str)<=100){
+		        		if(((field.name).indexOf("discounts")!=-1)){
+		        			creElement("discounts",field.value);
+		        			return true;
+		        		}else if(((field.name).indexOf("customer")!=-1)){
+		        			creElement("customer",field.value);
+		        			return true;
+		        		}
+		        	}else{
+		        		creElement(field.name);
+		                return false;
+		        	}	
+		        }
+		        //添加图片
+		        function checkImg(){
+		        	var uploda=$("#uploader li");
+		        	if(uploda && uploda.length>1){
+		        		creElement("uploadli","test");
+		        		return true;
+		        	}else{
+		        		creElement("uploadli");
+		                return false;
+		        	}	
+		        }
+		        //商品描述
+		        function checkDes(){
+	        		if(field[0] && field[0].innerHTML && field[0].innerHTML.trim()!="<br>"){
+	                    creElement("descriptionli","test");
+	                    return true;
+	                }else{
+	                    creElement("descriptionli");
+	                    return false;
+	                }
+		        }
+		        //商品规格
+		        function checkSpe(){
+		        	var item_list=$("#rel-con").find(".item-list input:checked");
+	                if(item_list.length>0){
+	                    creElement("specificationli","heh");
+	                    return true;
+	                }else{
+	                	creElement("specificationli");
+	                    return false;
+	                }	
+		        }
+		        	//名称
+			       	if(field.name && (field.name).indexOf("product_name")!=-1){
+			        	if(checkName()==false){
+			        		return false;
+			        	}else{
+			        		return true;
+			        	}
+			        }
+			       	//编号
+			        var patt2 = new RegExp(/\S*sku\S+product_code\S*/g);//规格中商品编号
+			        var patt3 = new RegExp(/\S*sku\S+bar_code\S*/g);//规格中条形码
+			       	if((field.name) && ((field.name).indexOf("product_number")!=-1 || (patt2.test(field.name)) || (patt3.test(field.name)))){
+			        	if(checkCode()==false){
+			        		return false;
+			        	}else{
+			        		return true;
+			        	}
+			        }
+			       	//价格
+			       	var patt1 = new RegExp(/\S*sku\S+price\S*/g);//规格中商品价格
+			       	if(((field.name) && ((field.name).indexOf("price")!=-1) || (patt1.test(field.name))) ){
+			        	if(checkPri()==false){
+			        		return false;
+			        	}else{
+			        		return true;
+			        	}
+			        }
+			        //数量
+			       	if((field.name) && (field.name).indexOf("minimum")!=-1){
+			        	if(checkMinNum()==false){
+			        		return false;
+			        	}else{
+			        		return true;
+			        	}
+			        }
+			       	//折扣
+			       	if( (field.name) && (((field.name).indexOf("discounts")!=-1) || ((field.name).indexOf("customer")!=-1))){
+			        	if(checkDis()==false){
+			        		return false;
+			        	}else{
+			        		return true;
+			        	}
+			        }
+		        	
+			       	//图片
+			       	if(field.className.indexOf("upload")!=-1){
+			        	if(checkImg()==false){
+			        		return false;
+			        	}else{
+			        		creElement("uploadli","test");
+			        		return true;
+			        	}
+			        }
+			       	//描述
+			       	if((field.tagName).toLowerCase()=="p"){
+			        	if(checkDes()==false){
+			        		return false;
+			        	}else{
+			        		creElement("descriptionli","test");
+			        		return true;
+			        	}
+			        }
+			       	//规格
+			       	if(field.getAttribute("type")=="checkbox"){
+			        	if(checkSpe()==false){
+			        		return false;
+			        	}else{
+			        		creElement("specificationli","test");
+			        		return true;
+			        	}
+			        }
+		    }
+		}
+		//弹窗显示隐藏
+		function shopPor(boolenTag){
+		    if(boolenTag=="true"){
+		        $("#messageSet").css("display","block");
+		        setTimeout(function(){
+		            $("#messageSet").css("display","none");
+		        },2500);
+		    }else{
+		        $("#messageSet").css("display","none");
+		    }
+		}
+		$(".closeButtom").click(function(){
+		    shopPor("false");
+		})
+		function validate_form(thisform){
+		    with (thisform){
+		        if (validate_required(product_name,"请填写商品名称!")==false){
+		            product_name.focus();
+		            shopPor("true");
+		            return false
+		        }else{
+		        	var product_name=document.getElementsByClassName("product_name");
+		            if(product_name[0]){
+		                $("#messageSet ul")[0].removeChild(product_name[0]);
+		            }
+		        }
+		        if (validate_required(product_number,"请填写格式正确的商品编号!")==false){
+		            product_number.focus();
+		            shopPor("true");
+		            return false
+		        }else{
+		        	var product_number=document.getElementsByClassName("product_number");
+		            if(product_number[0]){
+		                $("#messageSet ul")[0].removeChild(product_number[0]);
+		            }
+		        }
+		        if (validate_required(price,"请填写大于零的订货价格，例如：23或者23.00")==false){
+		            price.focus();
+		            shopPor("true");
+		            return false
+		        }else{
+		        	var price=document.getElementsByClassName("price");
+		            if(price[0]){
+		                $("#messageSet ul")[0].removeChild(price[0]);
+		            }
+		        }
+		        if (validate_required(minimum,"填写起订量不小于1的整数!")==false){
+		            minimum.focus();
+		            shopPor("true");
+		            return false
+		        }else{
+		        	var minimum=document.getElementsByClassName("minimum");
+		            if(minimum[0]){
+		                $("#messageSet ul")[0].removeChild(minimum[0]);
+		            }
+		        }
+		        //等级折扣表格处理
+		        if($(".checkboxGrade").prop("checked")){
+		        	var dhj_input=$("#dhj tbody tr td input");
+			        for(var i=0;i<dhj_input.length;i++){
+			            if (validate_required(dhj_input[i],"请填写等级价表格中的等级折扣(0-100之间的值)")==false){
+			                dhj_input[i].focus();
+			                shopPor("true");
+			                return false
+			            }else{
+			            	var discounts=document.getElementsByClassName("discounts");
+				            if(discounts[0]){
+				                $("#messageSet ul")[0].removeChild(discounts[0]);
+				            }
+			            }
+			        }
+		        }
+		        if($(".checkboxAssign").prop("checked")){
+		        	//指定价表格处理
+			        var base_tab_input=$("#base-tab tbody tr td input");
+			        for(var j=0;j<base_tab_input.length;j++){
+			            if (validate_required(base_tab_input[j],"请填写指定价表格中的等级折扣(0-100之间的值)")==false){
+			                base_tab_input[j].focus();
+			                shopPor("true");
+			                return false
+			            }else{
+			            	var customer=document.getElementsByClassName("customer");
+				            if(customer[0]){
+				                $("#messageSet ul")[0].removeChild(customer[0]);
+				            }
+			            }
+			        }
+		        }
+		        //图片添加判断
+		        var filelistLi=$(".filelist li");
+		        if(filelistLi[0] && filelistLi.length<2) {
+		            if (validate_required(filelistLi[0],"请添加图片")==false){
+		                shopPor("true");
+		                return false;
+		            }
+		        }else{
+		            var descriptionli=document.getElementsByClassName("uploadli");
+		            if(descriptionli[0]){
+		                $("#messageSet ul")[0].removeChild(descriptionli[0]);
+		            }
+		        }
+		        //描述判断
+		        var descriptionPTxt=$(".note-editable p");
+		        if(descriptionPTxt[0] && descriptionPTxt[0].innerHTML && descriptionPTxt[0].innerHTML.trim()!="<br>"){
+		            var descriptionli=document.getElementsByClassName("descriptionli");
+		            if(descriptionli[0]){
+		                $("#messageSet ul")[0].removeChild(descriptionli[0]);
+		            }
+		        }else{
+		            if (validate_required(descriptionPTxt[0],"请添加商品描述")==false){
+		                shopPor("true");
+		                return false;
+		            }
+		        } 
+		        //判断规格
+		        //选中
+		        var specificationInp=$("#rel-content").find(".con-item-first input:checked");
+		        //所有
+		        var specificationInp1=$("#rel-content").find(".con-item-first input");
+		        if(specificationInp && specificationInp.length>0){
+		        	var specificationli=document.getElementsByClassName("specificationli");
+		            if(specificationli[0]){
+		                $("#messageSet ul")[0].removeChild(specificationli[0]);
+		            }
+		        	var ruleTil=$("#rule-table thead tr th");
+		        	//订货价位置
+		        	var index1=0;
+		        	//商品编号位置
+		        	var index2=0;
+		        	//条形码位置
+		        	var index3=0;
+		        	for(var index=0;index<ruleTil.length;index++){
+		        		if($(ruleTil[index]).text().trim()=="订货价"){
+		        			index1=(index+1);
+		        		}else if($(ruleTil[index]).text().trim()=="商品编号"){
+		        			index2=(index+1);
+		        		}else if($(ruleTil[index]).text().trim()=="条形码"){
+		        			index3=(index+1);
+		        		}
+		        	}
+		        	var GdPrice=$("#rule-table tbody tr td:nth-child("+index1+") input[type='text']");
+		        	var GdCode=$("#rule-table tbody tr td:nth-child("+index2+") input[type='text']");
+		        	var GdBar=$("#rule-table tbody tr td:nth-child("+index3+") input[type='text']");
+		        	
+			        for(var j1=0;j1<GdPrice.length;j1++){
+			            if (validate_required(GdPrice[j1],"请在表格中填写大于0的价格值")==false){
+			                GdPrice[j1].focus();
+			                shopPor("true");
+			                return false
+			            }else{
+			            	var GdPricelist=document.getElementsByClassName("GdPrice");
+				            if(GdPricelist[0]){
+				                $("#messageSet ul")[0].removeChild(GdPricelist[0]);
+				            }
+			            }
+			        }
+		        	for(var j2=0;j2<GdCode.length;j2++){
+			            if (validate_required(GdCode[j2],"商品编号长度小于250")==false){
+			                GdCode[j2].focus();
+			                shopPor("true");
+			                return false
+			            }else{
+			            	var GdCodelist=document.getElementsByClassName("GdCode");
+				            if(GdCodelist[0]){
+				                $("#messageSet ul")[0].removeChild(GdCodelist[0]);
+				            }
+			            }
+			        }
+		        	for(var j3=0;j3<GdBar.length;j3++){
+			            if (validate_required(GdBar[j3],"条形码长度小于250")==false){
+			                GdBar[j3].focus();
+			                shopPor("true");
+			                return false
+			            }else{
+			            	var GdBarlist=document.getElementsByClassName("GdBar");
+				            if(GdBarlist[0]){
+				                $("#messageSet ul")[0].removeChild(GdBarlist[0]);
+				            }
+			            }
+			        }
+		        	return true;
+		        }else{
+		            if(specificationInp1.length>0){
+		                if (validate_required(specificationInp1[0],"请选择商品规格")==false){
+		                    shopPor("true");
+		                    return false;
+		                }
+		            }
+		
+		        }
+		    }
+		}
+
+    </script>
+	</body>
+</html>
+

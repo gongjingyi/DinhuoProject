@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/zui.min.css" />
+		<link rel="stylesheet" href="css/jquery.ui.css" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="css/css.css" />
+		<link rel="stylesheet" type="text/css" href="css/scarlett.css" />
+	</head> 
+
+	<body> 
+		<h3 class="col-md-12 title"><a class="dthis" href="">订单促销</a><span class="bread">&gt;</span><a href="">新增订单促销</a></h3>
+		<div class="col-md-12 con">
+			<div class="panel panel-default">
+				<div class="wrap1">
+					<div class="goods-fix">
+						<div class="staff-time">
+							<label>
+								<input type="text" class="delivery" readonly  id="startDelivery" value=""/>
+							</label>
+						</div>
+						<div class="staff-time">
+							<label>
+								<input type="text" class="delivery" readonly  id="endDelivery" value=""/>	
+							</label>
+						</div>
+						<button type="button" class="btn btn-info" />查询</button>
+					</div>
+				</div>
+				<div class="report_tipBlk">
+					<div class="report_tipBlkLef">
+						<label>订货单：<span>56436654654765</span></label>
+						<label>退货单：<span>56436654654765</span></label>
+						<label>订货金额：<span>4765</span></label>
+						<br />
+						<label>退货金额：<span>56436665</span></label>
+						<label>金额总计：<span>4654765</span></label>
+					</div>
+					<div class="report_tipBlkRig">
+						<div class="report_tipBlkTop">
+							<span>统计方式：</span>
+							<label><input type="radio" name="data_type_gc" checked="checked"/><span>按照商品统计</span></label>
+							<label><input type="radio" name="data_type_gc"/><span>按照级别统计</span></label>
+						</div>
+						<div class="report_tipBlkBttom">
+							<span>观看内容：</span>
+							<label><input type="radio" name="data_type_view" checked="checked"/><span>订货金额</span></label>
+							<label><input type="radio" name="data_type_view"/><span>退货金额</span></label>
+						</div>
+					</div>
+				</div>
+				<div class="report_grap">
+					<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+					<div id="pie_graph" style="height:400px"></div>
+				</div>
+				<table class="table table-cus">
+						<thead>
+							<tr>
+				    			<th></th>
+				    			<th width="20%" >商品分类(2016-12-29-2016-12-30)</th>
+				    			<th>订货笔数</th>
+				    			<th>退货笔数</th>
+				    			<th>订货数量</th>
+				    			<th>退货数量</th>
+				    			<th>订货金额</th>
+				    			<th>退货金额</th>
+				    			<th>金额小计</th>
+				    		</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>水晶</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>宝石</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+			</div>
+		</div>
+
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/zui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/jquery.ui.js"></script>
+		<script type="text/javascript" src="js/moment.min.js"></script>
+		<script type="text/javascript" src="js/stay1.js"></script>
+		<script src="js/echarts.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				/*饼状图js*/
+				// 路径配置
+		        require.config({
+		            paths: {
+		                echarts: 'js'
+		            }
+		        });
+		         
+		         // 使用
+		        require(
+					[
+		                'echarts',
+		               'echarts/chart/pie'
+		            ],
+		            function (ec) {
+		                 // 基于准备好的dom，初始化echarts图表
+		                var myPie_graph = ec.init(document.getElementById('pie_graph')); 
+		                
+		                var option = {
+						    tooltip : {
+						        show: true,
+						        formatter: "{a} <br/>{b} : {c} ({d}%)"
+						    },
+						    legend: {
+						        orient : 'vertical',
+						        //x : 'left',
+						        x:"20px",
+						        data:['宝石','水晶','铂金','黄金','银','玻璃']
+						    },
+						    series : [
+						        {
+						            name:'访问来源',
+						            type:'pie',
+						            radius : [110, 140],
+						            data:[
+						                {value:335, name:'宝石'},
+						                {value:310, name:'水晶'},
+						                {value:234, name:'铂金'},
+						                {value:135, name:'黄金'},
+						                {value:1048, name:'银'},
+						                {value:251, name:'玻璃'}
+						            ]
+						        }
+						    ]
+						};
+		        
+		                // 为echarts对象加载数据 
+		                myPie_graph.setOption(option); 
+		            }
+		        );
+			})
+		</script>
+	</body> 
+
+</html>

@@ -1,0 +1,226 @@
+
+        <if condition="!empty($wait_repertory)">
+            <div class="fund-table1">
+                <div class="goods_table_head">
+                    <div class="table_headL">
+                        <h4 class="pull-left">待出库清单</h4>
+                        <!--<div class="pull-left" style="margin-left:20px;">
+                            <span>选择仓库：</span>
+                            <select name="store_id">
+                                <option value="0">请选择仓库</option>
+                                <volist name="store" id="vo">
+                                    <option value="{$vo.id}">{$vo.name}</option>
+                                </volist>
+                            </select>
+                        </div>-->
+                        <div class="clearfix"></div>
+                    </div>
+                    <!--<div class="table_headR">
+                        <div class="table_headRR">
+                            <input class="pass" value="确认出库" type="submit"/>
+                        </div>
+                    </div>-->
+                </div>
+                <table class="table table-cus repertory">
+                    <thead>
+                    <tr>
+                        <th width="20%">商品</th>
+                        <th>商品规格</th>
+                        <th>实际库存</th>
+                        <th>订购数</th>
+                        <th>已出库</th>
+                        <th>出库数量</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <volist name="wait_repertory" key="k" id="vo">
+                        <tr>
+                            <td>
+                                <div class="detail_block">
+                                    <img src="img/goods.png" alt="" />
+                                    <a class="list-link2" title="{$vo.pname}">{$vo.pname}</a>
+                                </div>
+                            </td>
+                            <td>{$vo.rule}<input type="hidden" name="sku_id[]" value="{$vo.sku_id}"/></td>
+                            <td>{$vo.sj_num}<input type="hidden" name="product_id[]" value="{$vo.pid}"/></td>
+                            <td>{$vo.dg_num}</td>
+                            <td>{$vo.yck_num}</td>
+                            <td><?php echo $vo['dg_num']-$vo['yck_num'];?></td>
+                        </tr>
+                    </volist>
+                    </tbody>
+                </table>
+            </div>
+        </if>
+
+        <volist name="wait_delivery" id="v">
+            <if condition="!empty($v['product'])">
+                    <input name="order_id" type="hidden" value="{$v.log.order_id}"/>
+                    <div class="fund-table2">
+                        <h2>待发货商品</h2>
+                        <div class="goods_table_head1">
+                            <div class="table_headL">
+                                <div class="table_headLC">
+                                    <span>待发货</span>
+                                    <label><span>出库：</span><span>{$v.log.created_at}</span></label>
+                                </div>
+                            </div>
+                            <div class="table_headR">
+                                <div class="table_headRL">
+                                    <a class="print" href="#"><i class="fa fa-print"></i>打印</a>
+                                    <a class="export" href="#"><i class="fa  fa-upload"></i>导出</a>
+                                </div>
+                               <!-- <div class="table_headRR">
+                                    &lt;!&ndash;<button class="cancel" type="button">取消出库</button>&ndash;&gt;
+                                    <button class="pass1"  type="button">确认发货</button>
+                                </div>-->
+                            </div>
+                        </div>
+
+                        <table class="table table-cus">
+                            <thead>
+                            <tr>
+                                <th><input type="checkbox" class="all" name="" id="" value="" /></th>
+                                <th width="20%">商品</th>
+                                <th>商品规格</th>
+                                <th>商品备注</th>
+                                <th>出库仓库</th>
+                                <th>待发货数量</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <volist name="v.product" id="vo">
+                                <tr>
+                                    <td><input type="checkbox"   value="" /></td>
+                                    <td>
+                                        <input type="hidden" name="product_id[]" value="{$vo.product_id}"/>
+                                        <div class="detail_block">
+                                            <img src="img/goods.png" alt="" />
+                                            <a class="list-link2" title="">{$vo.goods.name}</a>
+                                        </div>
+                                    </td>
+                                    <td>{$vo.goods.rule}<input type="hidden" name="sku_id[]" value="{$vo.sku_id}"/></td>
+                                    <td>{$vo.mark}<input type="hidden" name="mark[]" value="{$vo.mark}"/></td>
+                                    <td><volist name="store" id="s"><if condition="$s['id'] eq $v['log']['store_id']">{$s.name}</if></volist></td>
+                                    <td>{$vo.num}<input type="hidden" name="num[]" value="{$vo.num}"/></td>
+                                </tr>
+                            </volist>
+                            </tbody>
+                        </table>
+                    </div>
+            </if>
+        </volist>
+
+        <if condition="!empty($wait_get_product)">
+            <volist name="wait_get_product" id="vo">
+                <div class="fund-table3">
+                    <h2>待收货商品</h2>
+                    <div class="goods_table_head1">
+                        <div class="table_headL">
+                            <div class="table_headLC">
+                                <span>待收货</span>
+                                <label><span>发货：</span><span>{$vo.log.created_at}</span></label>
+                                <label><span>物流公司：</span><span>{$vo.logistics.express_name}</span></label>
+                                <label><span>物流单号：</span><span>{$vo.logistics.express_number}</span></label>
+                            </div>
+                        </div>
+                        <div class="table_headR">
+                            <div class="table_headRL">
+                                <a class="print" href="#"><i class="fa fa-print"></i>打印</a>
+                                <a class="export" href="#"><i class="fa  fa-upload"></i>导出</a>
+                            </div>
+                            <div class="table_headRR">
+                                <a class="pass2" href="{:U('confirm',['log_id'=>$vo['log']['id']])}" >确认收货</a>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-cus">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th width="20%">商品</th>
+                            <th>商品规格</th>
+                            <th>商品备注</th>
+                            <th>待收货数量</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <volist name="vo.product" id="v">
+                            <tr>
+                                <td><input type="checkbox"/></td>
+                                <td>
+                                    <div class="detail_block">
+                                        <img src="img/goods.png" alt="" />
+                                        <a class="list-link2" title="">{$v.goods.name}</a>
+                                    </div>
+                                </td>
+                                <td>{$v.goods.rule}</td>
+                                <td>{$v.mark}</td>
+                                <td>{$v.num}</td>
+                            </tr>
+                        </volist>
+                        </tbody>
+                    </table>
+                </div>
+            </volist>
+        </if>
+
+
+        <if condition="!empty($has_get_product)">
+            <volist name="has_get_product" id="vo">
+                <div class="fund-table2">
+                    <h2>已收货商品</h2>
+                    <div class="goods_table_head1">
+                        <div class="table_headL">
+                            <div class="table_headLC">
+                                <span>已收货</span>
+                                <label><span>发货：</span><span>{$vo.log.created_at}</span></label>
+                            </div>
+                        </div>
+                        <div class="table_headR">
+                            <div class="table_headRL">
+                                <a class="print" href="#"><i class="fa fa-print"></i>打印</a>
+                                <a class="export" href="#"><i class="fa  fa-upload"></i>导出</a>
+                            </div>
+                            <div class="table_headRR">
+                                <!--<button class="cancel" type="button">取消出库</button>-->
+                                <!--<a class="pass1"  type="button">确认发货</a>-->
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-cus">
+                        <thead>
+                        <tr>
+                            <th><input type="checkbox" class="all" name="" id="" value="" /></th>
+                            <th width="20%">商品</th>
+                            <th>商品规格</th>
+                            <th>商品备注</th>
+                            <th>收货数量</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <volist name="vo.product" id="v">
+                            <tr>
+                                <td><input type="checkbox"/></td>
+                                <td>
+                                    <div class="detail_block">
+                                        <img src="img/goods.png" alt="" />
+                                        <a class="list-link2" title="">{$v.goods.name}</a>
+                                    </div>
+                                </td>
+                                <td>{$v.goods.rule}</td>
+                                <td>{$v.mark}</td>
+                                <td>{$v.num}</td>
+                            </tr>
+                        </volist>
+                        </tbody>
+                    </table>
+                    <div class="modal-backdrop fade in inventoryConfirmBak" style="display: none;"></div>
+                </div>
+            </volist>
+        </if>
+        <div class="fund-table2">
+            <div class="desBottom">
+                <a href="#">返回</a>
+            </div>
+        </div>

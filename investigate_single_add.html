@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/zui.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/chosen.min.css" />
+		<link rel="stylesheet" href="css/jquery.ui.css" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="css/css.css" />
+		<link rel="stylesheet" type="text/css" href="css/scarlett.css" />
+	</head>
+
+	<body>
+		<h3 class="col-md-12 title "><a class="dthis" href="">盘点单</a><span class="bread">&gt;</span><a href="">新增盘点单</a></h3>
+		<div class="col-md-12 con con1">
+			<form id="form" action="" method="post">
+				<div class="modal-hed">
+					<h4>单据信息</h4>
+					<div class="row col-xs-12 clearfix">
+						<div class="col-xs-4">
+							<span class="con-warp-tit col-xs-3"><i class="red">*</i>盘点仓库</span>
+							<div class="col-xs-7">
+								<div class="modal-select ">
+									<select name="">
+										<option value="" selected>请选择仓库</option>
+										<option value="">杭州仓库</option>
+										<option value="">深圳仓库</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<span class="con-warp-tit col-xs-3"><i class="red">*</i>盘点名称</span>
+							<div class="col-xs-7">
+									<input type="text" placeholder="请输入盘点名称" class="investigation_name" required="true" {mmaxlength="16"}/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-hed1">
+					<h4>商品信息</h4>
+					<div class="modal-hed-content">
+						<table class="table">
+							<thead>
+								<tr>
+									<th></th>
+									<th>操作</th>
+									<th width="20%">商品</th>
+									<th>规格</th>
+									<th>单位</th>
+									<th>实际库存</th>
+									<th>辅助数量</th>
+									<th>盘点数量</th>
+									<th>调整数量</th>
+									<th>备注</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>
+										<a class="delet_row fa fa-minus"></a>
+									</td>
+									<td>
+										<div class="combobox">
+											<input name="name" class="input" placeholder="">
+											<ul>
+												<li>
+													<img src="img/goods.png" alt="" />
+													<p class="list-link1">10094<span class="state">多规格</span></p>
+													<p class="list-link2" title="百年纪念高跟鞋2016夏季新款单鞋细跟女鞋尖头鞋子呵呵1">百年纪念高跟鞋2016夏季新款单鞋细跟女鞋尖头鞋子呵呵1</p>
+												</li>
+												<li>
+													<img src="img/goods.png" alt="" />
+													<p class="list-link1">10095</p>
+													<p class="list-link2" title="百年纪念高跟鞋2016夏季新款单鞋细跟单鞋工作鞋呵呵2">百年纪念高跟鞋2016夏季新款单鞋细跟单鞋工作鞋呵呵2</p>
+												</li>
+												<li>
+													<img src="img/goods.png" alt="" />
+													<p class="list-link1">10096<span class="state">多规格</span></p>
+													<p class="list-link2" title="百年纪念高跟鞋2016夏季新款单鞋鞋呵呵3">百年纪念高跟鞋2016夏季新款单鞋鞋呵呵3</p>
+												</li>
+											</ul>
+										</div>
+									</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td><textarea></textarea></td>
+								</tr>
+
+							</tbody>
+							<tfoot>
+								<tr>
+									<td colspan="2">合计</td>
+									<td>0种</td>
+									<td colspan="4"></td>
+									<td>0</td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tfoot>
+						</table>
+						<div class="remark_blok">
+							<label class="input-title">单据备注：</label>
+							<div class="input-table">
+								<input type="text" name="remark" class="" placeholder="请填写单据备注,请输入少于200个字符..." value="">	
+							</div>
+						</div>
+						<div style="clear: both"></div>
+					</div>
+				</div>
+				<div class="subtn">
+					<input type="submit" value="确定" /> <input type="button" id="" value="取消" />
+				</div>
+			</form>
+		</div>
+
+		<div class="pop_into" style="display: none;">
+			<div class="poper_into"></div>
+			<div class="pop-warp_into">
+				<form action="" method="post">
+					<h5 class="pp-tit_into">百年纪念高跟鞋2016夏季新款单鞋细跟女鞋尖头鞋子呵呵1</h5>
+					<div class="rel-con_into">
+						<table id="base-as" class="table table-cus table-bordered">
+							<thead>
+								<tr>
+									<th colspan="8">颜色</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td colspan="1">黑灰色</td>
+									<td colspan="2">
+										<div class="cfs pull-left">
+											<a class="jian">-</a>
+											<input class="lskdo" type="text" value="0">
+											<a class="jia">+</a>
+										</div>
+									</td>
+									<td colspan="1">黑咖啡</td>
+									<td colspan="2">
+										<div class="cfs pull-left">
+											<a class="jian">-</a>
+											<input class="lskdo" type="text" value="0">
+											<a class="jia">+</a>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="1">酒红色</td>
+									<td colspan="2">
+										<div class="cfs pull-left">
+											<a class="jian">-</a>
+											<input class="lskdo" type="text" value="0">
+											<a class="jia">+</a>
+										</div>
+									</td>
+									<td colspan="1">银灰色</td>
+									<td colspan="2">
+										<div class="cfs pull-left">
+											<a class="jian">-</a>
+											<input class="lskdo" type="text" value="0">
+											<a class="jia">+</a>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+
+							<tfoot>
+								<tr>
+									<td colspan="1">全部规格数量：</td>
+									<td colspan="2"><input class="affirm1_num" id="affirm1_num" type="text"><span id="affirm1" class="affirm1">确定</span><span id="clear1" class="clear1">清空</span></td>
+									<td colspan="3"><span id="affirm2" class="affirm2" type="button">确定</span><span id="close1" class="close1">关闭</span></td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</form>
+			</div>
+		</div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/zui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/chosen.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="js/jquery.ui.js"></script>
+		<script type="text/javascript" src="js/moment.min.js"></script>
+		<script type="text/javascript" src="js/stay1.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				/*插入行标识*/
+				var inventory_num_tag = 1;
+				/*商品个数*/
+				var goods_number_total=0;
+				
+				
+				function priceTalNum(tag){
+					var goods_numbers=$(".modal-hed-content table tbody tr td .lskdo");
+					var goods_numbers_ary=[];
+					var goods_pri_inp_tal=0;
+					var goods_number_total1=0;
+					for(var s=0;s<goods_numbers.length;s++){
+						var goods_numbers_this=parseInt($(goods_numbers[s]).val());
+						if(goods_numbers_this){
+							goods_numbers_ary.push(goods_numbers_this);
+						}else{
+							$(goods_numbers[s]).val("0");
+							goods_numbers_this=0
+							goods_numbers_ary.push(goods_numbers_this);
+						}
+						goods_number_total1+=goods_numbers_this;
+						
+						/*计算调整数量*/
+						$(goods_numbers[s]).parent().parent().prev().prev().html()
+						$(goods_numbers[s]).parent().parent().next().html(parseInt(goods_numbers_this)-parseInt($(goods_numbers[s]).parent().parent().prev().prev().html()));						
+					}
+					$($(".modal-hed-content table tfoot tr td")[3]).html(goods_number_total1);
+				}
+				
+				/*搜索*/
+				$('select.chosen-select').chosen({
+					no_results_text: '没有找到', // 当检索时没有找到匹配项时显示的提示文本
+					disable_search_threshold: 3, // 10 个以下的选择项则不显示检索框
+					search_contains: true, // 从任意位置开始检索
+					allow_single_deselect: true,
+					width: "94px"
+				});
+				/*改变单个商品进货价*/
+				changePrice();
+				function changePrice(){
+					$(".goods_pri_input").keyup(function(){
+						priceTalNum();
+					});
+				}
+				editNumber();
+				function editNumber(){
+					$(".lskdo").keyup(function(){
+						var lsoek = $(this);
+						var lskoe = parseInt(lsoek.val());
+						if(lskoe){
+							lskoe = parseInt(lsoek.val());
+							$(this).parent().parent().prev().html(lskoe);
+						}else{
+							lsoek.val(0);
+							lskoe=0;
+							$(this).parent().parent().prev().html(lskoe);
+						}
+						priceTalNum();
+					});
+				}
+				/*编辑数量*/
+				
+				
+				/*删除当前行操作*/
+				delet_row();
+				function delet_row(){
+					$(".delet_row").prop('onclick', null).off('click').click(function(){
+						var delet_this=$(this).parent().parent();
+						var delet_tdStr=$($(delet_this).find('td')[4]).text();
+						if(delet_tdStr){
+							delet_this.remove();
+							goods_number_total=goods_number_total-parseInt($(this).parent().parent().find('td .lskdo').val());
+							$($(".modal-hed-content table tfoot tr td")[3]).html(goods_number_total);
+							var modal_hed_tr=$(".modal-hed-content table tbody tr td:first-child");
+							inventory_num_tag=modal_hed_tr.length-1;
+							$($(".modal-hed-content table tfoot tr td")[1]).html(inventory_num_tag+"种");
+							for(var i=0;i<modal_hed_tr.length;i++){
+								$(modal_hed_tr[i]).html(i+1);							}
+						}
+						
+						/*行删除，个数改变，价格改变*/
+						priceTalNum();
+						
+					});
+				}
+				
+				plusMinus();
+				/*商品数量的加减*/
+				function plusMinus() {
+
+					$(".jian").prop('onclick', null).off('click').click(function() {
+						var lsoek = $(this).parent().find(".lskdo");
+						var lsoek_pre=$(this).parent().parent().prev();
+						var lskoe = parseInt(lsoek.val());
+						if(lskoe){
+							lskoe = parseInt(lsoek.val());
+						}
+						else{
+							lsoek.val(0);
+							lskoe=0;
+						}
+						if($(".pop_into").css("display")=="none"){
+							if(lsoek.val() > 1){
+								lsoek.val(lskoe - 1);
+								lsoek_pre.html(lskoe-1);
+								goods_number_total--;
+								$($(".modal-hed-content table tfoot tr td")[3]).html(goods_number_total);
+								
+								/*操作加减导致个数改变，价格改变*/
+								priceTalNum();
+							}
+						}else{
+							if(lsoek.val() > 0){
+								var lskoe = parseInt(lsoek.val());
+								lsoek.val(lskoe - 1);
+							}
+						}
+					})
+
+					$(".jia").prop('onclick', null).off('click').click(function(e, iiii) {
+						var lsoek = $(this).parent().find(".lskdo");
+						var lsoek_pre=$(this).parent().parent().prev();
+						var lskoe = parseInt(lsoek.val());
+						if(lskoe){
+							lskoe = parseInt(lsoek.val());
+						}
+						else{
+							lsoek.val(0);
+							lskoe=0;
+						}
+						lsoek.val(lskoe + 1);
+						if($(".pop_into").css("display")=="none"){
+							lsoek_pre.html(lskoe+1);
+							goods_number_total++;
+							$($(".modal-hed-content table tfoot tr td")[3]).html(goods_number_total);
+							/*操作加减导致个数改变，价格改变*/
+							priceTalNum();
+							
+						}
+					})
+				}
+				/*选择搜索框*/
+				ser_show_hide();
+
+				function ser_show_hide() {
+					$(".combobox .input").on('focus', function() {
+						$(this).attr('placeholder', '名称/编号/关键字/(匹配)');
+					}).on('blur', function() {
+						$(this).attr('placeholder', '');
+					}).on('keyup', function() {
+						var $ul = $(this).next();
+						$ul.find(".no-result").remove();
+						console.log(this.value)
+						var $results = $ul.find("li").hide().filter(":contains('" + this.value + "')").show();
+						if(!$results.length) {
+							$ul.append("<li class='no-result'>无法查找</li>");
+						}
+					}).next().find("li").on('mousedown', function() {
+						$(".pop_into").css("display", "block");
+						/*将显示块中的input值为0*/
+						var input_lskdo_num= $(".pop_into input.lskdo");
+						for(var i=0;i<input_lskdo_num.length;i++){
+							$(input_lskdo_num[i]).val(0);
+						}
+					});
+				}
+
+				$(".affirm1").click(function() {
+					var affirm1_num = $(".affirm1_num").val();
+					if(affirm1_num) {
+						if(parseInt(affirm1_num) > 0) {
+							var pop_into_num = $(".pop_into .lskdo");
+							for(var i = 0; i < pop_into_num.length; i++) {
+								$(pop_into_num[i]).val(parseInt(affirm1_num));
+							}
+						} else {
+							alert("订购数量必须为1的倍数");
+						}
+					} else {
+						alert("订购数量必须为1的倍数");
+					}
+				});
+				$(".clear1").click(function() {
+					var pop_into_num = $(".pop_into .lskdo");
+					for(var i = 0; i < pop_into_num.length; i++) {
+						$(pop_into_num[i]).val(0);
+					}
+				});
+				$(".close1").click(function() {
+					$(".pop_into").css("display", "none")
+				});
+				$(".affirm2").click(function() {
+					var pop_into_num = $(".pop_into .lskdo");
+					var pop_into_num1 = $(".pop_into table tbody td");
+					var pop_into_titil = $(".pp-tit_into").text();
+					var pop_into_name = [];
+					var pop_into_val = [];
+					var pop_into_rank = [];
+					var pop_into_str = "";
+					var pop_into_unit = [];
+					var pop_into_price = [];
+					var pop_into_remark = "<textarea></textarea>";
+					var pop_into_code = [];
+					var pop_into_img = [];
+					for(var i = 0; i < pop_into_num.length; i++) {
+						var pop_into_num_val = $(pop_into_num[i]).val();
+						if(pop_into_num_val && parseInt(pop_into_num_val) > 0) {
+							pop_into_val.push(pop_into_num_val);
+							pop_into_rank.push(inventory_num_tag);
+							pop_into_unit.push('件');
+							pop_into_price.push(12.3);
+							pop_into_code.push("847477");
+							pop_into_img.push("img/goods.png");
+							inventory_num_tag++;
+						}
+						var pop_into_text = $(pop_into_num[i]).parent().parent().prev().text();
+						pop_into_name.push(pop_into_text);
+						pop_into_str += '<option value="">' + pop_into_text + '</option>';
+					}
+					$(".pop_into").css("display", "none");
+					var pop_into_selStr = '<select class="pop_into_selCls">' + pop_into_str + '</select>';
+					var pop_into_aStr = '<a class="delet_row fa fa-minus"></a>';
+					var pop_into_inputStr = '<div class="cfs pull-left"><a class="jian">-</a><input class="lskdo" type="text" value="0"><a class="jia">+</a></div>';
+					for(var k = 0; k < pop_into_val.length; k++) {
+						var pop_into_last = $(".modal-hed-content table tbody tr:last-child");
+						var pop_into_tr_td = $(pop_into_last).find('td');
+						$(pop_into_tr_td[0]).html(pop_into_rank[k]);
+						$(pop_into_tr_td[1]).html(pop_into_aStr);
+						$(pop_into_tr_td[3]).html(pop_into_selStr);
+						$(pop_into_tr_td[4]).html(pop_into_unit[k]);
+						$(pop_into_tr_td[5]).html(pop_into_val[k]);
+						$(pop_into_tr_td[6]).html(pop_into_val[k]);
+						$(pop_into_tr_td[7]).html(pop_into_inputStr);
+						$(pop_into_tr_td[7]).find("input").val(pop_into_val[k]);
+						$(pop_into_tr_td[8]).html(parseInt($(pop_into_tr_td[7]).find("input").val())-parseInt($(pop_into_tr_td[6]).html()));
+						/*$(pop_into_tr_td[8]).html("ss");*/
+						/*$(pop_into_tr_td[7]).html('<input class="goods_pri_input" type="text"/>');
+						$(pop_into_tr_td[7]).find('input').val(pop_into_price[k]);*/
+						$(pop_into_tr_td[9]).html(pop_into_remark);
+						var pop_into_selCls = $(pop_into_last).find("select.pop_into_selCls option");
+						for(var s = 0; s < pop_into_selCls.length; s++) {
+							if($(pop_into_selCls[s]).text() == pop_into_name[k]) {
+								$(pop_into_selCls[s]).attr("selected", true);
+							}
+						}
+						var combobox_elem_html = '<div class="combobox_elem"><img src="' + pop_into_img[k] + '" alt="" /><p class="list-link1">' + pop_into_code[k] + '</p><p class="list-link2"  title="'+pop_into_titil+'">' + pop_into_titil + '</p></div>';
+						$(pop_into_tr_td[2]).html(combobox_elem_html);
+						$(".modal-hed-content table tbody tr:last-child").after('<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>');
+						var pop_into_last1 = $(".modal-hed-content table tbody tr:last-child");
+						var pop_into_tr_td1 = $(pop_into_last1).find('td');
+						$(pop_into_tr_td1[0]).html(inventory_num_tag);
+						$(pop_into_tr_td1[1]).html(pop_into_aStr);
+						$(pop_into_tr_td1[9]).html(pop_into_remark);
+						/*此处假定可供检索的商品数据为3*/
+						var goods_tall_num = 3;
+						var pop_into_tr_td2 = "";
+						var pop_into_goods_ary = [{
+							"img": "img/goods.png",
+							"code": "345324",
+							"name": "百年纪念高跟鞋2016夏季新款单dewjfdawe",
+							"tag": '多规格'
+						}, {
+							"img": "img/goods.png",
+							"code": "345324",
+							"name": "百年纪念高跟鞋2016夏季新款单dewjfdawe",
+							"tag": '多规格'
+						}, {
+							"img": "img/goods.png",
+							"code": "378497",
+							"name": "百年纪念高跟鞋进行第十六届2016夏季新款单dew",
+							"tag": '多规格'
+						}, {
+							"img": "img/goods.png",
+							"code": "8765324",
+							"name": "几点几百年纪念高跟鞋2016夏季新款单d",
+							"tag": '多规格'
+						}];
+						for(var f = 0; f < goods_tall_num; f++) {
+							pop_into_tr_td2 += '<li><img src="' + pop_into_goods_ary[f].img + '" alt="" /><p class="list-link1">' + pop_into_goods_ary[f].code + '<span class="state">' + pop_into_goods_ary[f].tag + '</span></p><p class="list-link2">' + pop_into_goods_ary[f].name + '</p></li>'
+						}
+						pop_into_tr_td2 = '<div class="combobox"><input name="name" class="input" placeholder=""><ul>' + pop_into_tr_td2 + '</ul></div>';
+						$(pop_into_tr_td1[2]).html(pop_into_tr_td2);
+						ser_show_hide();
+						plusMinus();
+						delet_row();
+						changePrice();
+						editNumber();
+					}
+					/*var goods_price_total=0;*/
+					var goods_univalence=$(".modal-hed-content table tbody tr td:nth-child(8)");
+					var goods_numbers=$(".modal-hed-content table tbody tr td:nth-child(7) .lskdo");
+					var goods_numbers_ary=[];
+					/*var goods_price_tal=$(".modal-hed-content table tbody tr td:nth-child(8) input");
+					var goods_price_ary=[];*/
+					var pop_into_fot_td = $(".modal-hed-content table tfoot tr td");
+					
+					$(pop_into_fot_td[1]).html((inventory_num_tag-1)+"种");
+					
+					/*改变总数和总价*/
+					priceTalNum();
+				});
+			})
+		</script>
+	</body>
+
+</html>

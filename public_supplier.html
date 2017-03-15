@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+	<meta  name="format-detection" content="telephone=no">
+	<meta name="keywords" content=" ">        
+	<meta name="description" content=" ">
+	<title>供货商</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css"/>
+	<style type="text/css">
+			.goods-specify {
+				width: 100%;
+				line-height: 30px;
+				clear: left;
+			}
+			
+			.con-item-first {
+				width: 125px;
+				float: left;
+			}
+			
+			.con-sed {
+				width: calc(100% - 125px);
+				float: left;
+			}
+			
+			.rel-content {
+				display: table;
+				width: 100%;
+			}
+			
+			.content-dl {
+				display: table;
+				width: 100%;
+			}
+			
+			/*.col-sed-blok {
+				position: relative;
+			}*/
+			
+			.item-sed-list {
+				width: 16.6%;
+				float: left;
+				position: relative;
+			}
+			.col-three-blok {
+			    position: absolute;
+			    z-index: 100;
+			    background: #f3ede2;
+			    right: -71px;
+			    left: 0;
+			    height: 180px;
+			    overflow-x: hidden;
+			    width: 620px;
+			}
+			
+			.item-three-list {
+				width: 188px;
+			    float: left;
+			    height: 30px;
+			    margin-left: 14px;
+			}
+			
+			.item-sed-list .inputLab>label>input {
+				margin-right: 8px;
+			}
+			
+			.item-sed-list .inputLab i {
+				color: #3d93cd;
+				width: 28px;
+				display: inline-block;
+				text-align: center;
+				height: 22px;
+			}
+			
+			.item-three-list>label>input {
+				margin-right: 8px;
+			}
+		</style>
+</head>
+<body>
+	<header class="header">
+		<div class="logo pull-left">
+			<a href=""><img src="img/logo1.png"/></a>
+		</div>
+	
+		<div class="pull-right">			
+			
+			<ul class="nav nav-pills pull-left sidebartop" role="tablist">
+
+			  <li role="presentation" class="">
+			  	<a href="#"><i class="fa fa-commenting-o"></i>消息通知</a>
+			  	<ul class="nav">
+			  		<li>
+			  			<a href="">订单留言</a>
+			  		</li>
+			  		<li>
+			  			<a href="">留言咨询</a>
+			  		</li>
+			  		<li>
+			  			<a href="">系统公告</a>
+			  		</li>
+			  	</ul>
+			  	
+			  </li>
+			 <li role="presentation" class="">
+			  	<a href="#"><i class="fa fa-question-circle-o"></i>帮助中心</a>
+			  	<ul class="nav">
+			  		<li>
+			  			<a href="">平台使用</a>
+			  		</li>
+			  		<li>
+			  			<a href="">操作帮助</a>
+			  		</li>
+			  		<li>
+			  			<a href="">出入库记录</a>
+			  		</li>
+			  		<li>
+			  			<a href="">订单系统</a>
+			  		</li>
+			  	</ul>
+			  </li>
+			  <li role="presentation" class="">
+			  	<a href="#"><i class="fa fa-users"></i>客户中心</a>
+			  	<ul class="nav">
+			  		<li>
+			  			<a href="">订货单</a>
+			  		</li>
+			  		<li>
+			  			<a href="">退货单</a>
+			  		</li>
+			  		<li>
+			  			<a href="">出入库记录</a>
+			  		</li>
+			  		<li>
+			  			<a href="">订单统计</a>
+			  		</li>
+			  	</ul>
+			  </li>
+			</ul>
+			<div class="pull-left indentor">
+				<a href="" >订货商</a>
+			</div>
+		</div>
+	</header>
+	<div class="wrap">
+		<div class=" hidden-xs sidebarer">
+			<ul class="nav sidebar">
+				<li>
+					<a href="">
+						<i class="fa fa-file-text"></i>
+						<span>订货管理</span>
+					</a>
+					<ul class="nav">
+						<li><a href="">订货单</a></li>
+						<li><a href="">退货单</a></li>
+						<li><a href="">出库/发货记录</a></li>
+						<li><a href="">商品明细</a></li>						
+					</ul>
+				</li>
+				<li>
+					<a href="">
+						<i class="fa fa-file-text"></i>
+						<span>商品管理</span>
+					</a>
+					<ul class="nav">
+						<li><a href="">商品列表</a></li>
+						<li><a href="">商品类别</a></li>
+						<li><a href="">计量单位</a></li>						
+						<li><a href="">商品品牌</a></li>
+						
+					</ul>
+				</li>
+				<li>
+					<a href="">
+						<i class="fa fa-file-text"></i>
+						<span>库存管理</span>
+					</a>
+					<ul class="nav">
+						<li><a href="">商品货存</a></li>
+						<li><a href="">商品入库</a></li>
+						<li><a href="">商品出库</a></li>
+						<li><a href="">库存盘点</a></li>
+						<li><a href="">出入库明细</a></li>
+						<li><a href="">仓库管理</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="">
+						<i class="fa fa-file-text"></i>
+						<span>客户管理</span>
+					</a>
+					<ul class="nav">
+						<li><a href="">客户列表</a></li>
+						<li><a href="">客户级别设置</a></li>
+						<li><a href="">加盟信息</a></li>
+						<li><a href="">归属区域设置</a></li>
+						
+					</ul>
+				</li>
+				<li>
+					<a href="">
+						<i class="fa fa-file-text"></i>
+						<span>合同管理</span>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<i class="fa fa-file-text"></i>
+						<span>资金管理</span>
+					</a>
+					<ul class="nav">
+						<li><a href="">应收应付管理</a></li>
+						<li><a href="">资金账户</a></li>
+						<li><a href="">收款账户</a></li>
+						<li><a href="">收支明细</a></li>
+						
+					</ul>
+				</li>
+				<li>
+					<a href="">
+						<i class="fa fa-file-text"></i>
+						<span>报表中心</span>
+					</a>
+					<ul class="nav">
+						<li><a href="">商品报表</a></li>
+						<li><a href="">订单报表</a></li>
+						<li><a href="">资金报表</a></li>
+						<li><a href="">库存报表</a></li>
+						
+					</ul>
+				</li>
+				<li>
+					<a href="">
+						<i class="fa fa-file-text"></i>
+						<span>促销管理</span>
+					</a>
+					<ul class="nav">
+						<li><a href="">促销列表</a></li>
+						<li><a href="">促销类型设置</a></li>
+						
+					</ul>
+				</li>
+				<li>
+					<a href="">
+						<i class="fa fa-file-text"></i>
+						<span>分销商管理</span>
+					</a>
+
+				</li>
+				
+			</ul>
+			<ul class="nav sidebarfoot">
+				<li>
+					<a href="">
+						<i class="fa fa-cog"></i>
+					</a>
+					<ul class="nav">
+						<li><a href="">公司资料</a></li>
+						<li><a href="">账号管理</a></li>
+						<li><a href="">物流公司选项</a></li>					
+						<li><a href="">API对接</a></li>
+						<li><a href="">系统与业务</a></li>
+						
+						
+					</ul>
+				</li>
+				<li>
+					<a href="">
+						<i class="fa fa-comments-o"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class=" body-right">
+			
+		</div>
+	</div>
+	<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){ 
+			$(".body-right").load("commodity_specification111.html",null,function(){}); 
+		}); 
+	</script>
+	<!--<script type="text/javascript">
+			$(document).ready(function() {
+
+				//显示隐藏三级块
+				$(".goods-sp .col-three-blok").each(function(){
+					$(this).hide();
+				});
+				$(".goods-sp").on("click", ".inputLab i", function() {
+					var threeBlock = $(this).parent().next();
+					if(threeBlock && threeBlock.length > 0) {
+						if(threeBlock.css("display") == "block") {
+							$(".goods-sp .col-three-blok").each(function(){
+								$(this).hide();
+							});
+						} else {
+							$(".goods-sp .col-three-blok").each(function(){
+								$(this).hide();
+							});
+							threeBlock.show();
+						}
+					}
+				});
+
+				//选中规格，添加表格
+
+				//禁用一二级点击事件
+				//$(".inputLab input").attr("disabled", true);
+				//$(".con-item-first input").attr("disabled", true);
+				//选中子规格，父类规格选中
+				$(".goods-sp").on("click", ".item-three-list input", function() {
+					//三级规格的ul块
+					var parentEle = $(this).parent().parent().parent();
+					//三级规格的ul块前面的二级快
+					var preElemnt = parentEle.prev();
+					if(this.checked) {
+						preElemnt.find("input").prop("checked", true);
+						preElemnt.parent().parent().parent().prev().find("input").prop("checked", true);
+					} else {
+						if(parentEle.find("input:checked").length < 1) {
+							preElemnt.find("input").prop("checked", false);
+						}
+						//二级规格ul块
+						var sedElement = parentEle.parent().parent();
+						console.log(sedElement);
+						if(sedElement.find(".inputLab input:checked").length < 1) {
+							sedElement.parent().prev().find("input").prop("checked", false);
+						}
+					}
+				})
+				
+				//为二级子规格选框绑定事件
+				$(".goods-sp").on("click", ".inputLab input", function() {
+					//二级规格的ul块
+					var parentEle = $(this).parent().parent().parent().parent();
+					//三级规格的ul块
+					var threeparEle = $(this).parent().parent().next();
+					//一级块
+					var firElement=parentEle.parent().prev();
+					console.log(threeparEle+" 1");
+					console.log(threeparEle.find("input:checked"+" 2"))
+					if(this.checked){
+						firElement.find("input").prop("checked", true);
+					}else if(threeparEle.find("input:checked").length>0){
+						$(this).prop("checked", true);
+						firElement.find("input").prop("checked", true);
+					}else if(parentEle.find("input:checked").length>0){
+						firElement.find("input").prop("checked", true);
+					}else{
+						firElement.find("input").prop("checked", false);
+					}
+				})
+				
+				//为一级子规格选框绑定事件
+				$(".goods-sp").on("click", ".con-item-first input", function() {
+					//二级规格的ul块
+					var parentEle = $(this).parent().next().find(".col-sed-blok");
+					//三级规格的ul块
+					var threeparEle = $(this).parent().next().find(".col-three-blok");
+					if(this.checked){
+						$(this).prop("checked", true);
+					}else if(parentEle.find(".inputLab input:checked").length<0){
+						$(this).prop("checked", false);
+					}else{
+						$(this).prop("checked", true);
+					}
+				})
+			});
+		</script>-->
+</body>
+</html>

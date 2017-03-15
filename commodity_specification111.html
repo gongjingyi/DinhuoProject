@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+		<style type="text/css">
+			.goods-specify {
+				width: 100%;
+				line-height: 30px;
+				clear: left;
+			}
+			
+			.con-item-first {
+				width: 125px;
+				float: left;
+			}
+			
+			.con-sed {
+				width: calc(100% - 125px);
+				float: left;
+			}
+			
+			.rel-content {
+				display: table;
+				width: 100%;
+			}
+			
+			.content-dl {
+				display: table;
+				width: 100%;
+			}
+			
+			.col-sed-blok {
+				position: relative;
+			}
+			
+			.item-sed-list {
+				width: 16.6%;
+				float: left;
+			}
+			
+			.col-three-blok {
+				position: absolute;
+				z-index: 100;
+				background: #f3ede2;
+				right: 0;
+				height: 120px;
+				overflow-x: hidden;
+				display: block;
+				width: 100%;
+			}
+			
+			.item-three-list {
+				width: 206px;
+				float: left;
+				height: 30px;
+				margin-left: 14px;
+			}
+			
+			.item-sed-list .inputLab>label>input {
+				margin-right: 8px;
+			}
+			
+			.item-sed-list .inputLab i {
+				color: #3d93cd;
+				width: 28px;
+				display: inline-block;
+				text-align: center;
+				height: 22px;
+			}
+			
+			.item-three-list>label>input {
+				margin-right: 8px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h3 class="col-md-12 title title2"><a  href="">商品列表</a><span class="bread">&gt;</span><a href="">新增商品</a> </h3>
+
+		<div class="main-head">
+			<ul class="goods-tab">
+				<li class="good-this">
+					<a href="">基础</a>
+				</li>
+				<li>
+					<a href="">图片与商品详情</a>
+				</li>
+				<li>
+					<a href="">库存预警</a>
+				</li>
+				<li>
+					<a href="">关联商品</a>
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-12 con con1">
+			<form id="form" action="" method="post" onsubmit="return validate_form(this)">
+				<div class="goods-sp">
+    <h5 class="pp-tit"><span class="">添加多规格类型</span></h5>
+    <div class="set-tit">
+        <span>没有需要的规格类型？</span>
+        <a class="go-set" target="_blank" href="/product/rule/index.html">去配置&gt;&gt;</a>
+    </div>
+    <div id="rel-content" class="rel-content">
+        <div class="content-dl">
+            <label class="con-item-first"><input name="" value="8" type="checkbox">颜色</label>
+            <div class="con-sed">
+                <ul class="col-sed-blok">
+                    <li class="item-sed-list">
+                        <div class="inputLab"><label><input name="" value="" type="checkbox"/>红色系(red series)</label><i class="glyphicon glyphicon-chevron-down"></i></div>
+                        <ul class="col-three-blok">
+                            <li class="item-three-list"><label><input type="checkbox"/>蜡红色(red series)</label></li>
+                            <li class="item-three-list"><label><input type="checkbox"/>玫红色(red series)</label></li>
+                        </ul>
+                    </li>
+                    <li class="item-sed-list">
+                        <div class="inputLab"><label><input name="" value="" type="checkbox"/>绿色系(red series)</label><i class="glyphicon glyphicon-chevron-down"></i></div>
+                        <ul class="col-three-blok">
+                            <li class="item-three-list"><label><input type="checkbox"/>亮绿色(red series)</label></li>
+                            <li class="item-three-list"><label><input type="checkbox"/>暗绿色(red series)</label></li>
+                            <li class="item-three-list"><label><input type="checkbox"/>没绿色(red series)</label></li>
+                        </ul>
+                    </li>
+                    <li class="item-sed-list">
+                        <div class="inputLab"><label><input name="" value="" type="checkbox"/>蓝色系(red series)</label><i class="glyphicon glyphicon-chevron-down"></i></div>
+                        <ul class="col-three-blok">
+                            <li class="item-three-list"><label><input type="checkbox"/>亮蓝色(red series)</label></li>
+                            <li class="item-three-list"><label><input type="checkbox"/>湖蓝色(red series)</label></li>
+                            <li class="item-three-list"><label><input type="checkbox"/>暗蓝色(red series)</label></li>
+                        </ul>
+                    </li>
+                    <li class="item-sed-list">
+                        <div class="inputLab"><label><input name="" value="" type="checkbox"/>黄色系(red series)</label><i class="glyphicon glyphicon-chevron-down"></i></div>
+                        <ul class="col-three-blok">
+                            <li class="item-three-list"><label><input type="checkbox"/>亮黄色(red series)</label></li>
+                            <li class="item-three-list"><label><input type="checkbox"/>透黄色(red series)</label></li>
+                            <li class="item-three-list"><label><input type="checkbox"/>暗黄色(red series)</label></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-dl">
+            <label class="con-item-first"><input name="" value="8" type="checkbox">尺寸</label>
+            <div class="con-sed">
+                <ul class="col-sed-blok">
+                    <li class="item-sed-list">
+                        <div class="inputLab"><label><input name="" value="" type="checkbox"/>1cm</label></div>
+                    </li>
+                    <li class="item-sed-list">
+                        <div class="inputLab"><label><input name="" value="" type="checkbox"/>2cm</label></div>
+                    </li>
+                    <li class="item-sed-list">
+                        <div class="inputLab"><label><input name="" value="" type="checkbox"/>3cm</label></div>
+                    </li>
+                    <li class="item-sed-list">
+                        <div class="inputLab"><label><input name="" value="" type="checkbox"/>4cm</label></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-dl">
+            <label class="con-item-first"><input name="" value="8" type="checkbox">加工</label>
+            <div class="con-sed">
+                <ul class="col-sed-blok">
+                    <li class="item-sed-list">
+                        <div class="inputLab"><label><input name="" value="" type="checkbox"/>有(red series)</label><i class="glyphicon glyphicon-chevron-down"></i></div>
+                        <ul class="col-three-blok" style="display: none;">
+                            <li class="item-three-list"><label><input type="checkbox"/>A加工(red series)</label></li>
+                            <li class="item-three-list"><label><input type="checkbox"/>B加工(red series)</label></li>
+                        </ul>
+                    </li>
+                    <li class="item-sed-list">
+                        <div class="inputLab"><label><input name="" value="" type="checkbox"/>无(red series)</label></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
+				<div class="messageSet" id="messageSet">
+					<ul></ul>
+				</div>
+				<div class="subtn">
+					<input type="submit" value="确定" /> <input type="button" id="" value="取消" />
+				</div>
+			</form>
+		</div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				  	//显示隐藏三级块
+				  	function hideBlok(){
+				  		$(".goods-sp .col-three-blok").each(function(){
+							$(this).hide();
+						});	
+				  	}
+					//使箭头向下
+					function iconFun(){
+						$(".goods-sp").find(".inputLab i").each(function(){
+				            $(this).attr("class","glyphicon glyphicon-chevron-down");
+				        });
+					}
+					//点击任何选项都隐藏所有一级UI块
+					$(".goods-sp").on("click",".con-item-first input",function(){
+						hideBlok();
+						iconFun();
+					});
+					//点击任何选项都隐藏所有二级UI块
+					$(".goods-sp").on("click",".inputLab input",function(){
+						hideBlok();
+						iconFun();
+					});
+					
+				    $(".goods-sp").on("click", ".inputLab i", function() {
+				        var threeBlock = $(this).parent().next();
+				        if (threeBlock.css("display") == "block") {
+				        	iconFun();
+				            hideBlok();
+				        } else {
+				            hideBlok();
+				            iconFun();
+				            threeBlock.show();
+				            $(this).attr("class","glyphicon glyphicon-chevron-up");
+				        }
+				    });
+				//选中规格，添加表格
+
+				//禁用一二级点击事件
+				//$(".inputLab input").attr("disabled", true);
+				//$(".con-item-first input").attr("disabled", true);
+				//选中子规格，父类规格选中
+				$(".goods-sp").on("click", ".item-three-list input", function() {
+					//三级规格的ul块
+					var parentEle = $(this).parent().parent().parent();
+					//三级规格的ul块前面的二级快
+					var preElemnt = parentEle.prev();
+					if(this.checked) {
+						preElemnt.find("input").prop("checked", true);
+						preElemnt.parent().parent().parent().prev().find("input").prop("checked", true);
+					} else {
+						if(parentEle.find("input:checked").length < 1) {
+							preElemnt.find("input").prop("checked", false);
+						}
+						//二级规格ul块
+						var sedElement = parentEle.parent().parent();
+						console.log(sedElement);
+						if(sedElement.find(".inputLab input:checked").length < 1) {
+							sedElement.parent().prev().find("input").prop("checked", false);
+						}
+					}
+				})
+				
+				//为二级子规格选框绑定事件
+				$(".goods-sp").on("click", ".inputLab input", function() {
+					//二级规格的ul块
+					var parentEle = $(this).parent().parent().parent().parent();
+					//三级规格的ul块
+					var threeparEle = $(this).parent().parent().next();
+					//一级块
+					var firElement=parentEle.parent().prev();
+					if(this.checked){
+						firElement.find("input").prop("checked", true);
+					}else if(threeparEle.find("input:checked").length>0){
+						$(this).prop("checked", true);
+						firElement.find("input").prop("checked", true);
+					}else if(parentEle.find("input:checked").length>0){
+						firElement.find("input").prop("checked", true);
+					}else{
+						firElement.find("input").prop("checked", false);
+					}
+				})
+				
+				//为一级子规格选框绑定事件
+				$(".goods-sp").on("click", ".con-item-first input", function() {
+					//二级规格的ul块
+					var parentEle = $(this).parent().next().find(".col-sed-blok");
+					//三级规格的ul块
+					var threeparEle = $(this).parent().next().find(".col-three-blok");
+					if(this.checked){
+						$(this).prop("checked", true);
+					}else if(parentEle.find(".inputLab input:checked").length<1){
+						$(this).prop("checked", false);
+					}else{
+						$(this).prop("checked", true);
+					}
+				})
+			});
+		</script>
+			
+	</body>
+
+</html>

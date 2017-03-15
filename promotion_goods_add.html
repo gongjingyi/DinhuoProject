@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta  name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">        
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css"/>
+		
+		
+	</head>
+	<body>
+		<h3 class="col-md-12 title title2"><a  href="">商品促销</a><span class="bread">&gt;</span><a href="">新增商品促销 </a> </h3>
+		<div class="col-md-12 con con1">
+			<form id="form" action="" method="post">
+				
+			
+
+				<div class="con-warp">
+					<label>
+						<span class="con-warp-tit"><i class="red">*</i>活动类型</span> 
+						<div class="button-holder con-warp-but prom">
+													
+							<label>
+								<input type="radio" id="radio-1-1" name="radio-1-set" class="regular-radio" /><label for="radio-1-2"></label>
+								满减
+
+							</label>
+								<p class="full">订单金额每满￥ <input type="" name="" id="" value="" /> ，立减￥<input type="" name="" id="" value="" /> </p>
+							
+							<label>
+								<input type="radio" id="radio-1-2" name="radio-1-set" class="regular-radio" /><label for="radio-1-2"></label>
+								满折
+
+								
+							</label>
+								<p class="full">订单金额每满￥ <input type="" name="" id="" value="" /> ，打折（<input type="" name="" id="" value="" />）%</p>
+							
+						</div>
+					</label>
+					
+						<label class="level-tit pro-tit">
+							<i class="red">*</i> 促销商品
+							<a class="cal choose-cus" >＋ 选择商品</a>
+						</label>
+						<table id="base-tab" class="table table-bordered  pro-table">
+					    	<thead>
+					    		<tr>
+					    			<th width="6"></th>
+					    			<th width="20%" >商品名称</th>
+					    			<th width="12%" >规格</th>
+					    			<th width="8%" >单位</th>
+					    			<th width="10%" >订货价</th>
+					    			<th width="8%" >实际库存</th>
+					    			<th width="10%" >促销特价</th>
+					    			<th width="10%" >商品总量限制</th>
+					    			<th width="8%" >每人限量</th>
+					    			<th width="8%" >操作</th>
+					    		</tr>
+					    	</thead>
+							<tbody>
+								<!--<tr>
+									<td>三三</td>
+									<td>10198</td>
+									<td>数码</td>
+									<td>法国</td>
+									<td><input type="text" name="" id="" value="" /></td>
+									<td>
+										<a href="">删除</a>
+									</td>
+								</tr>-->
+
+							</tbody>
+						</table>
+					
+					
+					
+					
+					<label>
+						<span class="con-warp-tit"><i class="red">*</i>活动时间</span> 
+						<div class="con-warp-del">
+							
+							<span class="wdate-time">
+								<input id="d4311" class="Wdate " type="text" onFocus="WdatePicker({dateFmt:'yyyy-M-d H:mm:ss'})" placeholder="起始时间" value=""/><i class="fa fa-calendar"></i>
+							</span> 
+							<span class="wrp-to">至</span>
+							<span class="wdate-time">
+								<input id="d4312" class="Wdate" type="text" onFocus="WdatePicker({dateFmt:'yyyy-M-d H:mm:ss',minDate:'#F{$dp.$D(\'d4311\')}'})" placeholder="截止日期" value=""/><i class="fa fa-calendar"></i>
+							</span>
+
+						</div>
+					</label>
+					<label>
+						<span class="con-warp-tit"><i class="red">*</i>客户类型</span> 
+						<div class="button-holder con-warp-but">
+							<label class="whole">
+								<input type="radio" id="radio-2-1" name="radio-2-set" class="regular-radio" checked /><label for="radio-2-1"></label>
+								全部
+							</label>
+							
+							<label  class="part">
+								<input type="radio" id="radio-2-2" name="radio-2-set" class="regular-radio" /><label for="radio-2-2"></label>
+								部分
+
+							</label>
+							<div class="client-box">
+								<label class="client-all"><input type="checkbox" name="" id="" value="" /> 全选</label>
+								<label><input type="checkbox" name="" id="" value="" /> 子类</label>
+								<label><input type="checkbox" name="" id="" value="" /> 子类</label>
+							</div>
+						</div>
+					</label>
+					<label>
+						<span class="con-warp-tit"><i class="red">*</i>地区类型</span> 
+						<div class="button-holder con-warp-but">
+							<label class="whole">
+								<input type="radio" id="radio-3-1" name="radio-3-set" class="regular-radio" checked /><label for="radio-3-1"></label>
+								全部
+							</label>
+							<label class="part">
+								<input type="radio" id="radio-3-2" name="radio-3-set" class="regular-radio" /><label for="radio-3-2"></label>
+								部分
+							</label>
+							<div class="client-box">
+								<label class="client-all"><input type="checkbox" name="" id="" value="" /> 全选</label>
+								<label><input type="checkbox" name="" id="" value="" /> 子类</label>
+								<label><input type="checkbox" name="" id="" value="" /> 子类</label>
+							</div>
+						</div>
+					</label>
+			
+				</div>
+				<div class="subtn">
+					<input type="submit" value="保存"/> <input type="button" id="" value="取消" />
+				</div>
+			</form>
+		</div>
+		
+			<div class="pop">
+			<div class="poper"></div>
+			<div class="pop-warp">
+				<form action="" method="post">
+					<h5 class="pp-tit">
+						<span class="">
+							选择商品
+						</span>
+						<i class="pop-close pull-right">X</i>
+					</h5>
+					<div class="rel-con">
+						<div class="goods-fix">
+						<div class="sear">
+							<input type="text" class="form-control" placeholder="商品名称/首字母拼音/编号/关键字/条形码">
+							   <span class="input-group-btn">
+						        <button class="btn btn-default" type="button">Go!</button>
+						      </span>
+						</div>
+						<div class="staff-chos">
+							<select name="">
+								<option value="" selected>全部仓库</option>
+							
+							</select>
+						</div>
+						
+						<div class="staff-chos">
+							<select name="" >
+								<option value="" selected>商品品牌</option>
+							
+							</select>
+						</div>
+						<div class="staff-chos">
+							<select name="" >
+								<option value="" selected>商品分类</option>
+								
+							</select>
+						</div>
+						
+						
+						<div class="staff-chos">
+							<select name="" >
+								<option value="" selected>商品标签</option>
+								
+							</select>
+						</div>
+						<div class="staff-chos">
+							<select name="" >
+								<option value="" selected>订货限制</option>
+								
+							</select>
+						</div>
+						
+					</div>
+	
+				  	<table id="base-as" class="table table-cus">
+				    	<thead>
+				    		<tr>
+				    			<th width="8%"><input type="checkbox" class="all" name="" id="" value="" /></th>
+				    			<th width="22%">商品</th>
+				    			<th width="8%"  >编号</th>
+				    			<th width="18%" >规格</th>
+				    			<th width="10%">单位</th>
+				    			<th width="12%">订货价</th>
+				    			<th width="12%" >可售库存</th>
+	
+				    		</tr>
+				    	</thead>
+						<tbody>
+							<tr>
+								<td><input type="checkbox" name="" id="" value="" />1</td>
+
+								<td>
+									<img src="img/goods.png"alt="" />
+									<p class="list-link">10090 <span class="state">热</span></p>
+									<p class="list-link">专柜正品 花花公子 新款男式钱包 牛皮 横款皮夹 男士 真皮钱夹</p>
+								</td>
+								<td>10008</td>
+								<td></td>
+								<td>个</td>
+								<td>12</td>
+								<td>1000</td>
+								
+								
+								
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="" id="" value="" />2</td>
+
+								<td>
+									<img src="img/goods.png"alt="" />
+									<p class="list-link">10090 <span class="state">热</span></p>
+									<p class="list-link">专柜正品 花花公子 新款男式钱包 牛皮 横款皮夹 男士 真皮钱夹</p>
+								</td>
+								<td>10008</td>
+								<td></td>
+								<td>个</td>
+								<td>12</td>
+								<td>1000</td>
+								
+								
+								
+							</tr>
+							
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="100" class="">
+	
+									<nav class="pull-right">
+									  <ul class="pagination">
+									    <li><a href="#">&laquo;</a></li>
+									    <li><a href="#">1</a></li>
+									    <li><a href="#">2</a></li>
+									    <li><a href="#">3</a></li>
+									    <li><a href="#">4</a></li>
+									    <li><a href="#">5</a></li>
+									    <li><a href="#">&raquo;</a></li>
+									  </ul>
+									</nav>
+								
+								</td>
+								
+								
+							</tr>
+						</tfoot>
+				  	</table>
+						
+
+
+					</div>
+											
+					<div class="pp-ft">
+						<div class="subtn pull-right">
+							<input id="base-asbtn" class="pp-btn" type="button" value="确定"/> <input class="pbtn" type="button" id="" value="取消" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	
+		
+		
+		
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/WdatePicker.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".prom label input").click(function(){
+					$(".full").hide()
+					$(this).parent().next(".full").show()
+				})
+				$(".whole input").click(function(){
+					$(this).parent().siblings(".client-box").hide()
+				})
+				$(".part input").click(function(){
+					$(this).parent().siblings(".client-box").show()
+				})
+				//全选
+				$(".client-all input").change(function(){    
+
+				    if($(this).prop("checked")){
+						$(this).parent().siblings().children(" input").each(function () {
+							$(this).prop("checked", true);
+						});
+					}else{
+						$(this).parent().siblings().children(" input").each(function () {
+							$(this).prop("checked", false);
+						});
+					}
+				
+				});
+					
+		   		$(".choose-cus").click(function(){
+		   			$(".pop").show()
+		   		})
+		   		
+		   		$(".pbtn").click(function(){
+		   			$(".pop").hide()
+
+		   			
+		   			
+		   		})
+		   		$(".poper").click(function(){
+		   			$(".pop").hide()
+
+		   			
+		   		})
+		   		$(".pop-close").click(function(){
+		   			$(".pop").hide()
+		   		})
+		   		
+			})
+			//商品全选
+			$(".all").change(function(){
+
+	                if($(this).prop("checked")){
+	                    $("input").each(function () {
+							$(this).prop("checked", true);
+				
+					});
+	                }else{
+	                    $("input").each(function () {
+	                        $(this).prop("checked", false);
+	                    });
+	                }
+           		});			
+			//选择商品
+			$(document).ready(function(){
+					var index=0;
+				
+				$("#base-asbtn").click(function(){	
+					$checked=$("#base-as tbody input:checked").parent().parent();
+					var $acheckedc=$($("#base-as tbody tr")[0]).find('td');
+					var table1 = new Array($checked.length);
+					for(var q=0;q<table1.length;q++){
+					    table1[q] = new Array($acheckedc.length-2);
+					}
+					var $achecked=[];
+					var $acheckedc=[];
+
+					for(var g=0;g<$checked.length;g++){
+							index++;
+							table1[g][0]=index;
+							table1[g][1]=$($($checked[g]).find('td')[1]).html();
+							table1[g][2]=$($($checked[g]).find('td')[3]).text();
+							table1[g][3]=$($($checked[g]).find('td')[4]).text();
+							table1[g][4]=$($($checked[g]).find('td')[5]).text();							
+							table1[g][5]=$($($checked[g]).find('td')[6]).text();
+							table1[g][6]="<input type='text' value=''>";
+							table1[g][7]="<input type='text' value=''>";
+							table1[g][8]="<input type='text' value=''>";
+							table1[g][9]="<a href='#'>删除</a>";
+
+					}
+				
+
+						for(var k1=0;k1<table1.length;k1++){
+							$("#base-tab tbody").append("<tr></tr>");
+							var hh="<td>"+table1[k1][0]+"</td><td>"+table1[k1][1]+"</td><td>"+table1[k1][2]+"</td><td>"+table1[k1][3]+"</td><td>"+table1[k1][4]+"</td><td>"+table1[k1][5]+"</td><td>"+table1[k1][6]+"</td><td>"+table1[k1][7]+"</td><td>"+table1[k1][8]+"</td><td>"+table1[k1][9]+"</td>";						
+							$("#base-tab tbody tr:last-child").html(hh);
+						}
+					$(".pop").hide()
+
+					
+					$("#base-as tbody input:checked").attr("disabled","true")
+					$(".all").attr("disabled","true")
+					$("#base-as tbody input:checked").removeAttr("checked");
+					$(".all").removeAttr("checked")
+					
+
+
+					
+			   	})
+			  })
+    
+			
+			
+		</script>
+	</body>
+</html>

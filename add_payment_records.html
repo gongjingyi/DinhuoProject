@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta  name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">        
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css"/>
+		<link rel="stylesheet" href="css/jquery.ui.css" type="text/css" />
+   		<link rel="stylesheet" type="text/css" href="css/css.css"/>
+		
+	</head>
+	<body>
+		<h3 class="col-md-12 title title2"><a  href="">应收管理</a><span class="bread">&gt;</span><a href="">添加付款记录</a> </h3>
+		<div class="col-md-12 con con1">
+			<form id="form" action="" method="post">
+				<div class="amount amount1">
+						<p>应收金额：671645</p>
+						<p>已收金额：0</p>
+						<p>待收金额：<span class="wait-num">671645</span></p>
+						
+				</div>
+			
+
+				<div class="con-warp">
+					<label  id="labe-first">
+						
+								<input type="radio" id="radio-1-1" name="radio-1-set" class="regular-radio" checked /><label for="radio-1-1"></label>
+								预存款支付：
+					</label>
+				</div>
+				<div class="con-warp lab-one">
+
+					<label><span class="con-warp-tit">付款金额：</span><input type="text" name="name" id="" value="900" required/></label>
+					<label><span class="con-warp-tit">预存款余额：</span>
+						<span class="con-warp-del"> ￥0</span>
+					</label>	
+					<label><span class="con-warp-tit">付款日期：</span>
+						<input type="text" class="jcDate datepicker" readonly  id="" placeholder="请填写付款日期"/>
+					</label>	
+					<label><span class="con-warp-tit">备注</span> <textarea name="comment" rows="" cols="" required></textarea></label>
+					
+				</div>
+				<div class="con-warp">
+						<label id="labe-two">
+								<input type="radio" id="radio-1-2" name="radio-1-set" class="regular-radio" /><label for="radio-1-2"></label>
+								线下转账：
+						</label>
+				</div>
+
+				<div class="con-warp lab-two">
+					<label><span class="con-warp-tit">付款金额：</span><input type="text" name="name" id="" value="900" required/></label>
+					<label><span class="con-warp-tit">预存款余额：</span>
+						<span class="con-warp-del"> ￥0</span>
+					</label>	
+					<label><span class="con-warp-tit">付款日期：</span>
+						<input type="text" class="jcDate datepicker" readonly  id="" placeholder="请填写付款日期"/>
+					</label>	
+					<label><span class="con-warp-tit">收款账号：</span>
+						<span class="con-warp-del"> 
+							<p>
+								<label>
+									<input type="radio" id="radio-2-1" name="radio-2-set" class="regular-radio" checked /><label for="radio-2-1"></label>
+									<span class="bank-msg">
+										<i>
+											钟勇
+										</i>
+										<i>
+											建设银行
+										</i>
+										<i>
+											62271008611100013
+										</i>
+									</span>
+								</label>
+							</p>
+							<p>
+								<label>
+									<input type="radio" id="radio-2-2" name="radio-2-set" class="regular-radio" /><label for="radio-2-2"></label>
+									<span class="bank-msg">
+										<i>
+											P1052
+										</i>
+										<i>
+											招商银行股份有限公司
+										</i>
+										<i>
+											62271008611100013
+										</i>
+									</span>
+								</label>
+							</p>
+							
+						</span>
+							
+					</label>	
+					<label><span class="con-warp-tit">备注</span> <textarea name="comment" rows="" cols="" required></textarea></label>
+					
+				</div>
+				<div class="subtn">
+					<input type="submit" value="保存"/> <input type="button" id="" value="取消" />
+				</div>
+			</form>
+		</div>
+
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/jquery.ui.js"></script>
+		<script type="text/javascript" src="js/moment.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){		    
+				$("#labe-first input[type='radio']").click(function(){
+					$(".lab-two").hide()
+					$(".lab-one").show()
+					
+				})
+				$("#labe-two input[type='radio']").click(function(){
+					$(".lab-one").hide()
+					$(".lab-two").show()
+					
+				})
+			})
+		
+		
+			$( function() {
+			    $( ".datepicker" ).datepicker();
+			  } );
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,233 @@
+<extend name="../../dh/Common/View/Layout/base.html"/>
+<block name="page_style">
+		<link rel="stylesheet" type="text/css" href="__DH__/css/zui.min.css" />
+		<link rel="stylesheet" type="text/css" href="__DH__/css/chosen.min.css" />
+		<link rel="stylesheet" href="__DH__/css/jquery.ui.css" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="__DH__/css/css.css" />
+		<link rel="stylesheet" type="text/css" href="__DH__/css/scarlett.css" />
+</block>
+<block name="body">
+		<h3 class="col-md-12 title "><a class="dthis" href="">订货单</a></h3>
+		<div class="col-md-12 con ">
+			<div class="panel panel-default">
+				<div class="wrap1">
+					<div class="goods-fix">
+						<div class="sear">
+							<input type="text" class="form-control" placeholder="订单号">
+							<span class="input-group-btn">
+						       	 <button class="btn btn-default" type="button">Go!</button>
+						      </span>
+						</div>
+						<div class="staff-chos">
+							<select name="">
+								<option value="" selected>订单状态</option>
+								<option value="">未全部付款</option>
+								<option value="">已全部付款</option>
+							</select>
+						</div>
+						<div class="staff-chos">
+							<select name="">
+								<option value="" selected>付款状态</option>
+								<option value="">未全部付款</option>
+								<option value="">已全部付款</option>
+							</select>
+						</div>
+						<div class="staff-time">
+							<label>
+									<input type="text" class="jcDate1" readonly  id="startDate" value="下单时间"/>
+								</label>
+						</div>
+						<div class="staff-time">
+							<label>
+									<input type="text" class="jcDate2" readonly  id="endDate" value="截止日期"/>	
+								</label>
+						</div>
+						<div class="staff-chos">
+							<select name="">
+								<option value="" selected>账期类型</option>
+								<option value="">未全部付款</option>
+								<option value="">已全部付款</option>
+							</select>
+						</div>
+						<div class="staff-chos">
+							<select name="">
+								<option value="" selected>剩余付款期限</option>
+								<option value="">未全部付款</option>
+								<option value="">已全部付款</option>
+							</select>
+						</div>
+						<div class="put_away">
+								<span>展开</span>
+								<i class="fa fa-angle-double-down"></i>
+						</div>
+					</div>
+
+				</div>
+
+					<table class="table table-cus">
+						<thead>
+							<tr>
+								<th><input type="checkbox" class="all" name="" id="" value="" /></th>
+								<th>订单号</th>
+								<th>商家名称</th>
+								<th>金额</th>
+								<th>收货地址</th>
+								<th>订单状态</th>
+								<th>付款状态</th>
+								<th>账期类型</th>
+								<th>剩余账期期限</th>
+							</tr>
+						</thead>
+						<tbody>
+						<volist name="order" id="vo">
+							<tr>
+								<td><input type="checkbox" name="" id="" value="" /></td>
+								<td>
+									<div class="tdBlock">
+										<a href="#">{$vo.order_no}</a>
+										<span>{$vo.created_at}</span>
+									</div>
+								</td>
+								<td>
+									<div class="tdBlock">
+										<a href="#">{$vo.company_name}</a>
+									</div>
+								</td>
+								<td>{$vo.money}</td>
+								<td>
+									<span>{$vo.province}-{$vo.city}-{$vo.district} &nbsp; 详细地址： {$vo.address}</span>
+								</td>
+								<td class="wait">
+									<?php
+									switch($vo['order_status']){
+										case 0:
+											echo "已取消";
+											break;
+										case 1:
+											echo "等待付款";
+											break;
+										case 2:
+											echo "等待出库";
+											break;
+										case 3:
+											echo "等待发货";
+											break;
+										case 4:
+											echo "等待收货";
+											break;
+										case 5:
+											echo "待审核";
+											break;
+										case 10:
+											echo "完成";
+											break;
+									}
+									?>
+								</td>
+								<td class="wait">
+									<?php
+									switch($vo['pay_status']){
+										case 0:
+											echo "未付款";
+											break;
+										case 1:
+											echo "已付款";
+											break;
+									}
+									?>
+								</td>
+								<td></td>
+								<td></td>
+								<td class="tbody-eit">
+									<a href="{:U('detail',['id'=>$vo['id']])}">查看</a>
+									<if condition="$vo['pay_status'] eq 0 and $vo['order_status'] neq 0">
+										<a href="{:U('pay',['id'=>$vo['id']])}">付款</a>
+									</if>
+									<if condition="$vo['order_status'] eq 4 and $vo['order_status'] neq 0">
+										<a href="{:U('confirm',['id'=>$vo['id']])}">确认收货</a>
+									</if>
+									<if condition="$vo['pay_status'] eq 0 and $vo['order_status'] neq 0">
+										<a href="{:U('cancel',['id'=>$vo['id']])}">取消</a>
+										<elseif condition="$vo['order_status'] eq 1" />
+										<a href="{:U('',['id'=>$vo['id']])}">退货</a>
+									</if>
+								</td>
+							</tr>
+							</volist>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="100" class="">
+									<nav class="pull-right">
+										<div class="badoo">
+											{$page}
+										</div>
+									</nav>
+
+								</td>
+
+							</tr>
+						</tfoot>
+					</table>
+
+
+			</div>
+
+		</div>
+		</block>
+		<block name="page_script">
+		<script src="__DH__/js/zui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="__DH__/js/chosen.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="__DH__/js/jquery.ui.js"></script>
+		<script type="text/javascript" src="__DH__/js/moment.min.js"></script>
+		<script type="text/javascript" src="__DH__/js/stay1.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('select.chosen-select').chosen({
+					no_results_text: '没有找到', // 当检索时没有找到匹配项时显示的提示文本
+					disable_search_threshold: 1, // 10 个以下的选择项则不显示检索框
+					search_contains: true, // 从任意位置开始检索
+					allow_single_deselect: true,
+					width: "94px"
+				});
+				
+				var goods_fix=$(".goods-fix>div");
+				for(var m=5;m<goods_fix.length-1;m++){
+					$(goods_fix[m]).css("display","none");
+				}
+				$(".put_away").click(function(){
+					if($(this).children("span").html()=="展开"){
+						$(this).children("span").html("收起");
+						$(this).children("i").removeClass("fa-angle-double-down").addClass("fa-angle-double-up");
+						$(".goods-fix").css("height","75px");
+						var goods_fix=$(".goods-fix>div");
+						for(var m=5;m<goods_fix.length-1;m++){
+							$(goods_fix[m]).css("display","block");
+						}
+					}else{
+						$(this).children("span").html("展开");
+						$(this).children("i").removeClass("fa-angle-double-up").addClass("fa-angle-double-down")
+						$(".goods-fix").css("height","auto");
+						var goods_fix=$(".goods-fix>div");
+						for(var m=5;m<goods_fix.length-1;m++){
+							$(goods_fix[m]).css("display","none");
+						}
+					}
+				})
+				
+				$(".all").change(function(){
+
+	                if($(this).prop("checked")){
+	                    $("input").each(function () {
+							$(this).prop("checked", true);
+				
+					});
+	                }else{
+	                    $("input").each(function () {
+	                        $(this).prop("checked", false);
+	                    });
+	                }
+           		});
+			})
+		</script>
+	</block>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/zui.min.css" />
+		<link rel="stylesheet" href="css/jquery.ui.css" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="css/css.css" />
+		<link rel="stylesheet" type="text/css" href="css/scarlett.css" />
+	</head> 
+
+	<body> 
+		<h3 class="col-md-12 title title1 bok-o-t"><a href="">订单商品明细</a><a class="dthis" href="">出库商品明细</a><a href="">退货商品明细</a></h3>
+		<div class="col-md-12 con ">
+			<div class="panel panel-default">
+				<div class="wrap1">
+					<div class="goods-fix">
+						<div class="staff-time">
+							<label>
+								<input type="text" class="delivery" readonly  id="startDelivery" value="起始时间"/>
+							</label>
+						</div>
+						<div class="staff-time">
+							<label>
+								<input type="text" class="delivery" readonly  id="endDelivery" value="截止时间"/>	
+							</label>
+						</div>
+						<div class="staff-chos">
+							<select name="">
+								<option value="" selected>商品品牌</option>
+								<option value="">品牌一</option>
+								<option value="">品牌二</option>
+							</select>
+						</div>
+						<div class="staff-chos">
+							<select name="">
+								<option value="" selected>商品分类</option>
+								<option value="">分类一</option>
+								<option value="">分类二</option>
+							</select>
+						</div>
+						<div class="staff-chos">
+							<select name="">
+								<option value="" selected>全部仓库</option>
+								<option value="">仓库一</option>
+								<option value="">仓库二</option>
+							</select>
+						</div>
+						<div class="staff-chos">
+							<select name="">
+								<option value="" selected>客户类型</option>
+								<option value="">类型一</option>
+								<option value="">类型二</option>
+							</select>
+						</div>
+						<div class="staff-chos">
+							<select name="">
+								<option value="" selected>归属地区</option>
+								<option value="">归属地一</option>
+								<option value="">归属地二</option>
+							</select>
+						</div>
+						<div class="put_away">
+								<span>展开</span>
+								<i class="fa fa-angle-double-down"></i>
+						</div>
+					</div>
+				</div>
+				<div class="wrap3">
+					<div class="topTipBlkLefCont">
+						<div class="topTipBlk">
+							<label>客户数：</label><span>453</span>
+						</div>
+						<div class="topTipBlk">
+							<label>出库单数：</label><span>443</span>
+						</div>
+						<div class="topTipBlk">
+							<label>商品数：</label><span>78658</span>
+						</div>
+					</div>
+				</div>
+				<table class="table table-cus">
+						<thead>
+							<tr>
+				    			<th></th>
+				    			<th width="15%">商品</th>
+				    			<th>品牌/分类</th>
+				    			<th width="15%">多规格(规格一，规格二)</th>
+				    			<th>单位</th>
+				    			<th>数量</th>
+				    			<th>单价</th>
+				    			<th>仓库</th>
+				    			<th>客户/归属地区</th>
+				    			<th>相关订单号</th>
+				    		</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>
+									<img src="img/goods.png"alt="" />
+									<p class="list-link1">10090</p>
+									<a href="#" class="list-link2">专柜正品 花花公子 新款男式钱包 牛皮 横款皮夹 男士 真皮钱夹</a>
+								</td>
+								<td></td>
+								<td>尺寸：PP18；颜色：280 黑色 JET；效果：AB；加工：F</td>
+								<td>个</td>
+								<td>1</td>
+								<td>96</td>
+								<td></td>
+								<td>
+									<div class="tdBlock">
+										<a href="#">北京天恒服装商贸公司</a>
+										<span>北京地区总代理</span>
+									</div>
+								</td>
+								<td>
+									<div class="tdBlock">
+										<a href="#">RK.20160810.0010</a>
+										<span>2016-12-12 09:22</span>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="100" class="">
+
+									<nav class="pull-right">
+										<ul class="pagination">
+											<li>
+												<a href="#">&laquo;</a>
+											</li>
+											<li>
+												<a href="#">1</a>
+											</li>
+											<li>
+												<a href="#">2</a>
+											</li>
+											<li>
+												<a href="#">3</a>
+											</li>
+											<li>
+												<a href="#">4</a>
+											</li>
+											<li>
+												<a href="#">5</a>
+											</li>
+											<li>
+												<a href="#">&raquo;</a>
+											</li>
+										</ul>
+									</nav>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+
+				</div>
+
+		</div>
+
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/zui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/jquery.ui.js"></script>
+		<script type="text/javascript" src="js/moment.min.js"></script>
+		<script type="text/javascript" src="js/stay1.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				
+				var goods_fix=$(".goods-fix>div");
+				for(var m=5;m<goods_fix.length-1;m++){
+					$(goods_fix[m]).css("display","none");
+				}
+				$(".put_away").click(function(){
+					if($(this).children("span").html()=="展开"){
+						$(this).children("span").html("收起");
+						$(this).children("i").removeClass("fa-angle-double-down").addClass("fa-angle-double-up")
+						$(".goods-fix").css("height","75px");
+						for(var j=5;j<goods_fix.length-1;j++){
+							$(goods_fix[j]).css("display","block");
+						}
+					}else{
+						$(this).children("span").html("展开");
+						$(this).children("i").removeClass("fa-angle-double-up").addClass("fa-angle-double-down")
+						$(".goods-fix").css("height","auto");
+						for(var h=5;h<goods_fix.length-1;h++){ 
+							$(goods_fix[h]).css("display","none");
+						}
+					}
+				}) 
+			})
+		</script>
+	</body> 
+
+</html>

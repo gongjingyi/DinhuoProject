@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/zui.min.css" />
+		<link rel="stylesheet" href="css/jquery.ui.css" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="css/css.css" />
+		<link rel="stylesheet" type="text/css" href="css/scarlett.css" />
+	</head>
+
+	<body>
+		<h3 class="col-md-12 title "><a class="dthis" href="">订货单</a><span class="bread">&gt;</span><a href="">添加付款记录</a></h3>
+		<div class="col-md-12 con con1">
+			<form id="form" action="" method="post">
+				<div class="modal-hed1">
+					<h4>添加收款记录</h4>
+					<div class="modal-hed-content">
+						<div class="modalTip">
+							<label>应付金额：￥<span>0.00</span></label>
+							<label>已付金额：￥<span>0.00</span></label>
+							<label>待付金额：￥<span>0.00</span></label>
+						</div>
+						<div class="modalCont">
+							<label><input type="radio" name="pay-type"/ checked="checked"><span>预存款支付</span></label>
+							<div class="pay-type-box1" style="display: block;">
+								<div class="padder">
+									<label><span>付款金额：</span></label>
+									<label><input type="text" name="balance_total" placeholder="请填写付款金额" value="0"/></label>
+								</div>
+								<div class="padder">
+									<label><span>预存款余额：</span></label>
+									<label>￥<span>0</span></label>
+								</div>
+								<div class="padder">
+									<label><span>付款日期：</span></label>
+									<div class="staff-time">
+										<label>
+											<input type="text" class="delivery" readonly  id="startDelivery" value="交货日期"/>
+										</label>
+									</div>
+								</div>
+								<div class="padder">
+									<label><span>备注：</span></label>
+									<label><textarea></textarea></label>
+								</div>
+							</div>
+						</div>
+						<div class="modalCont">
+							<label><input type="radio" name="pay-type"/><span>线下转账</span></label>
+							<div class="pay-type-box2" style="display: none;">
+								<div class="padder">
+									<label><span>付款金额：</span></label>
+									<label><input type="text" name="balance_total" placeholder="请填写付款金额" value="0"/></label>
+								</div>
+								<div class="padder">
+									<label><span>付款日期：</span></label>
+									<div class="staff-time">
+										<label>
+											<input type="text" class="delivery" readonly  id="endDelivery" value="交货日期"/>
+										</label>
+									</div>
+								</div>
+								<div class="padder">
+									<label><span>收款账号：</span></label>
+									<label><input type="radio" name="bank_id"/><span class="CName">成都箱包商贸</span><span class="bName">中国银行金牛荷花池支行</span><span class="account">34353-5353-5335-01</span></label>
+								</div>
+								<div class="padder">
+									<label><span>备注：</span></label>
+									<label><textarea></textarea></label>
+								</div>
+								<div class="btfContDBtn">
+									<span class="btn">+附件</span><i class="fa fa-question" title="附件最大为 6MB，支持格式：JPG、JPEG、PNG"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="subtn">
+						<input type="submit" value="确认" /> <input type="button" id="" value="取消" />
+					</div>
+			</form>
+			</div>
+
+			<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+			<script type="text/javascript" src="js/jquery.ui.js"></script>
+			<script type="text/javascript" src="js/moment.min.js"></script>
+			<script type="text/javascript" src="js/stay1.js"></script>
+			<script type="text/javascript">
+				$(document).ready(function() {
+					/*弹窗单选选择切换*/
+					$(".modal-hed-content .modalCont>label input").on("click",function(){
+						if($(this).prop("checked")){
+							var clsNameStr=$(this).parent().next().attr("class");
+							if(clsNameStr=="pay-type-box1"){
+								$(".pay-type-box2").css("display","none")
+							}else{
+								$(".pay-type-box1").css("display","none")
+							}
+							$(this).parent().next().css("display","block");
+						}
+					});	
+				})
+			</script>
+	</body>
+
+</html>

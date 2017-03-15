@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/zui.min.css" />
+		<link rel="stylesheet" href="css/jquery.ui.css" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="css/css.css" />
+		<link rel="stylesheet" type="text/css" href="css/scarlett.css" />
+	</head>
+
+	<body>
+		<h3 class="col-md-12 title "><a class="dthis" href="">退货单</a><span class="bread">&gt;</span><a href="">退货详情</a></h3>
+		<div class="col-md-12 con ">
+			<div class="panel panel-default">
+				<div class="wrap1">
+					<div class="goods_detal_blok">
+						<div class="goods_detal_list">
+							<label>退货单号：</label><span>34234</span>
+						</div>
+						<div class="goods_detal_list">
+							<label>退单时间：</label><span>2016-12-15 14:30</span>
+						</div>
+						<div class="goods_detal_list">
+							<label>相关订单号：</label><span></span>
+						</div>
+						<div class="goods_detal_list">
+							<label>商家名称：</label><span>测试数据</span>
+						</div>
+						<div class="goods_detal_list">
+							<label>退单状态：</label><span class="wait">待审核</span>
+						</div>
+					</div>
+				</div>
+				<div class="fund-table1">
+					<div class="goods_table_head">
+						<div class="table_headL">
+							<h4>商品信息</h4>
+						</div>
+						<div class="table_headR">
+							<div class="table_headRR">
+								<button class="cancel cancel_chargeback" style="display: none;" type="button">取消退单</button>
+								<button class="pass pass_receipt" style="display: none;" type="button">收款确认</span>
+							</div>
+						</div>
+					</div>
+					<table class="table table-cus">
+						<thead>
+							<tr>
+								<th></th>
+								<th width="20%">商品名称</th>
+								<th>品牌</th>
+								<th>分类</th>
+								<th>规格</th>
+								<th>数量</th>
+								<th>小计</th>
+								<th>备注</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>
+									<div class="detail_block">
+										<img src="img/goods.png" alt="" />
+										<p class="list-link1">10094</p>
+										<a class="list-link2" title="百年纪念高跟鞋2016夏季新款单鞋细跟女鞋尖头鞋子呵呵1">百年纪念高跟鞋2016夏季新款单鞋细跟女鞋尖头鞋子呵呵1</a>
+									</div>
+								</td>
+								<td></td>
+								<td></td>
+								<td>规格，颜色，效果，加工</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="desCont">
+						<div class="desContR">
+							<div class="desContRC">
+								<span>退款总额：</span>
+								<span class="desContRCC">
+									<b class="redColor">￥</b><em class="redColor goods_total_price">0.00</em>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-hed2">
+					<h4>备注</h4>
+					<div class="btfContD">
+						<span>退单备注：</span>
+						<input readonly="ture" value="退单备注测试数据"/>
+					</div>
+				</div>
+				<div class="modal-hed2">
+					<h4>退货</h4>
+					<div class="btfContD">
+						<span>退货信息：</span>
+						<input readonly="ture" value="退单备注测试数据"/>
+					</div>
+					<div class="btfContU">
+						<span><i class="red">*</i>收货地址：</span><a class="fa fa-pencil-square-o new-od-ed" href=""></a>
+						<input value="客户名称：某某公司，  收货人：XX ， 联系电话：13500135000 ， 地址：深圳南山区"/>
+					</div>
+				</div>
+				<div class="bottomTablCont" >
+					<h2>操作日志<i class="fa fa-caret-down"></i></h2>
+					<div class="bottomTablBlock">
+					<table class="table table-cus">
+						<thead>
+							<tr>
+								<th>操作时间</th>
+								<th>操作日志</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>2016-12-10 17:10</td>
+								<td >创建退单</td>
+							</tr>
+						</tbody>
+					</table>						
+					</div>
+				</div>
+			</div>
+
+		</div>
+		
+		<!--弹窗-->
+		<div class="dialog modal fade js-message-modal in inventoryConfirm" style="display: none;">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">确认出库</h4>
+					</div>
+					<div class="modal-body">
+						<h4 class="text-center">确定审核通过?</h4>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-info">确定</button>
+						<button type="button" class="btn btn-default">取消</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="dialog modal fade js-message-modal in inventoryConfirm1" style="display: none;">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">确认发货</h4>
+					</div>
+					<div class="modal-body">
+						<div class="tipBlock">
+							<div class="labelBlok">
+								<label>发货日期<input type="text" class="delivery"  id="startDelivery" value=""/></label>
+							</div>
+							<div class="labelBlok">
+								<label>物流公司<input type="text" value=""/></label>
+							</div>
+							<div class="labelBlok">
+								<label>物流单号<input type="text" value=""/></label>
+							</div>
+						</div>
+					</div>	
+					<div class="modal-footer">
+						<button type="button" class="btn btn-info">确定</button>
+						<button type="button" class="btn btn-default">取消</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal-backdrop fade in inventoryConfirmBak" style="display: none;"></div>
+
+		<!--<div class="tipBlock"><div class="labelBlok"><label>发货日期<input type="text" class="delivery"  id="startDelivery" value=""/></label></div><div class="labelBlok"><label>物流公司<input type="text" value=""/></label></div><div class="labelBlok"><label>物流单号<input type="text" value=""/></label></div></div>-->
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/jquery.ui.js"></script>
+		<script type="text/javascript" src="js/moment.min.js"></script>
+		<script type="text/javascript" src="js/stay1.js"></script>
+				<script type="text/javascript">
+					$(document).ready(function() {
+						
+						var checkblock=$(".goods_detal_list>label");
+						var checkState=1;
+						for(var a=0;a<checkblock.length;a++){
+							if($(checkblock[a]).text().trim().indexOf("退单状态")!=-1){
+								if($(checkblock[a]).next()){
+									if($(checkblock[a]).next().text().trim().indexOf("待审核")!=-1){
+										checkState=1;
+										$(".btfContU a").show();
+									}else if($(checkblock[a]).next().text().trim().indexOf("待退货")!=-1){
+										$(".btfContU a").show();
+										checkState=2;
+									}else if($(checkblock[a]).next().text().trim().indexOf("待处理")!=-1){
+										$(".btfContU a").hide(); 
+										checkState=3;
+									}else if($(checkblock[a]).next().text().trim().indexOf("待收款确认")!=-1){
+										$(".btfContU a").hide();
+										checkState=4;
+									}else if($(checkblock[a]).next().text().trim().indexOf("已完成")!=-1){
+										$(".btfContU a").hide();
+										checkState=2; 
+									}else if($(checkblock[a]).next().text().trim().indexOf("已取消")!=-1){
+										$(".btfContU a").hide();
+										checkState=2;
+									}
+								}
+							}
+						}
+						if(checkState==1){
+							$(".cancel_chargeback").css("display","block");
+							$(".pass_receipt").css("display","none");
+						}else if(checkState==2 || checkState==3 || checkState==5 || checkState==6){
+							$(".cancel_chargeback").css("display","none");
+							$(".pass_receipt").css("display","none");
+						}else if(checkState==4){
+							$(".cancel_chargeback").css("display","none");
+							$(".pass_receipt").css("display","block");
+						}
+						
+						$(".inventoryConfirm .btn.btn-default").click(function(){
+							$(".inventoryConfirm").css("display","none");
+							$(".inventoryConfirm1").css("display","none");
+							$(".inventoryConfirmBak").css("display","none");
+						})
+						$(".inventoryConfirm1 .btn.btn-default").click(function(){
+							$(".inventoryConfirm").css("display","none");
+							$(".inventoryConfirm1").css("display","none");
+							$(".inventoryConfirmBak").css("display","none");
+						})
+					})
+				</script>
+	</body>
+
+</html>

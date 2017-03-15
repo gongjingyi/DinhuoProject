@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta  name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">        
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/summernote.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<body>
+		<h3 class="col-md-12 title title2"><a  href="">商品列表</a><span class="bread">&gt;</span><a href="">新增商品</a> </h3>
+		
+		<div class="main-head">
+					<ul class="goods-tab">
+						<li >
+							<a href="">基础</a>
+						</li>
+						<li class="good-this">
+							<a href="">图片与商品详情</a>
+						</li>
+						<li>
+							<a href="">库存预警</a>
+						</li>
+						<li>
+							<a href="">关联商品</a>							
+						</li>
+					</ul>
+		</div>
+		<div class="col-md-12 con con1">
+			<form id="form" action="" method="post">
+
+				<h6 class="con-tit">商品图片<span>（最多可添加24张图片，建议图片尺寸800*800px，大小≤6MB，支持JPG、PNG、JPEG）</span></h6>
+				<div class="goods-warp">
+
+			            <!--头部，相册选择和格式选择-->
+			
+			            <div id="uploader">
+			                <div class="queueList">
+			                	
+			                    <div id="dndArea" class="placeholder">
+			                        <div id="filePicker" class="fa fa-cloud-upload"></div>
+			                    </div>
+			                </div>
+			       <div class="statusBar" style="display:none;">
+                    
+                    <div class="btns">
+                        <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+                    </div>
+                </div>
+			            </div>
+
+
+				</div>
+				<h6 class="con-tit">商品图文描述</h6>
+				<div class="goods-warp">
+					<textarea name="text" class="summernote" id="contents" title="Contents"></textarea>
+				</div>
+				<div class="subtn">
+					<input type="submit" value="确定"/> <input type="button" id="" value="取消" />
+				</div>
+			</form>
+		</div>
+		<script src="js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/webuploader.min.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="js/upload.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/summernote.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="css/lang/summernote-zh-CN.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			    $(function() {
+			      $('.summernote').summernote({
+			        height: 200,
+			        width:950,
+                	lang: 'zh-CN'		        
+			      });
+			      
+			      $('form').on('submit', function (e) {
+			        e.preventDefault();
+			        alert($('.summernote').summernote('code'));
+			        alert($('.summernote').val());
+			      });
+			    });
+			    
+		</script>
+
+	</body>
+</html>

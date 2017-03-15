@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/zui.min.css" />
+		<link rel="stylesheet" href="css/jquery.ui.css" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="css/css.css" />
+	</head>
+
+	<body>
+		<h3 class="col-md-12 title "><a class="dthis" href="">盘点单</a><span class="bread">&gt;</span><a href="">批量导入盘点单</a></h3>
+		<div class="col-md-12 con con1">
+			<div class="batchBlock">
+				<div class="bar-state clearfix ">
+					<div class="import-file curr-step">
+						<p class="step"><i>1</i><span>上传盘点文件</span></p>
+						<div class="bg-img"></div>
+					</div>
+					<div class="import-sure curr-step">
+						<p class="step"><i>2</i><span>确认导入</span></p>
+					</div>
+				</div> 
+			</div>
+			<form id="form" action="" method="post">
+				<div class="modal-hed">
+					<h4>单据信息</h4>
+					<div class="row col-xs-12 clearfix">
+						<div class="col-xs-3">
+							<span class="con-warp-tit col-xs-3"><i class="red">*</i>盘点名称:</span>
+							<div class="col-xs-7">
+								<input type="text" placeholder="请输入盘点名称" class="investigation_name" required="true" {mmaxlength="16" }/>
+							</div>
+						</div>
+						<div class="col-xs-3">
+							<span class="con-warp-tit col-xs-3"><i class="red">*</i>盘点仓库:</span>
+							<span>大河仓库</span>
+						</div>
+						<div class="col-xs-3">
+							<span class="con-warp-tit col-xs-3"><i class="red">*</i>经办人:</span>
+							<span>订货宝</span>
+						</div>
+						<div class="col-xs-3">
+							<span class="con-warp-tit col-xs-3"><i class="red">*</i>入库时间</span>
+							<div class="staff-time">
+								<label>
+									<input type="text" class="jcDate1" readonly  id="startDate" value=""/>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-hed1">
+					<h4>商品信息</h4>
+					<div class="import-invalid">
+	                    <p>验证情况：您导入的数据，<em>正确：5条；有误：47条</em>。只能导入验证正确的数据</p>
+	                </div>
+					<div class="modal-hed-content">
+						<table class="table">
+							<thead>
+								<tr>
+									<th></th>
+									<th>验证</th>
+									<th>错误原因</th>
+									<th>商品编号</th>
+									<th width="20%">商品名称</th>
+									<th>商品规格</th>
+									<th>单位</th>
+									<th>实际库存（当前）</th>
+									<th><i class="red">*</i>盘点数量</th>
+									<th>实际库存调整数量</th>
+									<th>备注</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td><i class="fa fa-check-circle"></i></td>
+									<td></td>
+									<td>100027-12-40</td>
+									<td>卡列奇 春夏款单鞋女时尚纯色休闲鞋平底女鞋小清新</td>
+									<td>黑色,38</td>
+									<td>双</td>
+									<td>999</td>
+									<td>2</td>
+									<td>-997</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td><i class="fa fa-exclamation-triangle"></i></td>
+									<td>商品编号不能为空</td>
+									<td>100027-12-40</td>
+									<td>卡列奇 春夏款单鞋女时尚纯色休闲鞋平底女鞋小清新</td>
+									<td>黑色,38</td>
+									<td>双</td>
+									<td>999</td>
+									<td>2</td>
+									<td>-997</td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="subtn">
+					<input type="submit" value="确定" /> <input type="button" id="" value="取消" />
+				</div>
+			</form>
+		</div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/zui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/jquery.ui.js"></script>
+		<script type="text/javascript" src="js/moment.min.js"></script>
+		<script type="text/javascript" src="js/stay1.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				/*var goods_fix = $(".commodity-fix>div");
+				for(var j = 6; j < goods_fix.length - 1; j++) {
+					$(goods_fix[j]).css("display", "none");
+				}
+				$(".put_away").click(function() {
+					if($(this).children("span").html() == "展开") {
+						$(this).children("span").html("收起");
+						$(this).children("i").removeClass("fa-angle-double-down").addClass("fa-angle-double-up")
+						$(".commodity-fix").css("height", "75px");
+						for(var i = 6; i < goods_fix.length - 1; i++) {
+							$(goods_fix[i]).css("display", "block");
+						}
+					} else {
+						$(this).children("span").html("展开");
+						$(this).children("i").removeClass("fa-angle-double-up").addClass("fa-angle-double-down")
+						$(".commodity-fix").css("height", "auto");
+						for(var i = 6; i < goods_fix.length - 1; i++) {
+							$(goods_fix[i]).css("display", "none");
+						}
+					}
+				})*/
+
+				/*$(".all").change(function() {
+
+					if($(this).prop("checked")) {
+						$("input").each(function() {
+							$(this).prop("checked", true);
+
+						});
+					} else {
+						$("input").each(function() {
+							$(this).prop("checked", false);
+						});
+					}
+				});*/
+			})
+		</script>
+	</body>
+
+</html>

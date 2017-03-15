@@ -1,0 +1,77 @@
+<extend name="../../dh/Common/View/Layout/base.html"/>
+<block name="page_style">
+    <link rel="stylesheet" type="text/css" href="__DH__/css/dropify.css"/>
+</block>
+<block name="body">
+    <h3 class="col-md-12 title title1"><a   href="{:U('index')}">公司资料</a> <a class="dthis" href="{:U('identity')}">实名认证</a> </h3>
+    <div class="col-md-12 con con1">
+        <form id="form" action="{:U('identity')}" method="post" enctype="multipart/form-data" >
+
+
+            <h6 class="con-tit">公司信息 <span>（需上传完整证件...）</span></h6>
+            <div class="con-warp">
+
+                <div class="auth">
+                    <h6>营业执照</h6>
+
+                    <input type="file" name='file[]' id="input-file-now-custom-1" class="dropify" data-default-file="<?php if(isset($info['license'])) echo $info['license'];?>" />
+
+                    <div class="auth-code">
+                        <span>证件号</span> <input type="text" name="license_num" id="" value="{$info.license_num}" required/>
+                    </div>
+                </div>
+
+                <div class="auth">
+                    <h6>法人代表身份证</h6>
+
+                    <input type="file" name='file[]' id="input-file-now-custom-2" class="dropify" data-default-file="<?php if(isset($info['card'])) echo $info['card'];?>" />
+
+                    <div class="auth-code">
+                        <span>证件号</span> <input type="text" name="card_num" id="" value="{$info.card_num}" required/>
+                    </div>
+                </div>
+            </div>
+            <div class="subtn">
+                <input type="submit" value="保存"/> <input type="button" id="" value="取消" />
+            </div>
+        </form>
+    </div>
+</block>
+<block name="page_script">
+    <script src="__DH__/js/dropify.min.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        $(document).ready(function(){
+
+            $('.dropify').dropify({
+                messages: {
+                    default: '拖放文件或点击这里',
+                    replace: '拖放文件或单击替换',
+                    remove:  '删除',
+                    error:   '抱歉，该文件太大'
+                }
+            });
+
+
+        });
+         $(document).ready(function(){
+    	    	 $.validator.addMethod("license_num",function(value,element,params){
+	            var license_num= /^\d{15}$/;
+	            return license_num.test(value);
+	        });
+	         $.validator.addMethod("card_num",function(value,element,params){
+	           var card_num = /^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/;
+	            return card_num.test(value);
+	        });
+	            $("#form").validate({
+	                rules:{
+	                    license_num:{required:true,license_num:true},
+	                    card_num:{required:true,card_num:true}                   
+	                },
+	                messages:{
+	                    license_num:{required:'请输入一个正确的营业执照号',license_num:'请输入一个正确的营业执照号'},
+	                    card_num:{required:'请输入一个正确的身份证号',card_num:'请输入一个正确的身份证号'}
+	                }
+	            });
+ 			});
+    </script>
+</block>

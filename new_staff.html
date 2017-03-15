@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta  name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">        
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css"/>
+	</head>
+	<body>
+		<h3 class="col-md-12 title title2"><a  href="">员工账号</a><span class="bread">&gt;</span><a href="">新增员工</a> </h3>
+		<div class="col-md-12 con con1">
+			<form id="form" action="" method="post">
+				
+			
+				<h6 class="con-tit">账号信息</h6>
+				<div class="con-warp">
+					<label><span class="con-warp-tit">登录账号</span> <input type="text" name="" id="" value="" placeholder="只能包括英文字母、数字，支持 Email" required/></label>
+
+						
+
+					
+					<label><span class="con-warp-tit">密码</span> <input type="text" name="address" id="" value="" required/></label>
+					<label><span class="con-warp-tit">姓名</span> <input type="text" name="name" id="" value="" required/></label>
+					<label><span class="con-warp-tit">职位</span> <input type="text" name="moble" id="" value="" required/></label>
+					<label><span class="con-warp-tit">部门</span> <input type="text" name="name" id="" value="" required/></label>
+					<label><span class="con-warp-tit">手机号</span><input type="text" name="name" id="" value="" required/></label>
+					<label><span class="con-warp-tit">邮箱</span> <input type="text" name="name" id="" value="" required/></label>
+					<label><span class="con-warp-tit">备注</span> <textarea name="comment" rows="" cols="" required></textarea></label>
+					
+				</div>
+
+
+				<h6 class="con-tit">权限范围</h6>
+				<div class="con-warp">
+					
+					<div class="powers">
+					
+						<span class="powers-tit">数据权限</span> 
+						<div class="button-holder">
+							<label>
+								<input type="radio" id="radio-1-1" name="radio-1-set" class="regular-radio" checked /><label for="radio-1-1"></label>
+								全部区域
+							</label>
+							<label>
+								<input type="radio" id="radio-1-2" name="radio-1-set" class="regular-radio" /><label for="radio-1-2"></label>
+								部分区域
+								<span class="powers-cos">
+									+选择客户区域范围
+								</span>
+							</label>
+
+						</div>
+					</div>
+					
+					<div class="powers">
+						<span class="powers-tit"><i class="red">*</i> 角色权限</span> 
+						<div class="button-holder">
+							<label>
+								<input type="checkbox" name="" id="" value="" />
+								库管
+							</label>
+							<label>
+								<input type="checkbox" name="" id="" value="" />
+								助理
+								
+							</label>
+							<div class="powers-con">
+								<p>注意请勾选此账号属于的【角色权限】，对应的【权限明显】即可选中；</p>
+								<p>如果您还未设置过【角色权限】，请先 设置角色，比如：仓库管理员、财务管理员、业务管理员</p>
+							</div>
+						</div>
+					</div>
+					<div class="powers">
+						<span class="powers-tit">权限明细</span> 
+						<div class="button-holder btm">
+							<span class="powers-item">订货</span> 
+							<div class="button-holder">
+								<span class="powers-item1">订货单</span>
+								<span class="powers-item1">订货单</span>
+								<span class="powers-item1">订货单</span>
+								<span class="powers-item1">订货单</span>
+								<span class="powers-item1">订货单</span>
+								<span class="powers-item1">订货单</span>
+								<span class="powers-item1">订货单</span>
+								<span class="powers-item1">订货单</span>
+								<span class="powers-item1">订货单</span>
+								
+							</div>
+						</div>
+							<div class="button-holder btm">
+							<span class="powers-item">订货</span> 
+							<div class="button-holder">
+								<span class="powers-item1">订货单</span>
+								<span class="powers-item1">订货单</span>
+								<span class="powers-item1">订货单</span>
+								<span class="powers-item1">订货单</span>
+								<span class="powers-item1">订货单</span>
+								<span class="powers-item1">订货单</span>
+								<span class="powers-item1">订货单</span>
+								<span class="powers-item1">订货单</span>
+								<span class="powers-item1">订货单</span>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="subtn">
+					<input type="submit" value="保存"/> <input type="button" id="" value="取消" />
+				</div>
+				<!--选择客户区域范围-->
+				<div class="pop">
+					<div class="poper"></div>
+					<div class="pop-warp">
+						<form action="" method="post">
+							<h5 class="pp-tit">
+								<span class="">
+									选择客户区域范围
+								</span>
+								<i class="pop-close pull-right">X</i>
+							</h5>
+							<div class="pp-con">
+								<ul class="pp-mune">
+									<li>
+										<i class="pp-mune-add"></i><label><input type="checkbox" name="" id="" value="" />北京</label>
+										
+									</li>
+
+									<li>
+										<i class="pp-mune-add glyphicon glyphicon-plus"></i><label><input type="checkbox" name="" id="" value="" />四川</label>
+										<ul>
+											<li>
+												<label><input type="checkbox" name="" id="" value="" />北京</label>
+											</li>
+										</ul>
+									</li>
+								</ul>
+								<div class="pp-add-ads">
+									<p class="add-ads">添加区域</p>
+								</div>
+							</div>
+													
+							<div class="pp-ft">
+								<div class="subtn pull-right">
+									<input class="pp-btn pbtn" type="button" value="保存"/> <input class="pbtn" type="button" id="" value="取消" />
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</form>
+		</div>
+		<script src="js/area.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){		    	  
+
+		        $(".add-ads").click(function(){
+
+		        	$(".add-ads").parent().append("<label class='ads-con'><input type='text' name='' id='' value=''  \/><span class='delAdd' onclick='delFile(this)'>&times;<\/span></label>");
+
+		       		
+		        });
+
+		   		$("body").on("click",".delAdd",function(){
+		   			$(this).parent().remove();
+		   		});
+		   		
+		   			$("#radio-1-2").change(function(){    
+
+					    if($(this).prop("checked")){
+					    	$(".powers-cos").show();
+					    }
+				    
+				    })
+		   			$("#radio-1-1").change(function(){    
+
+					    if($(this).prop("checked")){
+					    	$(".powers-cos").hide();
+					    }
+				    
+				    })
+		   		$(".pp-mune-add").click(function(){
+		   			$(this).parent().children("ul").slideToggle(500);
+		   			$(this).toggleClass("glyphicon-minus");
+		   		})
+		   		$(".powers-cos").click(function(){
+		   			$(".pop").show()
+		   		})
+		   		$(".pbtn").click(function(){
+		   			$(".pop").hide()
+		   		})
+		   		$(".poper").click(function(){
+		   			$(".pop").hide()
+		   		})
+		   		$(".pop-close").click(function(){
+		   			$(".pop").hide()
+		   		})
+
+		});
+			
+		</script>
+
+	
+		
+	</body>
+</html>

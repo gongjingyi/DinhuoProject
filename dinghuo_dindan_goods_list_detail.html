@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/zui.min.css" />
+		<link rel="stylesheet" href="css/jquery.ui.css" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="css/css.css" />
+		<link rel="stylesheet" type="text/css" href="css/scarlett.css" />
+	</head>
+
+	<body>
+		<h3 class="col-md-12 title "><a class="dthis" href="">订退单统计</a><span class="bread">&gt;</span><a href="">明细详情</a></h3>
+		<div class="col-md-12 con ">
+			<div class="panel panel-default">
+				<div class="wrap1">
+					<div class="goods-fix">
+						<div class="staff-time">
+							<label>
+								<input type="text" class="jcDate1" readonly  id="startDate" value=""/>
+							</label>
+						</div>
+						<div class="staff-time">
+							<label>
+								<input type="text" class="jcDate2" readonly  id="endDate" value=""/>	
+							</label>
+						</div>
+						<div class="staff-chos">
+							<select name="">
+								<option value="" selected>全部单</option>
+								<option value="">订货单</option>
+								<option value="">退货单</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="wrap3">
+					<div class="topTipBlk">
+						<label>订单数：</label><span>121</span>
+					</div>
+					<div class="topTipBlk">
+						<label>订单金额：</label><span>321</span>
+					</div>
+					<div class="topTipBlk">
+						<label>退单数：</label><span>233</span>
+					</div>
+					<div class="topTipBlk">
+						<label>退单金额：</label><span>231</span>
+					</div>
+				</div>
+				<!--<div class="fund-table1">-->
+					<table class="table table-cus">
+						<thead>
+							<tr>
+								<th>单号</th>
+								<th>单型</th>
+								<th>金额</th>
+								<th>收货人</th>
+								<th colspan="2">状态</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr> 
+								<td>
+									<div class="tdBlock">
+										<a href="#">RK.20160810.0010</a>
+										<span>2016-12-12 09:22</span>
+									</div>
+								</td>
+								<td></td>
+								<td>80</td>
+								<td>
+									<div class="tdBlock">
+										<a href="#">某某某</a>
+										<span>13254343432</span>
+									</div>
+								</td>
+								<td>待审核</td>
+								<td class="tbody-eit">
+									<a href="#">查看详情</a>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>待出库</td>
+								<td class="tbody-eit">
+									<a href="#">查看详情</a>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>待发货</td>
+								<td class="tbody-eit">
+									<a href="#">查看详情</a>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>待收货</td>
+								<td class="tbody-eit">
+									<a href="#">查看详情</a>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>已完成</td>
+								<td class="tbody-eit">
+									<a href="#">查看详情</a>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>待审核</td>
+								<td class="tbody-eit">
+									<a href="#">查看详情</a>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>待退货</td>
+								<td class="tbody-eit">
+									<a href="#">查看详情</a>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>待处理</td>
+								<td class="tbody-eit">
+									<a href="#">查看详情</a>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>待收款确认</td>
+								<td class="tbody-eit">
+									<a href="#">查看详情</a>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>已完成</td>
+								<td class="tbody-eit">
+									<a href="#">查看详情</a>
+								</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="100" class="">
+									<nav class="pull-right">
+										<ul class="pagination">
+											<li>
+												<a href="#">&laquo;</a>
+											</li>
+											<li>
+												<a href="#">1</a>
+											</li>
+											<li>
+												<a href="#">2</a>
+											</li>
+											<li>
+												<a href="#">3</a>
+											</li>
+											<li>
+												<a href="#">4</a>
+											</li>
+											<li>
+												<a href="#">5</a>
+											</li>
+											<li>
+												<a href="#">&raquo;</a>
+											</li>
+										</ul>
+									</nav>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+				<!--</div>-->
+			</div>
+
+		</div>
+
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/zui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/jquery.ui.js"></script>
+		<script type="text/javascript" src="js/moment.min.js"></script>
+		<script type="text/javascript" src="js/stay1.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+           		$("table tbody").append("<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class='tbody-eit'><a href='#'>nihao</a></td></tr>")
+			})
+		</script>
+	</body>
+
+</html>

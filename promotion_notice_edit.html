@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta  name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">        
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/summernote.css"/>
+		
+	</head>
+	<body>
+		<h3 class="col-md-12 title title2"><a  href="">通知公告</a><span class="bread">&gt;</span><a href="">编辑公告</a> </h3>
+		
+
+		<div class="col-md-12 con con1">
+			<form id="form" action="" method="post">
+				
+			
+
+				<div class="con-warp">
+
+					
+					<label><span class="con-warp-tit"><i class="red">*</i>公告标题</span> <input type="text" name="moble" id="" value="" required/></label>
+	
+					<label>
+						<span class="con-warp-tit">公告类型</span><select class="chose-con" name="">
+							<option value="">请选择</option>
+						</select>
+					</label>
+					<label><span class="con-warp-tit"><i class="red">*</i>公告内容</span> 
+						<div class="button-holder  ">
+							<textarea name="text" class="summernote" id="contents" title="Contents"></textarea>
+							
+						</div>
+					</label>
+
+					<div>
+						<span class="con-warp-tit"><i class="red">*</i>接收客户</span> 
+						<div class="button-holder">
+							<label class="no-hide">
+								<input type="checkbox" name="" id="" value="" />
+								所有客户
+							</label>
+							<label class="no-hide">
+								<input type="checkbox" name="yuan" id="" value="" />
+								所有员工
+
+							</label>
+							<label class="no-show">
+								<input type="checkbox"  name="yuan" id="" value="" />
+								自定义客户/员工
+
+							</label>
+						</div>
+
+					
+						<div class="button-holder no-hl">
+								<select name="">
+									<option value="">选择员工</option>
+									<option value="">选择客户</option>
+								</select>
+								<span  class="yichos">
+									已选对象
+								</span>
+								<div class="no-container">
+									<div class="no-lft">
+										<div class="no-inpt">
+											<input name="" class="" placeholder="名称或编号">
+										</div>
+										
+										<ul id="left-list" class="data-list">
+											<li>刘备 (15008444102)</li>
+											<li>诸葛亮 (15508444103)</li>
+											<li>关羽 (13608444104)</li>
+											<li>张飞 (18108444105)</li>
+											<li>曹操 (18208444106)</li>
+											<li>孙权 (15708444107)</li>
+											<li>曹操 (18208444106)</li>
+											<li>曹操 (18208444106)</li>
+										</ul>
+									</div>
+										
+										<div class="data-oper">
+											<span id="add" href="#" class="button">添加</span>
+											<span id="del" href="#" class="button">删除</span>
+										</div>
+									<div class="no-lft">
+										<ul id="right-list" class="data-list">
+											
+										</ul>
+									</div>
+								</div>
+	
+							</div>
+					</div>
+			
+				</div>
+				<div class="subtn">
+					<input type="submit" value="保存"/> <input type="button" id="" value="取消" />
+				</div>
+			</form>
+		</div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/summernote.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="css/lang/summernote-zh-CN.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			    $(function() {
+			      $('.summernote').summernote({
+			        height: 200,
+			        width:950,
+                	lang: 'zh-CN'		        
+			      });
+			      
+			      $('form').on('submit', function (e) {
+			        e.preventDefault();
+			        alert($('.summernote').summernote('code'));
+			        alert($('.summernote').val());
+			      });
+			    });
+			    //添加删除
+			    $(document).ready(function(){
+					var llist=$("#left-list");
+					var rlist =$("#right-list");
+					var item = $(".data-list li");
+					item.click(function(){
+						$(this).toggleClass("selected");
+					})
+					$("#add").click(function(){
+						var items = $(".data-list li.selected");
+						for(var i=0;i<items.length;i++){
+							rlist.append(items[i])
+						}
+						items.removeClass("selected")
+					})
+					$("#del").click(function(){
+						var items = $(".data-list li.selected");
+						for(var i=0;i<items.length;i++){
+							llist.append(items[i])
+						}
+						items.removeClass("selected")
+					})
+					//点击显示
+					$(".no-show input").change(function(){
+						if($(this).prop("checked")){
+							$(".no-hide input").removeAttr("checked")		
+							$(".no-hl").show()			
+						}else{
+							$(".no-hl").hide()			
+							
+						}
+
+					})
+					$(".no-hide input").change(function(){
+						if($(this).prop("checked")){
+							$(".no-show input").removeAttr("checked")		
+							$(".no-hl").hide()			
+						}
+
+					})
+
+
+				})
+				//搜索
+				$(function(){
+					$(".no-inpt input").on('keyup',function(){
+						var $ul = $("#left-list");
+						$ul.find(".no-result").remove();
+						var $results = $ul.find("li").hide().filter(":contains('"+this.value+"')").show();
+						if(!$results.length){
+							$ul.append("<li class='no-result'>无法查找</li>");
+						}
+					})
+				});
+
+		</script>
+
+
+	</body>
+</html>

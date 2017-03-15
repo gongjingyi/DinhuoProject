@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/scarlett.css" />
+	</head> 
+
+	<body> 
+		<h3 class="col-md-12 title title1 bok-o-t"><a class="dthis" href="">订单数据报表</a><a href="">客户订单报表</a></h3>
+		<div class="col-md-12 con">
+			<div class="panel panel-default">
+				<div class="wrap1">
+					<div class="goods-fix">
+						<div class="staff-chos">
+							<select name="">
+								<option value="">订单</option>
+								<option value="" selected>退单</option>
+							</select>
+						</div>
+						<div class="rec-time">
+							<span class="wdate-time">
+								<input id="d4311" class="Wdate " type="text" onFocus="WdatePicker({dateFmt:'yyyy-M-d'})" placeholder="起始时间" value=""/>
+							</span> 
+							<span class="wrp-to fa fa-calendar"></span>
+							<span class="wdate-time">
+								<literal>
+									<input id="d4312" class="Wdate" type="text" onFocus="WdatePicker({dateFmt:'yyyy-M-d',minDate:'#F{$dp.$D(\'d4311\')}'})" placeholder="截止时间" value=""/>
+								</literal>
+							</span>
+						</div>
+						<div class="staff-chos">
+							<select name="">
+								<option value="" selected>客户类型</option>
+								<option value="">类型一</option>
+								<option value="">类型二</option>
+							</select>
+						</div>
+						<div class="pull-left ss-btn">
+							<button type="button">查询</button>					    
+						</div>
+					</div>
+				</div>
+				<div class="report_tipBlk">
+					<div class="report_tipBlkLef1">
+						<label>客户数：<span>564</span></label>
+						<label>退单数：<span>564</span></label>
+						<label>退单金额：<span>665765</span></label>
+					</div>
+					<div class="report_tipBlkRig">
+						<div class="report_tipRigBlk">
+							<span>统计方式：</span>
+							<label><input type="radio" name="data_type_data" checked="checked"/><span>日</span></label>
+							<label><input type="radio" name="data_type_data"/><span>月</span></label>
+						</div>
+					</div>
+				</div>
+				<div class="report_grap">
+					<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+					<div id="pie_graph" style="height:400px"></div>
+				</div>
+				<input />
+				<table class="table table-cus">
+						<thead>
+							<tr>
+				    			<th>按日(<span id="reportFirstDay">起始时间</span>-<span id="reportLastDay">截止时间</span>)</th>
+				    			<th>退单数</th>
+				    			<th>退单金额</th>
+				    		</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>2016-12-20</td>
+								<td>10</td>
+								<td>600.00</td>
+							</tr>
+							<tr>
+								<td>2016-12-20</td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+			</div>
+		</div>
+
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/echarts.js"></script>
+		<script src="js/WdatePicker.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				/*饼状图js*/
+				//数据模拟
+				var data_ordCate={};
+				$.ajax({
+				  type: 'POST',
+				  url: "report_data_order_day.json",
+				  //data: "发送到服务器的参数",
+				  dataType: "json",
+				  async:false,
+				  success: function(data){
+				  	data_ordCate=data;
+				  },
+				  error:function(){
+				  	data_ordCate={"status":"200","statu":"true","data":{"date":['2016-12-1','2016-12-2','2016-12-3','2016-12-6','2016-12-7','2016-12-11','2016-12-22','2016-12-23','2016-12-24','2016-12-25','2016-12-26','2016-12-27'],"dataAry":[{"id":"3232","name":"退单金额","value":[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]},{"id":"4432","name":"退单数","value":[2, 2, 3, 4, 6, 10, 20, 23, 23, 16, 12, 6]}]}};
+				  }
+				}); 
+				
+				var data_priAry=[];
+				var data_numAry=[];
+				var data_dateAry=[];
+				for(var i=0;i<data_ordCate.data.dataAry.length;i++){
+					data_dateAry=data_ordCate.data.date;
+					if(data_ordCate.data.dataAry[i].name=="退单金额"){
+						data_priAry=data_ordCate.data.dataAry[i].value;
+					}else if(data_ordCate.data.dataAry[i].name=="退单数"){
+						data_numAry=data_ordCate.data.dataAry[i].value;
+					}
+				}
+				
+				
+				// 路径配置
+		        require.config({
+		            paths: {
+		                echarts: 'js'
+		            }
+		        });
+		         
+		         // 使用
+		        require(
+					[
+		               'echarts',
+		               'echarts/chart/line',
+		               'echarts/chart/bar'
+		            ],
+		            function (ec) {
+		                 // 基于准备好的dom，初始化echarts图表
+		                var myPie_graph = ec.init(document.getElementById('pie_graph')); 
+		                
+		                var option = {
+						    tooltip : {
+						        trigger: 'axis'
+						    },
+						    calculable : true,
+						    legend: {
+						        data:[{name:'退单金额',textStyle :{color:'#7cb5ec'}},{name:'退单数',textStyle :{color:'#434348'}}]
+						    },
+						    xAxis : [
+						        {
+						            type : 'category',
+						            data :data_dateAry
+						        }
+						    ],
+						    yAxis : [
+						        {
+						            type : 'value',
+						            name : '退单金额',
+						            axisLabel : {
+						                formatter: '￥ {value} '
+						            }
+						        },
+						        {
+						            type : 'value',
+						            name : '退单数',
+						            axisLabel : {
+						                formatter: '{value} 个'
+						            }
+						        }
+						    ],
+						    series : [
+						
+						        {
+						            name:'退单金额',
+						            type:'bar',
+						            itemStyle: {normal: {color:'#7cb5ec'}},
+						            data:data_priAry
+						        },
+						        {
+						            name:'退单数',
+						            type:'line',
+						            smooth: true,
+						            itemStyle: {normal: {color:'#434348'}},
+						            yAxisIndex: 1,
+						            data :data_numAry
+						        }
+						    ]
+						};
+                    
+		                // 为echarts对象加载数据 
+		                myPie_graph.setOption(option); 
+		            }
+		        );
+			})
+		</script>
+	</body> 
+
+</html>

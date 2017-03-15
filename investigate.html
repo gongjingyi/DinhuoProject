@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/zui.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/chosen.min.css" />
+		<link rel="stylesheet" href="css/jquery.ui.css" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="css/css.css" />
+		<link rel="stylesheet" type="text/css" href="css/scarlett.css" />
+	</head>
+
+	<body>
+		<h3 class="col-md-12 title "><a class="dthis" href="">盘点单</a></h3>
+		<div class="col-md-12 con ">
+			<div class="panel panel-default">
+				<div class="wrap1">
+					<div class="goods-fix">
+					<div class="sear">
+						<input type="text" class="form-control" placeholder="订货号">
+						<span class="input-group-btn">
+						        <button class="btn btn-default" type="button">Go!</button>
+						      </span>
+					</div>
+					<div class="staff-chos">
+						<select name="">
+							<option value="" selected>盘点仓库</option>
+							<option value="">未全部付款</option>
+							<option value="">已全部付款</option>
+						</select>
+					</div>
+					<div class="staff-choose">
+						<span class="fa fa-book"></span>
+						<select data-placeholder="选择商品" class="chosen-select form-control" tabindex="-1" style="display: none;">
+							<option value=""></option>
+							<option value="cat">小猫</option>
+							<option value="fish">金鱼</option>
+							<option value="dragon">龙</option>
+							<option value="mammoth">猛犸</option>
+							<option value="gollum">咕噜</option>
+						</select>
+					</div>
+					<div class="staff-chos">
+						<select name="">
+							<option value="" selected>审核状态</option>
+							<option value="">未全部付款</option>
+							<option value="">已全部付款</option>
+						</select>
+					</div>
+					<div class="staff-time">
+						<label>
+								<input type="text" class="jcDate1" readonly  id="startDate" value="盘点时间"/>
+							</label>
+					</div>
+					<div class="staff-time">
+						<label>
+								<input type="text" class="jcDate2" readonly  id="endDate" value="截止日期"/>	
+							</label>
+					</div>
+					<div class="put_away">
+							<span>展开</span>
+							<i class="fa fa-angle-double-down"></i>
+					</div>
+					</div>
+					<div class="btn-group pull-right addBlock">
+						<a class="add-code">新增盘点单</a><span class="fa fa-caret-down"></span>
+						<ul class="" style="display: none;">
+							<li><a href="#">单个新增</a></li>
+							<li><a href="#">批量导入</a></li>
+							<li><a href="#">盘点机导入</a></li>							
+						</ul>
+					</div>
+				</div>
+				<!--<div class="fund-table1">-->
+					<table class="table table-cus">
+						<thead>
+							<tr>
+								<th></th>
+								<th>出库单号</th>
+								<th>出库时间</th>
+								<th>关联单号</th>
+								<th>出库仓库</th>
+								<th>出库类型</th>
+								<th>经办人</th>
+								<th>备注</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>FH.20161211.0003</td>
+								<td>2016-12-11 00:15</td>
+								<td>DH.20161209.0008</td>
+								<td>大河仓库</td>
+								<td>销售出库</td>
+								<td></td>
+								<td></td>
+								<td class="tbody-eit">
+									<a href="#">打印快递单</a>
+									<a href="#">查看</a>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>FH.20161211.0003</td>
+								<td>2016-12-11 00:15</td>
+								<td>DH.20161209.0008</td>
+								<td>大河仓库</td>
+								<td>其他出库</td>
+								<td></td>
+								<td></td>
+								<td class="tbody-eit">
+									<a href="#">打印快递单</a>
+									<a href="#">查看</a>
+								</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="100" class="">
+
+									<nav class="pull-right">
+										<ul class="pagination">
+											<li>
+												<a href="#">&laquo;</a>
+											</li>
+											<li>
+												<a href="#">1</a>
+											</li>
+											<li>
+												<a href="#">2</a>
+											</li>
+											<li>
+												<a href="#">3</a>
+											</li>
+											<li>
+												<a href="#">4</a>
+											</li>
+											<li>
+												<a href="#">5</a>
+											</li>
+											<li>
+												<a href="#">&raquo;</a>
+											</li>
+										</ul>
+									</nav>
+
+								</td>
+
+							</tr>
+						</tfoot>
+					</table>
+
+				<!--</div>-->
+			</div>
+
+		</div>
+
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/zui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/chosen.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="js/jquery.ui.js"></script>
+		<script type="text/javascript" src="js/moment.min.js"></script>
+		<script type="text/javascript" src="js/stay1.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('select.chosen-select').chosen({
+					no_results_text: '没有找到', // 当检索时没有找到匹配项时显示的提示文本
+					disable_search_threshold: 1, // 10 个以下的选择项则不显示检索框
+					search_contains: true, // 从任意位置开始检索
+					allow_single_deselect: true,
+					width: "94px"
+				});
+				
+				var goods_fix=$(".goods-fix>div");
+				var goods_fix_height=0;
+				var goods_fix_num=0;
+				var goods_fix_inal=0;
+				for(var k=0;k<goods_fix.length;k++){
+					if(goods_fix_height<700){
+						goods_fix_num++;
+						goods_fix_inal=goods_fix_num;
+						goods_fix_height+=$(goods_fix[k]).width();
+					}
+				}
+				for(var m=goods_fix_num;m<goods_fix.length-1;m++){
+					$(goods_fix[m]).css("display","none");
+				}
+				$(".put_away").click(function(){
+					if($(this).children("span").html()=="展开"){
+						$(this).children("span").html("收起");
+						$(this).children("i").removeClass("fa-angle-double-down").addClass("fa-angle-double-up")
+						$(".goods-fix").css("height","75px");
+						for(var j=goods_fix_num;j<goods_fix.length-1;j++){
+							$(goods_fix[j]).css("display","block");
+						}
+					}else{
+						$(this).children("span").html("展开");
+						$(this).children("i").removeClass("fa-angle-double-up").addClass("fa-angle-double-down")
+						$(".goods-fix").css("height","auto");
+						for(var h=goods_fix_num;h<goods_fix.length-1;h++){
+							$(goods_fix[h]).css("display","none");
+						}
+					}
+				})
+				
+				/*导入框展开伸缩*/
+				$(".addBlock>span").on('mouseover',function(){
+					$(".addBlock ul").css("display","block");
+				})
+				$(".addBlock ul").on('mouseover',function(){
+					$(".addBlock ul").css("display","block");
+				}).on("mouseout",function(){
+					$(".addBlock ul").css("display","none");
+				});
+				
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta  name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">        
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css"/>
+	</head>
+	<body>
+		<h3 class="col-md-12 title title2"><a  href="">商品列表</a><span class="bread">&gt;</span><a href="">新增商品</a> </h3>
+		
+		<div class="main-head">
+					<ul class="goods-tab">
+						<li>
+							<a href="">基础</a>
+						</li>
+						<li>
+							<a href="">图片与商品详情</a>
+						</li>
+						<li >
+							<a href="">库存预警</a>
+						</li>
+						<li  class="good-this">
+							<a href="">关联商品</a>							
+						</li>
+					</ul>
+		</div>
+		<div class="col-md-12 con con1">
+			<form id="form" action="" method="post">
+
+				<h6 class="con-tit">库存预警</h6>
+				<div class="goods-relt">
+					<div class="show-icon">＋ 选择商品
+					</div>
+					<table id="reb-tab1" class="table table-bordered">
+			    	<thead>
+			    		<tr>
+			    			<th width="6%"></th>
+			    			<th width="60%" >商品名称</th>
+			    			<th width="10%" >单位</th>
+			    			<th width="14%" >订货价</th>		    			
+			    			<th width="10%" >操作</th>	    			
+							
+			    		</tr>
+			    	</thead>
+					<tbody>
+						<!--<tr>
+							<td>1</td>
+							<td>
+								<img src="img/goods.png"alt="" />
+								<p class="list-link">10090 <span class="state">热</span></p>
+								<p class="list-link">专柜正品 花花公子 新款男式钱包 牛皮 横款皮夹 男士 真皮钱夹</p>
+							</td>
+							<td>个</td>
+							<td>111.00</td>
+							
+							<td><a href="">删除</a></td>
+						</tr>-->
+
+					</tbody>
+				</table>
+					
+					
+				</div>
+
+
+				<div class="subtn">
+					<input type="submit" value="确定"/> <input type="button" id="" value="取消" />
+				</div>
+			</form>
+		</div>
+				<div class="pop">
+			<div class="poper"></div>
+			<div class="pop-warp">
+				<form action="" method="post">
+					<h5 class="pp-tit">
+						<span class="">
+							选择商品
+						</span>
+						<i class="pop-close pull-right">X</i>
+					</h5>
+					<div class="rel-con">
+						<div class="goods-fix">
+						<div class="sear">
+							<input type="text" class="form-control" placeholder="客户名称/首字母/编号/关键字/条形码">
+							   <span class="input-group-btn">
+						        <button class="btn btn-default" type="button">Go!</button>
+						      </span>
+						</div>
+						<div class="staff-chos">
+							<select name="">
+								<option value="" selected>全部仓库</option>
+								<option value="">全部</option>
+								<option value="">内勤</option>
+							</select>
+						</div>
+						
+						<div class="staff-chos">
+							<select name="" >
+								<option value="" selected>商品品牌</option>
+								<option value="">全部</option>
+								<option value="">启用</option>
+								<option value="">禁用</option>
+							</select>
+						</div>
+						<div class="staff-chos">
+							<select name="" >
+								<option value="" selected>商品分类</option>
+								<option value="">全部</option>
+								<option value="">启用</option>
+								<option value="">禁用</option>
+							</select>
+						</div>
+						
+						
+						<div class="staff-chos">
+							<select name="" >
+								<option value="" selected>商品标签</option>
+								<option value="">全部</option>
+								<option value="">启用</option>
+								<option value="">禁用</option>
+							</select>
+						</div>
+						<div class="staff-chos">
+							<select name="" >
+								<option value="" selected>订货限制</option>
+								<option value="">全部</option>
+								<option value="">启用</option>
+								<option value="">禁用</option>
+							</select>
+						</div>
+						<div class="staff-chos">
+							<select name="" >
+								<option value="" selected>已上架</option>
+								<option value="">全部</option>
+								<option value="">启用</option>
+								<option value="">禁用</option>
+							</select>
+						</div>
+						
+					</div>
+						<table id="reb-tab" class="table table-cus table-bordered">
+					    	<thead>
+					    		<tr>
+					    			<th width="8%"><input type="checkbox" class="all" name="" id="" value="" /></th>
+					    			<th width="60%">商品</th>
+					    			<th width="8%"  >规格</th>
+					    			<th width="6%" >单位</th>
+					    			<th width="8%">订货价</th>					    			
+					    			<th width="10%">仓库</th>
+		
+					    		</tr>
+					    	</thead>
+							<tbody>
+								<tr>
+									<td><input type="checkbox" name="" id="" value="" />1</td>
+									<td>
+										<img src="img/goods.png"alt="" />
+										<p class="list-link">10090 <span class="state">热</span></p>
+										<p class="list-link">专柜正品 花花公子 新款男式钱包 牛皮 横款皮夹 男士 真皮钱夹</p>
+									</td>
+									<td>共4种</td>
+									<td>个</td>
+									<td>111.00</td>
+									
+									<td>
+										<p>大河仓库</p>
+									</td>
+									
+									
+								</tr>
+								<tr>
+									<td><input type="checkbox" name="" id="" value="" />2</td>
+									<td>
+										<img src="img/goods.png"alt="" />
+										<p class="list-link">10090 <span class="state">热</span></p>
+										<p class="list-link">专柜正品 花花公子 新款男式钱包 牛皮 横款皮夹 男士 真皮钱夹</p>
+									</td>
+									<td>共4种</td>
+									<td>个</td>
+									<td>111.00</td>
+									
+									<td>
+										<p>大河仓库</p>
+									</td>
+									
+									
+								</tr>
+								
+							</tbody>
+							<tfoot>
+								<tr>
+									<td colspan="100" class="">
+		
+										<nav class="pull-right">
+										  <ul class="pagination">
+										    <li><a href="#">&laquo;</a></li>
+										    <li><a href="#">1</a></li>
+										    <li><a href="#">2</a></li>
+										    <li><a href="#">3</a></li>
+										    <li><a href="#">4</a></li>
+										    <li><a href="#">5</a></li>
+										    <li><a href="#">&raquo;</a></li>
+										  </ul>
+										</nav>
+									
+									</td>
+									
+									
+								</tr>
+							</tfoot>
+					  	</table>
+					
+					</div>
+											
+					<div class="pp-ft">
+						<div class="subtn pull-right">
+							<input id="rel-btn" class="pp-btn" type="button" value="确定"/> <input class="pbtn" type="button" id="" value="取消" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){	
+				
+		   		$(".show-icon").click(function(){
+		   			$(".pop").show()
+		   		})
+		   		$(".pbtn").click(function(){
+		   			$(".pop").hide()
+		   		})
+		   		$(".poper").click(function(){
+		   			$(".pop").hide()
+		   		})
+		   		$(".pop-close").click(function(){
+		   			$(".pop").hide()
+		   		})
+				$(".all").change(function(){
+
+	                if($(this).prop("checked")){
+	                    $("input").each(function () {
+							$(this).prop("checked", true);
+				
+					});
+	                }else{
+	                    $("input").each(function () {
+	                        $(this).prop("checked", false);
+	                    });
+	                }
+           		});
+			})
+	
+			$(document).ready(function(){
+        	 var index = 0;
+				
+				$("#rel-btn").click(function(){	
+					$checked=$("#reb-tab tbody input:checked").parent().parent();
+					var $acheckedc=$($("#reb-tab tbody tr")[0]).find('td');
+					var table1 = new Array($checked.length);
+					for(var q=0;q<table1.length;q++){
+					    table1[q] = new Array($acheckedc.length-2);
+					}
+					var $achecked=[];
+					var $acheckedc=[];
+					for(var g=0;g<$checked.length;g++){
+							index++;
+							table1[g][0]=index;
+							table1[g][1]=$($($checked[g]).find('td')[1]).html();
+							table1[g][2]=$($($checked[g]).find('td')[3]).text();
+							table1[g][3]=$($($checked[g]).find('td')[4]).text();
+							table1[g][4]="<a href='#'>删除</a>";
+
+					}
+				
+
+						for(var k1=0;k1<table1.length;k1++){
+							$("#reb-tab1 tbody").append("<tr></tr>");
+							var hh="<td>"+table1[k1][0]+"</td><td>"+table1[k1][1]+"</td><td>"+table1[k1][2]+"</td><td>"+table1[k1][3]+"</td><td>"+table1[k1][4]+"</td>";						
+							$("#reb-tab1 tbody tr:last-child").html(hh);
+						}
+					$(".pop").hide()
+
+					
+					$("#reb-tab tbody input:checked").attr("disabled","true")
+					$(".all").attr("disabled","true")
+					$("#reb-tab tbody input:checked").removeAttr("checked");
+					$(".all").removeAttr("checked")
+					
+
+
+					
+			   	})
+			  })
+    
+		</script>
+		
+	</body>
+</html>

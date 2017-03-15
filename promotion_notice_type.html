@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta  name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">        
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css"/>
+	</head>
+	<body>
+		<h3 class="col-md-12 title title1"><a  href="">通知公告</a><a class="dthis" href="">公告类型</a></h3>		
+		<div class="col-md-12 con ">
+			<div class="panel panel-default">	
+			<div class="wrap1">
+
+					<a class="pull-right add-code">
+						新增公告类型
+					</a>
+				</div>
+			
+
+
+			  	<table class="table">
+			    	<thead>
+			    		<tr>
+			    			<th width="6%"></th>
+			    			<th width="94%" >类型名称</th>
+			    			
+
+			    		</tr>
+			    	</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>促销</td>
+							<td class="tbody-eit">
+								<a href="">修改</a>
+								
+								<a href="">删除</a>
+								
+							</td>
+						</tr>
+
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="100" class="">
+
+								<nav class="pull-right">
+								  <ul class="pagination">
+								    <li><a href="#">&laquo;</a></li>
+								    <li><a href="#">1</a></li>
+								    <li><a href="#">2</a></li>
+								    <li><a href="#">3</a></li>
+								    <li><a href="#">4</a></li>
+								    <li><a href="#">5</a></li>
+								    <li><a href="#">&raquo;</a></li>
+								  </ul>
+								</nav>
+							
+							</td>
+							
+							
+						</tr>
+					</tfoot>
+			  	</table>
+			</div>				
+		</div>
+		
+		<div class="pop">
+			<div class="poper"></div>
+			<div class="pop-warp">
+				<form action="" method="post">
+					<h5 class="pp-tit">
+						<span class="">
+							新增公告类型
+						</span>
+						<i class="pop-close pull-right">X</i>
+					</h5>
+					<div class="deper-con">
+					
+						
+					<label>
+						<span><i class="red">*</i>类型名称</span>
+						<input type="text" name="" id="" value="" placeholder="请输入少于6个字符" required/>					
+					</label>
+					
+					</div>
+											
+					<div class="pp-ft">
+						<div class="subtn pull-right">
+							<input class="pp-btn" type="submit" value="确定"/> <input class="pbtn" type="button" id="" value="取消" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){		    	  
+
+		   		$(".add-code").click(function(){
+		   			$(".pop").show()
+		   		})
+		   		$(".pbtn").click(function(){
+		   			$(".pop").hide()
+		   		})
+		   		$(".poper").click(function(){
+		   			$(".pop").hide()
+		   		})
+		   		$(".pop-close").click(function(){
+		   			$(".pop").hide()
+		   		})
+
+		});
+			
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,251 @@
+<if condition="$order['order_status'] neq 0">
+    <?php $wl=0;?>
+    <volist name="wait_delivery" id="v">
+        <?php $wl=1;?>
+        <if condition="!empty($v['product'])">
+            <form action="{:U('delivery',['id'=>$v['log']['id']])}" method="post">
+                <input name="order_id" type="hidden" value="{$v.log.order_id}"/>
+                <div class="fund-table2">
+                    <h2>待发货商品</h2>
+                    <div class="goods_table_head1">
+                        <div class="table_headL">
+                            <div class="table_headLC">
+                                <span>待发货</span>
+                                <label><span>出库：</span><span>{$v.log.created_at}</span></label>
+                            </div>
+                        </div>
+                        <div class="table_headR">
+                            <div class="table_headRL">
+                                <a class="print" href="#"><i class="fa fa-print"></i>打印</a>
+                                <a class="export" href="#"><i class="fa  fa-upload"></i>导出</a>
+                            </div>
+                            <div class="table_headRR">
+                                <!--<button class="cancel" type="button">取消出库</button>-->
+                                <button class="pass1"  type="button">确认发货</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table class="table table-cus">
+                        <thead>
+                        <tr>
+                            <th><input type="checkbox" class="all" name="" id="" value="" /></th>
+                            <th width="20%">商品</th>
+                            <th>商品规格</th>
+                            <th>商品备注</th>
+                            <th>出库仓库</th>
+                            <th>待发货数量</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <volist name="v.product" id="vo">
+                            <tr>
+                                <td><input type="checkbox"   value="" /></td>
+                                <td>
+                                    <input type="hidden" name="product_id[]" value="{$vo.product_id}"/>
+                                    <div class="detail_block">
+                                        <img src="img/goods.png" alt="" />
+                                        <a class="list-link2" title="">{$vo.goods.name}</a>
+                                    </div>
+                                </td>
+                                <td>{$vo.goods.rule}<input type="hidden" name="sku_id[]" value="{$vo.sku_id}"/></td>
+                                <td>{$vo.mark}<input type="hidden" name="mark[]" value="{$vo.mark}"/></td>
+                                <td><volist name="store" id="s"><if condition="$s['id'] eq $v['log']['store_id']">{$s.name}</if></volist></td>
+                                <td>{$vo.num}<input type="hidden" name="num[]" value="{$vo.num}"/></td>
+                            </tr>
+                        </volist>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- -->
+                <div class="dialog modal fade js-message-modal in inventoryConfirm1" style="display: none;">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">确认发货</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="formTbBlk">
+                                    <table>
+                                        <tr>
+                                            <td colspan="2">为了追踪货品物流进度，请填写准确的物流信息。</td>
+                                        </tr>
+                                        <tr>
+                                            <!--<td>
+                                                <span>发货时间</span>
+                                            </td>
+                                            <td colspan="">
+                                                <label>
+                                                    <div class="staff-time">
+                                                        <label>
+                                                            <input type="text" name="delivery_at" class="delivery" readonly  id="startDelivery" value=""/>
+                                                        </label>
+                                                    </div>
+                                                </label>
+                                            </td>-->
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>物流公司</span>
+                                            </td>
+                                            <td colspan="">
+                                                <select name="express_code">
+                                                    <option value="0" selected>圆通快递</option>
+                                                    <option value="1">韵达</option>
+                                                    <option value="2">中通</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>物流单号</span>
+                                            </td>
+                                            <td colspan="">
+                                                <label><input name="express_number" type="text"/></label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>备注</span>
+                                            </td>
+                                            <td colspan="">
+                                                <label>
+                                                    <textarea name="remark"></textarea>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-info">确定</button>
+                                <button type="button" class="btn btn-default">取消</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- -->
+            </form>
+        </if>
+    </volist>
+    <volist name="wait_get_product" id="vo">
+        <?php $wl=1;?>
+        <if condition="!empty($vo['product'])">
+            <div class="fund-table3">
+                <h2>待收货商品</h2>
+                <div class="goods_table_head1">
+                    <div class="table_headL">
+                        <div class="table_headLC">
+                            <span>待收货</span>
+                            <label><span>发货：</span><span>{$vo.log.created_at}</span></label>
+                            <label><span>物流公司：</span><span>{$vo.logistics.express_name}</span></label>
+                            <label><span>物流单号：</span><span>{$vo.logistics.express_number}</span></label>
+                        </div>
+                    </div>
+                    <div class="table_headR">
+                        <div class="table_headRL">
+                            <a class="print" href="#"><i class="fa fa-print"></i>打印</a>
+                            <a class="export" href="#"><i class="fa  fa-upload"></i>导出</a>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-cus">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th width="20%">商品</th>
+                        <th>商品规格</th>
+                        <th>商品备注</th>
+                        <th>待收货数量</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <volist name="vo.product" id="v">
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>
+                                <div class="detail_block">
+                                    <img src="img/goods.png" alt="" />
+                                    <a class="list-link2" title="">{$v.goods.name}</a>
+                                </div>
+                            </td>
+                            <td>{$v.goods.rule}</td>
+                            <td>{$v.mark}</td>
+                            <td>{$v.num}</td>
+                        </tr>
+                    </volist>
+                    </tbody>
+                </table>
+            </div>
+        </if>
+    </volist>
+    <volist name="have_get_product" id="vo">
+        <?php $wl=1;?>
+        <if condition="!empty($vo['product'])">
+            <div class="fund-table2">
+                <h2>已收货商品</h2>
+                <div class="goods_table_head1">
+                    <div class="table_headL">
+                        <div class="table_headLC">
+                            <span>已收货</span>
+                            <label><span>发货：</span><span>{$vo.log.created_at}</span></label>
+                        </div>
+                    </div>
+                    <div class="table_headR">
+                        <div class="table_headRL">
+                            <a class="print" href="#"><i class="fa fa-print"></i>打印</a>
+                            <a class="export" href="#"><i class="fa  fa-upload"></i>导出</a>
+                        </div>
+                        <div class="table_headRR">
+                            <!--<button class="cancel" type="button">取消出库</button>-->
+                            <!--<a class="pass1"  type="button">确认发货</a>-->
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-cus">
+                    <thead>
+                    <tr>
+                        <th><input type="checkbox" class="all" name="" id="" value="" /></th>
+                        <th width="20%">商品</th>
+                        <th>商品规格</th>
+                        <th>商品备注</th>
+                        <th>收货数量</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <volist name="vo.product" id="v">
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>
+                                <div class="detail_block">
+                                    <img src="img/goods.png" alt="" />
+                                    <a class="list-link2" title="百年纪念高跟鞋2016夏季新款单鞋细跟女鞋尖头鞋子呵呵1">{$v.goods.name}</a>
+                                </div>
+                            </td>
+                            <td>{$v.goods.rule}</td>
+                            <td>{$v.mark}</td>
+                            <td>{$v.num}</td>
+                        </tr>
+                    </volist>
+                    </tbody>
+                </table>
+
+                <div class="modal-backdrop fade in inventoryConfirmBak" style="display: none;"></div>
+            </div>
+        </if>
+    </volist>
+    <if condition="$wl eq 0">
+        <div class="fund-table1">
+            此订单还没有物流信息！
+        </div>
+    </if>
+    <div class="fund-table2">
+        <div class="desBottom">
+            <a href="#">返回</a>
+        </div>
+    </div>
+    <else/>
+    <div class="fund-table1">
+        此订单还没有物流信息！
+    </div>
+</if>

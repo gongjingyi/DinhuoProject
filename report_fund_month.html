@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/zui.min.css" />
+		<link rel="stylesheet" href="css/jquery.ui.css" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="css/css.css" />
+		<link rel="stylesheet" type="text/css" href="css/scarlett.css" />
+	</head> 
+
+	<body> 
+		<h3 class="col-md-12 title"><a class="dthis" href="">资金报表</a></h3>
+		<div class="col-md-12 con">
+			<div class="panel panel-default">
+				<div class="wrap1">
+					<div class="goods-fix">
+						<div class="rec-time">
+							<span class="wdate-time">
+								<input id="d4311" class="Wdate " type="text" onFocus="WdatePicker({dateFmt:'yyyy-M-d'})" placeholder="起始时间" value=""/>
+							</span> 
+							<span class="wrp-to fa fa-calendar"></span>
+							<span class="wdate-time">
+								<literal>
+									<input id="d4312" class="Wdate" type="text" onFocus="WdatePicker({dateFmt:'yyyy-M-d',minDate:'#F{$dp.$D(\'d4311\')}'})" placeholder="截止时间" value=""/>
+								</literal>
+							</span>
+						</div>
+						<div class="staff-chos">
+							<select name="">
+								<option value="" selected>客户类型</option>
+								<option value="">类型一</option>
+								<option value="">类型二</option>
+							</select>
+						</div>
+						<div class="staff-chos">
+							<select name="">
+								<option value="" selected>归属地</option>
+								<option value="">归属地一</option>
+								<option value="">归属地二</option>
+							</select>
+						</div>
+						<button type="button" class="btn btn-info" />查询</button>
+					</div>
+				</div>
+				<div class="report_tipBlk">
+					<div class="report_tipBlkLef1">
+						<label>客户数：<span>564</span></label>
+						<label>金额：<span>665765</span></label>
+					</div>
+					<div class="report_tipBlkRig">
+						<div class="report_tipRigBlk">
+							<span>统计方式：</span>
+							<label><input type="radio" name="data_type_data"/><span>日</span></label>
+							<label><input type="radio" name="data_type_data" checked="checked"/><span>月</span></label>
+						</div>
+					</div>
+				</div>
+				<div class="report_grap">
+					<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+					<div id="pie_graph" style="height:400px"></div>
+				</div>
+				<table class="table table-cus">
+						<thead>
+							<tr>
+				    			<th></th>
+				    			<th width="20%" >商品分类(2016-12-29-2016-12-30)</th>
+				    			<th>订货笔数</th>
+				    			<th>退货笔数</th>
+				    			<th>订货数量</th>
+				    			<th>退货数量</th>
+				    			<th>订货金额</th>
+				    			<th>退货金额</th>
+				    			<th>金额小计</th>
+				    		</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>水晶</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>宝石</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+			</div>
+		</div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/echarts.js"></script>
+		<script src="js/WdatePicker.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				/*饼状图js*/
+				//数据模拟
+				var data_ordCate={};
+				$.ajax({
+				  type: 'POST',
+				  url: "test.json",
+				  //data: "发送到服务器的参数",
+				  dataType: "json",
+				  async:false,
+				  success: function(data){
+				  	data_ordCate=data;
+				  },
+				  error:function(){
+				  	data_ordCate={"status":"200","statu":"true","data":{"date":["2016-1","2016-2","2016-3","2016-4","2016-5","2016-6","2016-7","2016-8","2016-9","2016-10","2016-11","2016-12"],"dataAry":[{"id":"3232","name":"存款余额","value":[20, 132, 1100, 134, 90,230, 210, 444, 334, 190,220, 32]},{"id":"4432","name":"支付宝","value":[120, 82,201,134,190,230,110,999,77,123,765,32]},{"id":"4982","name":"微信","value":[60, 182,501,178,90,30,310,99,177,23,65,232]}]}};
+				  }
+				}); 
+				
+				var data_remainAry=[];
+				var data_alipayAry=[];
+				var data_WeChatAry=[];
+				var data_dateAry=[];
+				for(var i=0;i<data_ordCate.data.dataAry.length;i++){
+					data_dateAry=data_ordCate.data.date;
+					if(data_ordCate.data.dataAry[i].name=="预存款"){
+						data_remainAry=data_ordCate.data.dataAry[i].value;
+					}else if(data_ordCate.data.dataAry[i].name=="支付宝"){
+						data_alipayAry=data_ordCate.data.dataAry[i].value;
+					}else if(data_ordCate.data.dataAry[i].name=="微信"){
+						data_WeChatAry=data_ordCate.data.dataAry[i].value;
+					}
+				}
+				
+				
+				
+				// 路径配置
+		        require.config({
+		            paths: {
+		                echarts: 'js'
+		            }
+		        });
+		         
+		         // 使用
+		        require(
+					[
+		               'echarts',
+		               'echarts/chart/line',
+		               'echarts/chart/bar'
+		            ],
+		            function (ec) {
+		                 // 基于准备好的dom，初始化echarts图表
+		                var myPie_graph = ec.init(document.getElementById('pie_graph')); 
+		                
+		                var option = {
+		                	/*数据提示框*/
+						    tooltip : {
+						        trigger: 'axis'
+						    },
+						    /*标题显示栏*/
+						    legend: {
+						    	//backgroundColor:'rgba(255,0,0,.5)',
+						    	/*背景颜色*/
+						    	/*data:[{name:'订单数',backgroundColor:'rgba(255,0,0,.5)'},'订单金额']*/
+						    	data:[{name:'存款余额',textStyle :{color:'#7cb5ec'}},{name:'支付宝',textStyle :{color:'#90ed7d'}},{name:'微信',textStyle :{color:'#f7a35c'}}] 
+						    },
+						    calculable : true,
+						    xAxis : [
+						        {
+						            type : 'category',
+						            data : ["2016-1","2016-2","2016-3","2016-4","2016-5","2016-6","2016-7","2016-8","2016-9","2016-10","2016-11","2016-12"]
+						        }
+						    ],
+						    
+						    yAxis : [
+						        {
+						            type : 'value',
+						            splitNumber:5,
+						            splitArea : {show : true}
+						        }
+						    ],
+						    series : [
+					   			 
+						        {
+						            name:'存款余额',
+						            type:'line',
+						            /*标识*/
+						            //symbol: 'none',
+						            smooth: true,
+						            itemStyle: {normal: {color:'#7cb5ec',areaStyle: {type: 'default'}}},
+						           data:[20, 132, 1100, 134, 90,230, 210, 444, 334, 190,220, 32]
+						        },
+						        {  
+						            name:'支付宝',
+						            type:'line',
+						            smooth: true,
+						            itemStyle: {normal: {color:'#90ed7d',areaStyle: {type: 'default'}}},
+						            data:[120, 82,201,134,190,230,110,999,77,123,765,32]
+						        },
+						        {  
+						            name:'微信',
+						            type:'line',
+						            smooth: true,
+						            itemStyle: {normal: {color:'#f7a35c',areaStyle: {type: 'default'}}},
+						            data:[60, 182,501,178,90,30,310,99,177,23,65,232]
+						        }
+						    ]
+						};
+		        
+		                // 为echarts对象加载数据 
+		                myPie_graph.setOption(option); 
+		            }
+		        );
+			})
+		</script>
+	</body> 
+
+</html>

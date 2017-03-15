@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/zui.min.css" />
+		<link rel="stylesheet" href="css/jquery.ui.css" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="css/css.css" />
+		<link rel="stylesheet" type="text/css" href="css/scarlett.css" />
+	</head>
+
+	<body>
+		<h3 class="col-md-12 title"><a class="dthis" href="#">退货单</a><span class="bread">&gt;</span><a href="#">申请退货</a></h3>
+		<div class="col-md-12 con con1">
+			<form id="form" action="" method="post">
+				<div class="modal-hed">
+					<div class="row col-xs-12 clearfix">
+						<div class="col-xs-1">
+							<h4 >退单详情</h4>
+						</div>
+						<label class="topTilLable">相关订单号：<span>订单号数据</span></label>
+						<label class="topTilLable">商家名称：<span>商家名称数据</span></label>
+					</div>
+				</div>
+				<div class="modal-hed1">
+					<div class="modal-hed-content">
+						<table class="table">
+							<thead>
+								<tr>
+									<th></th>
+									<th width="20%">商品</th>
+									<th>品牌</th>
+									<th>分类</th>
+									<th>规格</th>
+									<th>数量</th>
+									<th>小计</th>
+									<th>备注</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>
+										<div class="detail_block">
+											<img src="img/goods.png" alt="" />
+											<p class="list-link1">10094</p>
+											<a class="list-link2" title="百年纪念高跟鞋2016夏季新款单鞋细跟女鞋尖头鞋子呵呵1">百年纪念高跟鞋2016夏季新款单鞋细跟女鞋尖头鞋子呵呵1</a>
+										</div>
+									</td>
+									<td></td>
+									<td></td>
+									<td>规格，颜色，效果，加工</td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="desCont">
+							<div class="desContR">
+								<div class="desContRC">
+									<span>退款总额：</span>
+									<span class="desContRCC">
+										<b class="redColor">￥</b><em class="redColor goods_total_price">0.00</em>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-hed2">
+					<h4>备注</h4>
+					<div class="btfContD">
+						<span>退货备注：</span>
+						<input />
+					</div>
+				</div>
+				<div class="modal-hed2">
+					<h4>退货</h4>
+					<div class="btfContU">
+						<span><i class="red">*</i>收货地址：</span><a class="fa fa-pencil-square-o new-od-ed" href=""></a>
+						<input value="客户名称：某某公司，  收货人：XX ， 联系电话：13500135000 ， 地址：深圳南山区" required="required"/>
+					</div>
+				</div>
+				<div class="subtn">
+					<input type="submit" class="submitButtom" value="提交申请" /> <input class="cancelButtom" type="button" id="" value="取消" />
+				</div>
+			</form>
+		</div>
+		<!--信息完善提示弹窗-->
+		<div class="dialog modal fade js-message-modal in inventoryConfirm3" style="display: block;">
+			<div class="glyphicon glyphicon-remove closeButtom"></div>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-cont-mark fa fa-exclamation-circle"></div>
+					<div class="modal-cont-text">请完善您的信息！</div>
+				</div>
+			</div>
+		</div>
+		<!--<div class="modal-backdrop fade in inventoryConfirmBak" style="display: block;"></div>-->
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/zui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$(".submitButtom").on("click",function(){
+					var inputRequired=$("input:required");
+					for(var i=0;i<inputRequired.length;i++){
+						if(!($(inputRequired[i]).val())){
+							$(".inventoryConfirm3").css("display","block");
+							setTimeout(function(){
+								$(".inventoryConfirm3").css("display","none");
+							},3000);
+							return false;
+						}
+					}
+				})
+			})
+		</script>
+	</body>
+
+</html>

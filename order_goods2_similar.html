@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<meta  name="format-detection" content="telephone=no">
+		<meta name="keywords" content=" ">        
+		<meta name="description" content=" ">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css"/>
+	</head>
+	<body>
+		<h3 class="col-md-12 title title1"><a class="dthis" href="">按条件查找</a><a href="">快速查找</a><a href="">导入下单</a></h3>
+		
+		<div class="col-md-12 con ">
+			<div class="panel panel-default">	
+				<div class="wrap1 b0">
+					<div class="pull-left similar">
+						<p><span>当前款式 :</span>  SWAROVSKI 圆型石 1088 PP28/SS14 Crystal 白色  (001)</p>
+						<p><span>相似条件 :</span>
+							<a class="og-sty" href="">相同品牌</a>
+							<a class="og-sty" href="">相同颜色</a>
+							<a class="og-sty" href="">上下尺寸</a>
+						</p>
+					</div>
+					<div class="pull-right og-chs">
+						<label class="pull-left og-chs-lb">
+							<input type="checkbox" name="" id="" value="" />
+							只显示已签约商家
+						</label>
+						<div class="pull-left ">
+							<a href="" class="ico fa fa-th-large"></a>
+							<a href="" class="ico fa fa-th-list"></a>
+						</div>
+					</div>
+					
+				</div>
+			
+				<div class="og-con">
+					<ul class="og-item">
+						<li>
+							<a class="item-li-img" href="">
+								<img src=""/>
+							</a>
+							<p class="item-li item-li-tit"><span class="item-li-name">名称:</span><i class="item-li-con">1088 PP28</i></p>
+							<p class="item-li"><span>商家:</span><i>某某</i></p>
+							<p class="item-li"><span>品牌:</span><i>SW</i></p>
+							<p class="item-li"><span>价格:</span><i>（与商家签约了解价格）</i></p>
+							<p class="item-li cfs">
+								<a class="jian">-</a>
+										<input class="lskdo" type="text" value="1" />
+								<a class="jia">+</a>
+							</p>
+							<p  class="item-li text-center" >
+								<a class="item-li-cs pull-left" href="">
+									找相似
+									
+								</a>
+
+
+								
+								<a class="item-li-cs pull-right" href="">
+									添加购物车
+									
+								</a>
+							</p>
+						</li>
+						<li>
+							<a class="item-li-img" href="">
+								<img src=""/>
+							</a>
+							<p class="item-li item-li-tit"><span class="item-li-name">名称:</span><i class="item-li-con">1088 PP28</i></p>
+							<p class="item-li"><span>商家:</span><i>某某</i></p>
+							<p class="item-li"><span>品牌:</span><i>SW</i></p>
+							<p class="item-li"><span>价格:</span><i>（与商家签约了解价格）</i></p>
+							<p class="item-li cfs">
+								<a class="jian">-</a>
+										<input class="lskdo" type="text" value="1" />
+								<a class="jia">+</a>
+							</p>
+							<p  class="item-li text-center" >
+								
+
+								
+								<a class="item-li-cs " href="">
+									添加购物车
+								</a>
+							</p>
+						</li>
+						
+					</ul>
+				</div>
+
+			</div>
+
+		</div>
+	
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){	
+
+
+
+           		//商品详情页面的数量加减
+
+				$(".jian").click(function(){
+					var lsoek=$(this).parent().find(".lskdo");
+					if(lsoek.val()>1){			
+						var lskoe=parseInt(lsoek.val());			
+						var eiow=parseInt($(".chs_num i").text());
+						lsoek.val(lskoe-1);
+						$(".chs_num i").text(eiow-1);
+						}else{}
+					})
+				
+				$(".jia").click(function(iiii){
+					var lsoek=$(this).parent().find(".lskdo");	
+						var lskoe=parseInt(lsoek.val());
+						var eiow=parseInt($(".chs_num i").text());
+						lsoek.val(lskoe+1);	
+						$(".chs_num i").text(eiow+1);	
+				
+					})
+			})
+	
+
+    
+		</script>
+	</body>
+</html>
